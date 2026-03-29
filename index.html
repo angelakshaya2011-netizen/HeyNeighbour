@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hey Neighbor - Guadalajara Expat Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Unicons for easy icons without react -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+</head>
+<body>
+    <div id="login-container" class="login-wrapper">
+        <div class="login-card">
+            <h2>Welcome to Guadalajara!</h2>
+            <p>Please tell us a bit about yourself so we can personalize your experience.</p>
+            <form id="login-form">
+                <input type="text" id="user-name" placeholder="Your Name" required>
+                <input type="email" id="user-email" placeholder="Your Email" required>
+                <select id="user-nationality" required>
+                    <option value="" disabled selected>Your Nationality</option>
+                    <option value="USA">United States</option>
+                    <option value="Canada">Canada</option>
+                    <option value="UK">United Kingdom</option>
+                    <option value="Other">Other</option>
+                </select>
+                <input type="number" id="user-age" placeholder="Your Age" min="1" required>
+                <select id="user-language" required>
+                    <option value="" disabled selected>Preferred Language</option>
+                    <option value="English">English</option>
+                    <option value="Spanish">Spanish</option>
+                    <option value="Other">Other</option>
+                </select>
+                <button type="submit" class="btn-submit">Start Exploring</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="app-container" style="display: none;">
+        <header class="header">
+            <div class="header-content">
+                <h1 id="welcome-heading">Hey Neighbor <i class="uil uil-smile"></i></h1>
+            <p>Your guide to the best spots in Guadalajara, categorized just for you.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="filters-section">
+            <div id="category-filters" class="filters">
+                <!-- Buttons will be injected here by JS -->
+            </div>
+        </section>
+
+        <section id="places-grid" class="grid">
+            <!-- Place cards will be injected here by JS -->
+        </section>
+    </main>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
