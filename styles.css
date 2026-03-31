@@ -290,3 +290,226 @@ body {
     background-color: #6bb96f;
     transform: translateY(-2px);
 }
+
+/* --- Premium FAB --- */
+.premium-fab {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: linear-gradient(135deg, #FFD700, #FDB931);
+    color: #333;
+    border: none;
+    border-radius: 50px;
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    box-shadow: 0 5px 20px rgba(253, 185, 49, 0.4);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 100;
+}
+
+.premium-fab:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(253, 185, 49, 0.6);
+}
+
+.premium-fab.unlocked {
+    background: linear-gradient(135deg, var(--clr-green-dark), var(--clr-green));
+    color: #1a5c20;
+    box-shadow: 0 5px 20px rgba(129, 199, 132, 0.4);
+}
+
+/* --- Modals --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.modal-content {
+    background: var(--card-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    max-width: 450px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(31, 38, 135, 0.15);
+    animation: modalSlideUp 0.3s ease-out;
+}
+
+@keyframes modalSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-modal:hover {
+    color: var(--text-main);
+}
+
+.modal-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.modal-header h3 {
+    font-size: 1.8rem;
+    color: var(--clr-lila-dark);
+    margin-bottom: 0.5rem;
+}
+
+.payment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    color: var(--text-main);
+}
+
+.input-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.input-row .input-group {
+    flex: 1;
+}
+
+.payment-form input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid rgba(162, 210, 255, 0.5);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+}
+
+.payment-form input:focus {
+    border-color: var(--clr-lila-dark);
+}
+
+.mock-note {
+    font-size: 0.85rem;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+/* Converter Styling */
+.converter-interaction {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.converter-input-wrapper input {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+    border: 2px solid var(--clr-blue);
+    border-radius: 15px;
+    background: white;
+    outline: none;
+    font-weight: 700;
+    color: var(--clr-blue-dark);
+}
+
+.scan-wrapper {
+    text-align: center;
+}
+
+.scan-or {
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.btn-scan {
+    background-color: var(--clr-lila-dark);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(166, 130, 184, 0.4);
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-scan:hover {
+    background-color: #926da3;
+    transform: translateY(-2px);
+}
+
+.scan-status {
+    text-align: center;
+    color: var(--clr-blue-dark);
+    font-weight: 600;
+    margin-top: -0.5rem;
+}
+
+.converter-result {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px dashed var(--clr-green-dark);
+}
+
+.converter-result h4 {
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.mxn-amount {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--clr-green-dark);
+}

@@ -55,8 +55,79 @@
             <!-- Place cards will be injected here by JS -->
         </section>
     </main>
+
+    <!-- Floating Action Button for Premium Feature -->
+    <button id="premium-fab" class="premium-fab">
+        <i class="uil uil-money-bill"></i>
+        <span>Converter 👑</span>
+    </button>
+
+    <!-- Mock Payment Modal -->
+    <div id="payment-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <button class="close-modal" id="close-payment-modal"><i class="uil uil-times"></i></button>
+            <div class="modal-header">
+                <h3>Unlock Premium 👑</h3>
+                <p>Get access to the magic currency scanner and live converter.</p>
+            </div>
+            <form id="payment-form" class="payment-form">
+                <div class="input-group">
+                    <label>Card Number</label>
+                    <input type="text" placeholder="0000 0000 0000 0000" id="mock-card" required maxlength="19">
+                </div>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Expiry Date</label>
+                        <input type="text" placeholder="MM/YY" required maxlength="5">
+                    </div>
+                    <div class="input-group">
+                        <label>CVC</label>
+                        <input type="password" placeholder="123" required maxlength="3">
+                    </div>
+                </div>
+                <p class="mock-note">No real money will be charged. Just a demo!</p>
+                <button type="submit" class="btn-submit" id="pay-btn">Pay $1.99 to Unlock</button>
+            </form>
+        </div>
     </div>
 
+    <!-- Currency Converter Modal -->
+    <div id="converter-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <button class="close-modal" id="close-converter-modal"><i class="uil uil-times"></i></button>
+            <div class="modal-header">
+                <h3>Currency Converter 💵→🇲🇽</h3>
+                <p>Current Rate: <span id="current-rate-display">Loading...</span> MXN = $1 USD</p>
+            </div>
+            <div class="converter-interaction">
+                <div class="converter-input-wrapper">
+                    <label>USD Amount ($)</label>
+                    <input type="number" id="usd-input" placeholder="e.g. 15.99" step="0.01">
+                </div>
+                
+                <div class="scan-wrapper">
+                    <p class="scan-or">- OR -</p>
+                    <input type="file" id="camera-input" accept="image/*" capture="environment" style="display: none;">
+                    <button class="btn-scan" id="trigger-scan-btn">
+                        <i class="uil uil-camera"></i> Scan Price Tag
+                    </button>
+                </div>
+                
+                <div id="scan-status" class="scan-status" style="display: none;">
+                    <i class="uil uil-spinner uil-spin"></i> Analyzing image...
+                </div>
+            </div>
+            
+            <div class="converter-result">
+                <h4>Equals to</h4>
+                <div class="mxn-amount" id="mxn-result">$0.00 MXN</div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Tesseract.js library for OCR (Scanning text from image) -->
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
     <script src="data.js"></script>
     <script src="app.js"></script>
 </body>

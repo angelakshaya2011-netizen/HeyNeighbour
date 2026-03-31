@@ -107,4 +107,143 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Run initialization on load
     initApp();
+
+    // --- Premium Currency Converter Logic ---
+    const premiumFab = document.getElementById("premium-fab");
+    const paymentModal = document.getElementById("payment-modal");
+    const converterModal = document.getElementById("converter-modal");
+    
+    const closePaymentBtn = document.getElementById("close-payment-modal");
+    const closeConverterBtn = document.getElementById("close-converter-modal");
+    const paymentForm = document.getElementById("payment-form");
+    
+    const usdInput = document.getElementById("usd-input");
+    const mxnResult = document.getElementById("mxn-result");
+    const currentRateDisplay = document.getElementById("current-rate-display");
+    
+    const triggerScanBtn = document.getElementById("trigger-scan-btn");
+    const cameraInput = document.getElementById("camera-input");
+    const scanStatus = document.getElementById("scan-status");
+
+    let mxnExchangeRate = 17.00; // Fallback default rate
+
+    // Fetch live rate
+    async function fetchExchangeRate() {
+        try {
+            const res = await fetch("https://api.exchangerate-api.com/v4/latest/USD");
+            const data = await res.json();
+            if (data && data.rates && data.rates.MXN) {
+                mxnExchangeRate = data.rates.MXN;
+            }
+        } catch (error) {
+            console.error("Could not fetch live exchange rate. Using fallback.");
+        }
+        currentRateDisplay.textContent = mxnExchangeRate.toFixed(2);
+    }
+    
+    // Convert logic
+    function convertUSDToMXN() {
+        const usdVal = parseFloat(usdInput.value);
+        if (isNaN(usdVal)) {
+            mxnResult.textContent = "$0.00 MXN";
+            return;
+        }
+        const mxnVal = (usdVal * mxnExchangeRate).toFixed(2);
+        mxnResult.textContent = `$${mxnVal} MXN`;
+    }
+
+    usdInput.addEventListener("input", convertUSDToMXN);
+
+    function checkPremiumStatus() {
+        return localStorage.getItem("heyNeighborPremium") === "true";
+    }
+
+    premiumFab.addEventListener("click", () => {
+        if (checkPremiumStatus()) {
+            premiumFab.classList.add("unlocked");
+            converterModal.style.display = "flex";
+            if (currentRateDisplay.textContent === "Loading...") {
+                fetchExchangeRate();
+            }
+        } else {
+            paymentModal.style.display = "flex";
+        }
+    });
+
+    closePaymentBtn.addEventListener("click", () => {
+        paymentModal.style.display = "none";
+    });
+
+    closeConverterBtn.addEventListener("click", () => {
+        converterModal.style.display = "none";
+        usdInput.value = "";
+        mxnResult.textContent = "$0.00 MXN";
+        scanStatus.style.display = "none";
+    });
+
+    // Mock Payment Submit
+    paymentForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const payBtn = document.getElementById("pay-btn");
+        const originalText = payBtn.textContent;
+        payBtn.textContent = "Processing...";
+        payBtn.disabled = true;
+        
+        setTimeout(() => {
+            localStorage.setItem("heyNeighborPremium", "true");
+            payBtn.textContent = originalText;
+            payBtn.disabled = false;
+            paymentModal.style.display = "none";
+            premiumFab.classList.add("unlocked");
+            
+            // Open converter directly
+            converterModal.style.display = "flex";
+            if (currentRateDisplay.textContent === "Loading...") {
+                fetchExchangeRate();
+            }
+        }, 1500); // 1.5s delay mimic
+    });
+
+    // Initialize FAB look if already premium
+    if (checkPremiumStatus()) {
+        premiumFab.classList.add("unlocked");
+    }
+
+    // --- OCR Logic ---
+    triggerScanBtn.addEventListener("click", () => {
+        cameraInput.click();
+    });
+
+    cameraInput.addEventListener("change", async (e) => {
+        if (!e.target.files || e.target.files.length === 0) return;
+        const file = e.target.files[0];
+        
+        scanStatus.style.display = "block";
+        scanStatus.innerHTML = '<i class="uil uil-spinner uil-spin"></i> Analyzing image...';
+        triggerScanBtn.disabled = true;
+
+        try {
+            const { data: { text } } = await Tesseract.recognize(file, 'eng');
+            
+            console.log("OCR Result:", text);
+            // Regex to find things like $15.99, 15.99, 15, etc.
+            const regex = /(?:\$)?\s*(\d+(?:\.\d{2})?)/;
+            const match = text.match(regex);
+            
+            if (match && match[1]) {
+                usdInput.value = match[1];
+                convertUSDToMXN();
+                scanStatus.innerHTML = '<i class="uil uil-check-circle" style="color:var(--clr-green-dark)"></i> Price found!';
+            } else {
+                scanStatus.innerHTML = '<i class="uil uil-exclamation-circle" style="color:red"></i> No price detected. Try again.';
+            }
+        } catch (error) {
+            console.error("OCR Error:", error);
+            scanStatus.innerHTML = '<i class="uil uil-times-circle" style="color:red"></i> Error analyzing image.';
+        } finally {
+            triggerScanBtn.disabled = false;
+            cameraInput.value = ""; // reset
+        }
+    });
+
 });
