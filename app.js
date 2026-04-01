@@ -111,10 +111,18 @@ document.addEventListener("DOMContentLoaded", () => {
     // --- Premium Currency Converter Logic ---
     const premiumFab = document.getElementById("premium-fab");
     const paymentModal = document.getElementById("payment-modal");
+    const dashboardModal = document.getElementById("dashboard-modal");
     const converterModal = document.getElementById("converter-modal");
+    const eventsModal = document.getElementById("events-modal");
     
     const closePaymentBtn = document.getElementById("close-payment-modal");
+    const closeDashboardBtn = document.getElementById("close-dashboard-modal");
     const closeConverterBtn = document.getElementById("close-converter-modal");
+    const closeEventsBtn = document.getElementById("close-events-modal");
+    
+    const openConverterBtn = document.getElementById("open-converter-btn");
+    const openEventsBtn = document.getElementById("open-events-btn");
+    
     const paymentForm = document.getElementById("payment-form");
     
     const mxnInput = document.getElementById("mxn-input");
@@ -161,10 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
     premiumFab.addEventListener("click", () => {
         if (checkPremiumStatus()) {
             premiumFab.classList.add("unlocked");
-            converterModal.style.display = "flex";
-            if (currentRateDisplay.textContent === "Loading...") {
-                fetchExchangeRate();
-            }
+            dashboardModal.style.display = "flex";
         } else {
             paymentModal.style.display = "flex";
         }
@@ -172,6 +177,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
     closePaymentBtn.addEventListener("click", () => {
         paymentModal.style.display = "none";
+    });
+
+    closeDashboardBtn.addEventListener("click", () => {
+        dashboardModal.style.display = "none";
+    });
+
+    openConverterBtn.addEventListener("click", () => {
+        dashboardModal.style.display = "none";
+        converterModal.style.display = "flex";
+        if (currentRateDisplay.textContent === "Loading...") {
+            fetchExchangeRate();
+        }
+    });
+
+    openEventsBtn.addEventListener("click", () => {
+        dashboardModal.style.display = "none";
+        eventsModal.style.display = "flex";
+        renderPremiumEvents(""); 
+    });
+
+    closeEventsBtn.addEventListener("click", () => {
+        eventsModal.style.display = "none";
     });
 
     closeConverterBtn.addEventListener("click", () => {
@@ -196,11 +223,8 @@ document.addEventListener("DOMContentLoaded", () => {
             paymentModal.style.display = "none";
             premiumFab.classList.add("unlocked");
             
-            // Open converter directly
-            converterModal.style.display = "flex";
-            if (currentRateDisplay.textContent === "Loading...") {
-                fetchExchangeRate();
-            }
+            // Open dashboard directly instead of converter
+            dashboardModal.style.display = "flex";
         }, 1500); // 1.5s delay mimic
     });
 
@@ -278,6 +302,51 @@ document.addEventListener("DOMContentLoaded", () => {
             triggerScanBtn.disabled = false;
             cameraInput.value = ""; // reset
         }
+    });
+
+    // --- Premium Events Logic ---
+    const eventsSearchInput = document.getElementById("events-search-input");
+    const eventsList = document.getElementById("events-list");
+
+    function renderPremiumEvents(query) {
+        eventsList.innerHTML = "";
+        const lowerQuery = query.toLowerCase().trim();
+        
+        let filteredEvents = eventsData;
+        if (lowerQuery !== "") {
+            filteredEvents = eventsData.filter(event => 
+                event.title.toLowerCase().includes(lowerQuery) || 
+                event.culture.toLowerCase().includes(lowerQuery) ||
+                event.location.toLowerCase().includes(lowerQuery)
+            );
+        }
+
+        if (filteredEvents.length === 0) {
+            eventsList.innerHTML = '<p style="text-align:center; color:var(--text-muted); margin-top:2rem;">No events found matching your search.</p>';
+            return;
+        }
+
+        filteredEvents.forEach(evt => {
+            const card = document.createElement("div");
+            card.className = "event-card";
+            card.innerHTML = `
+                <img src="${evt.imageUrl}" alt="${evt.title}" class="event-img" loading="lazy">
+                <div class="event-details">
+                    <span class="event-culture">${evt.culture}</span>
+                    <h3 class="event-title">${evt.title}</h3>
+                    <div class="event-meta">
+                        <span><i class="uil uil-calendar-alt"></i> ${evt.date}</span>
+                        <span><i class="uil uil-map-marker"></i> ${evt.location}</span>
+                    </div>
+                    <p class="event-desc" style="margin-top:0.5rem; font-size:0.85rem;">${evt.description}</p>
+                </div>
+            `;
+            eventsList.appendChild(card);
+        });
+    }
+
+    eventsSearchInput.addEventListener("input", (e) => {
+        renderPremiumEvents(e.target.value);
     });
 
     // --- Profile & Logout Logic ---
