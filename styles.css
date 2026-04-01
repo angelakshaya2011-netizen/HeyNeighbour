@@ -32,6 +32,7 @@ body {
 }
 
 .header {
+    position: relative;
     background-color: var(--clr-lila);
     color: white;
     padding: 4rem 2rem;
@@ -512,4 +513,67 @@ body {
     font-size: 2.5rem;
     font-weight: 800;
     color: var(--clr-green-dark);
+}
+
+/* --- Profile Styling --- */
+.profile-btn {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.profile-btn:hover {
+    background: white;
+    color: var(--clr-lila-dark);
+    transform: scale(1.1);
+}
+
+.modal-divider {
+    border: none;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    margin: 1.5rem 0;
+}
+
+.btn-logout {
+    width: 100%;
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-logout:hover {
+    background-color: #d9363e;
+    transform: translateY(-2px);
+}
+
+select.form-select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid rgba(162, 210, 255, 0.5);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+}
+select.form-select:focus {
+    border-color: var(--clr-lila-dark);
 }

@@ -280,4 +280,53 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    // --- Profile & Logout Logic ---
+    const profileBtn = document.getElementById("profile-btn");
+    const profileModal = document.getElementById("profile-modal");
+    const closeProfileBtn = document.getElementById("close-profile-modal");
+    const profileForm = document.getElementById("profile-form");
+    const logoutBtn = document.getElementById("logout-btn");
+
+    function populateProfileForm() {
+        const savedUser = localStorage.getItem("heyNeighborUser");
+        if (savedUser) {
+            const userData = JSON.parse(savedUser);
+            document.getElementById("edit-user-name").value = userData.name || "";
+            document.getElementById("edit-user-email").value = userData.email || "";
+            document.getElementById("edit-user-nationality").value = userData.nationality || "USA";
+            document.getElementById("edit-user-age").value = userData.age || "";
+            document.getElementById("edit-user-language").value = userData.language || "English";
+        }
+    }
+
+    profileBtn.addEventListener("click", () => {
+        populateProfileForm();
+        profileModal.style.display = "flex";
+    });
+
+    closeProfileBtn.addEventListener("click", () => {
+        profileModal.style.display = "none";
+    });
+
+    profileForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const userData = {
+            name: document.getElementById("edit-user-name").value,
+            email: document.getElementById("edit-user-email").value,
+            nationality: document.getElementById("edit-user-nationality").value,
+            age: document.getElementById("edit-user-age").value,
+            language: document.getElementById("edit-user-language").value
+        };
+        localStorage.setItem("heyNeighborUser", JSON.stringify(userData));
+        profileModal.style.display = "none";
+        initApp(); // re-render welcome message and places based on new data if needed
+    });
+
+    logoutBtn.addEventListener("click", () => {
+        localStorage.removeItem("heyNeighborUser");
+        // We purposely do NOT clear 'heyNeighborPremium' so the device remembers
+        profileModal.style.display = "none";
+        initApp(); // will detect no user and show login screen
+    });
+
 });
