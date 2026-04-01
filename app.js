@@ -117,8 +117,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeConverterBtn = document.getElementById("close-converter-modal");
     const paymentForm = document.getElementById("payment-form");
     
-    const usdInput = document.getElementById("usd-input");
-    const mxnResult = document.getElementById("mxn-result");
+    const mxnInput = document.getElementById("mxn-input");
+    const usdResult = document.getElementById("usd-result");
     const currentRateDisplay = document.getElementById("current-rate-display");
     
     const triggerScanBtn = document.getElementById("trigger-scan-btn");
@@ -141,18 +141,18 @@ document.addEventListener("DOMContentLoaded", () => {
         currentRateDisplay.textContent = mxnExchangeRate.toFixed(2);
     }
     
-    // Convert logic
-    function convertUSDToMXN() {
-        const usdVal = parseFloat(usdInput.value);
-        if (isNaN(usdVal)) {
-            mxnResult.textContent = "$0.00 MXN";
+    // Convert logic (MXN to USD)
+    function convertMXNToUSD() {
+        const mxnVal = parseFloat(mxnInput.value);
+        if (isNaN(mxnVal) || mxnExchangeRate === 0) {
+            usdResult.textContent = "$0.00 USD";
             return;
         }
-        const mxnVal = (usdVal * mxnExchangeRate).toFixed(2);
-        mxnResult.textContent = `$${mxnVal} MXN`;
+        const usdVal = (mxnVal / mxnExchangeRate).toFixed(2);
+        usdResult.textContent = `$${usdVal} USD`;
     }
 
-    usdInput.addEventListener("input", convertUSDToMXN);
+    mxnInput.addEventListener("input", convertMXNToUSD);
 
     function checkPremiumStatus() {
         return localStorage.getItem("heyNeighborPremium") === "true";
@@ -176,8 +176,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     closeConverterBtn.addEventListener("click", () => {
         converterModal.style.display = "none";
-        usdInput.value = "";
-        mxnResult.textContent = "$0.00 MXN";
+        mxnInput.value = "";
+        usdResult.textContent = "$0.00 USD";
         scanStatus.style.display = "none";
     });
 
@@ -225,17 +225,51 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
             const { data: { text } } = await Tesseract.recognize(file, 'eng');
             
-            console.log("OCR Result:", text);
-            // Regex to find things like $15.99, 15.99, 15, etc.
-            const regex = /(?:\$)?\s*(\d+(?:\.\d{2})?)/;
-            const match = text.match(regex);
+            console.log("OCR Raw Text:", text);
             
-            if (match && match[1]) {
-                usdInput.value = match[1];
-                convertUSDToMXN();
+            // Improved Regex:
+            // 1. Explicitly looks for $ followed by numbers (e.g., $15, $ 15.99)
+            // 2. OR looks for any number with exactly two decimal places (e.g., 15.99 or 15,99)
+            const regex = /(?:\$)\s*(\d+(?:[.,]\d{2})?)|(\d+[.,]\d{2})/g;
+            let bestPrice = 0;
+            let matchFound = false;
+
+            let m;
+            while ((m = regex.exec(text)) !== null) {
+                let numStr = m[1] || m[2];
+                if (numStr) {
+                    numStr = numStr.replace(',', '.'); // normalize comma to dot
+                    const val = parseFloat(numStr);
+                    if (!isNaN(val) && val > 0) {
+                        // Keep highest value (useful if scanning a receipt, the total is usually highest)
+                        if (val > bestPrice) {
+                            bestPrice = val;
+                            matchFound = true;
+                        }
+                    }
+                }
+            }
+
+            // Fallback if no strict price format is found
+            if (!matchFound) {
+                // Look for any standalone numbers, prioritizing double/triple digits to avoid noise (like '1' or '0')
+                const fallbackRegex = /\b(\d{2,5}(?:\.\d{2})?)\b/g;
+                let fb;
+                while ((fb = fallbackRegex.exec(text)) !== null) {
+                    const fallbackVal = parseFloat(fb[1]);
+                    if (!isNaN(fallbackVal) && fallbackVal > bestPrice) {
+                        bestPrice = fallbackVal;
+                        matchFound = true;
+                    }
+                }
+            }
+            
+            if (matchFound) {
+                mxnInput.value = bestPrice;
+                convertMXNToUSD();
                 scanStatus.innerHTML = '<i class="uil uil-check-circle" style="color:var(--clr-green-dark)"></i> Price found!';
             } else {
-                scanStatus.innerHTML = '<i class="uil uil-exclamation-circle" style="color:red"></i> No price detected. Try again.';
+                scanStatus.innerHTML = '<i class="uil uil-exclamation-circle" style="color:red"></i> No clear price detected in photo. Try again.';
             }
         } catch (error) {
             console.error("OCR Error:", error);
