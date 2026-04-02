@@ -490,6 +490,149 @@ const placesData = [
         speaksEnglish: true,
         imageUrl: 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=600&q=80',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Negroni+Midtown+Guadalajara'
+    },
+    {
+        id: 46,
+        name: 'Nuevo Mundo - Plaza del Sol',
+        category: 'Clothing',
+        priceRange: '$$',
+        description: 'A traditional and reliable department store offering a vast array of clothing, fabrics, and household goods located at Plaza del Sol.',
+        rating: 4.1,
+        speaksEnglish: false,
+        imageUrl: 'https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Nuevo+Mundo+Plaza+del+Sol+Guadalajara'
+    },
+    {
+        id: 47,
+        name: 'Lefties',
+        category: 'Clothing',
+        priceRange: '$',
+        description: 'Affordable fast-fashion brand offering trendy clothing and basics. Great for stylish pieces on a budget.',
+        rating: 4.0,
+        speaksEnglish: false,
+        imageUrl: 'https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Lefties+Guadalajara'
+    },
+    {
+        id: 48,
+        name: 'Cuidado con el Perro',
+        category: 'Clothing',
+        priceRange: '$',
+        description: 'Highly popular Mexican fast-fashion brand famous for casual wear, graphic tees, and incredibly accessible prices.',
+        rating: 4.3,
+        speaksEnglish: false,
+        imageUrl: 'https://images.unsplash.com/photo-1528698827591-e19cdd722f0a?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Cuidado+con+el+Perro+Guadalajara'
+    },
+    {
+        id: 49,
+        name: 'Zara',
+        category: 'Clothing',
+        priceRange: '$$',
+        description: 'Well-known international fast-fashion retailer providing stylish and contemporary clothing for men and women.',
+        rating: 4.4,
+        speaksEnglish: true,
+        imageUrl: 'https://images.unsplash.com/photo-1580828369062-81525a7eb84f?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Zara+Guadalajara'
+    },
+    {
+        id: 50,
+        name: 'Pull and Bear',
+        category: 'Clothing',
+        priceRange: '$$',
+        description: 'Trendy, youth-focused brand with a casual aesthetic, offering urban clothing and accessories.',
+        rating: 4.3,
+        speaksEnglish: true,
+        imageUrl: 'https://images.unsplash.com/photo-1564585222527-c2777a5bc6cb?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Pull+and+Bear+Guadalajara'
+    },
+    {
+        id: 51,
+        name: 'Shasa (Sasha)',
+        category: 'Clothing',
+        priceRange: '$$',
+        description: 'A prominent fashion retailer offering stylish, modern, and youthful womens apparel and accessories.',
+        rating: 4.2,
+        speaksEnglish: false,
+        imageUrl: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Shasa+Guadalajara'
+    },
+    {
+        id: 52,
+        name: 'LOB (Sucursal Midtown Jalisco)',
+        category: 'Clothing',
+        priceRange: '$$',
+        description: 'LOB is a renowned Mexican fashion brand focusing on chic, seasonal, and highly stylish clothing for modern tastes.',
+        rating: 4.5,
+        speaksEnglish: true,
+        imageUrl: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=LOB+Midtown+Jalisco+Guadalajara'
+    },
+    {
+        id: 53,
+        name: 'Human 1931',
+        category: 'Clothing',
+        priceRange: '$$',
+        description: 'A stylish clothing boutique focused on contemporary casual wear and urban fashion statement pieces.',
+        rating: 4.4,
+        speaksEnglish: true,
+        imageUrl: 'https://images.unsplash.com/photo-1555529771-55ec48dfa2ab?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Human+1931+Guadalajara'
+    },
+    {
+        id: 54,
+        name: 'Studio F',
+        category: 'Clothing',
+        priceRange: '$$$',
+        description: 'High-quality Colombian brand highly acclaimed for their phenomenally fitting jeans and premium womens clothing.',
+        rating: 4.6,
+        speaksEnglish: true,
+        imageUrl: 'https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Studio+F+Guadalajara'
+    },
+    {
+        id: 55,
+        name: 'Loro Piana',
+        category: 'Clothing',
+        priceRange: '$$$$$',
+        description: 'Luxury Italian brand offering unequivocally high-end, sophisticated clothing and accessories crafted from the finest materials.',
+        rating: 4.8,
+        speaksEnglish: true,
+        imageUrl: 'https://images.unsplash.com/photo-1445205170230-053b83016050?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Loro+Piana+Guadalajara'
+    },
+    {
+        id: 56,
+        name: 'Pineda Covalin',
+        category: 'Clothing',
+        priceRange: '$$$',
+        description: 'Iconic Mexican design house featuring gorgeous silk scarfs, ties, and clothing deeply inspired by Mexican traditions and art.',
+        rating: 4.9,
+        speaksEnglish: true,
+        imageUrl: 'https://images.unsplash.com/photo-1574634534894-89d7576c8259?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Pineda+Covalin+Guadalajara'
+    },
+    {
+        id: 57,
+        name: 'Cloe',
+        category: 'Clothing',
+        priceRange: '$$',
+        description: 'One of the most important Mexican brands for premium handbags, luggage, shoes, and fashionable everyday accessories.',
+        rating: 4.6,
+        speaksEnglish: true,
+        imageUrl: 'https://images.unsplash.com/photo-1584916201218-f4242ceb4809?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Cloe+Guadalajara'
+    },
+    {
+        id: 58,
+        name: 'Julio',
+        category: 'Clothing',
+        priceRange: '$$$',
+        description: 'Leading Mexican fashion brand dedicated to incredibly elegant and professional womens apparel and sophisticated dresses.',
+        rating: 4.7,
+        speaksEnglish: true,
+        imageUrl: 'https://images.unsplash.com/photo-1560243563-062bfc001d68?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Julio+Boutique+Guadalajara'
     }
 ];
 
