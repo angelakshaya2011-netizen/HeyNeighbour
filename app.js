@@ -113,12 +113,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const paymentModal = document.getElementById("payment-modal");
     const dashboardModal = document.getElementById("dashboard-modal");
     const converterModal = document.getElementById("converter-modal");
-    const eventsModal = document.getElementById("events-modal");
+    const eventsScreen = document.getElementById("events-screen");
     
     const closePaymentBtn = document.getElementById("close-payment-modal");
     const closeDashboardBtn = document.getElementById("close-dashboard-modal");
     const closeConverterBtn = document.getElementById("close-converter-modal");
-    const closeEventsBtn = document.getElementById("close-events-modal");
+    const closeEventsScreenBtn = document.getElementById("close-events-screen-btn");
     
     const openConverterBtn = document.getElementById("open-converter-btn");
     const openEventsBtn = document.getElementById("open-events-btn");
@@ -193,12 +193,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     openEventsBtn.addEventListener("click", () => {
         dashboardModal.style.display = "none";
-        eventsModal.style.display = "flex";
+        appContainer.style.display = "none";
+        eventsScreen.style.display = "block";
+        window.scrollTo(0,0);
         renderPremiumEvents(""); 
     });
 
-    closeEventsBtn.addEventListener("click", () => {
-        eventsModal.style.display = "none";
+    closeEventsScreenBtn.addEventListener("click", () => {
+        eventsScreen.style.display = "none";
+        appContainer.style.display = "block";
     });
 
     closeConverterBtn.addEventListener("click", () => {
@@ -307,42 +310,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // --- Premium Events Logic ---
     const eventsSearchInput = document.getElementById("events-search-input");
     const eventsList = document.getElementById("events-list");
-    
-    // Details Screen Elements
-    const eventDetailScreen = document.getElementById("event-detail-screen");
-    const detailTitle = document.getElementById("detail-title");
-    const detailCulture = document.getElementById("detail-culture");
-    const detailDate = document.getElementById("detail-date");
-    const detailLocation = document.getElementById("detail-location");
-    const detailImg = document.getElementById("detail-img");
-    const detailDesc = document.getElementById("detail-desc");
-    const backToHomeBtn = document.getElementById("back-to-home-btn");
-
-    function showEventDetailScreen(evt) {
-        // Hide modal and main app
-        const eventsModal = document.getElementById("events-modal");
-        const appContainer = document.getElementById("app-container");
-        eventsModal.style.display = "none";
-        appContainer.style.display = "none";
-        
-        // Populate
-        detailTitle.textContent = evt.title;
-        detailCulture.textContent = evt.culture;
-        detailDate.textContent = evt.date;
-        detailLocation.textContent = evt.location;
-        detailImg.src = evt.imageUrl;
-        detailDesc.textContent = evt.description;
-
-        // Show screen
-        eventDetailScreen.style.display = "block";
-        window.scrollTo(0,0);
-    }
-
-    backToHomeBtn.addEventListener("click", () => {
-        const appContainer = document.getElementById("app-container");
-        eventDetailScreen.style.display = "none";
-        appContainer.style.display = "block";
-    });
 
     function renderPremiumEvents(query) {
         eventsList.innerHTML = "";
@@ -358,29 +325,37 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (filteredEvents.length === 0) {
-            eventsList.innerHTML = '<p style="text-align:center; color:var(--text-muted); margin-top:2rem;">No events found matching your search.</p>';
+            eventsList.innerHTML = '<p style="text-align:center; color:var(--text-muted); margin-top:2rem; grid-column: 1 / -1;">No events found matching your search.</p>';
             return;
         }
 
         filteredEvents.forEach(evt => {
             const card = document.createElement("div");
-            card.className = "event-card";
-            card.style.cursor = "pointer";
+            card.className = "card";
+            
             card.innerHTML = `
-                <img src="${evt.imageUrl}" alt="${evt.title}" class="event-img" loading="lazy">
-                <div class="event-details">
-                    <span class="event-culture">${evt.culture}</span>
-                    <h3 class="event-title">${evt.title}</h3>
-                    <div class="event-meta">
-                        <span><i class="uil uil-calendar-alt"></i> ${evt.date}</span>
-                        <span><i class="uil uil-map-marker"></i> ${evt.location}</span>
+                <img src="${evt.imageUrl}" alt="${evt.title}" class="card-img" loading="lazy">
+                <div class="card-content">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">${evt.title}</h3>
+                            <span class="card-category" style="background-color: var(--clr-lila);">${evt.culture}</span>
+                        </div>
                     </div>
-                    <p class="event-desc" style="margin-top:0.5rem; font-size:0.85rem;">${evt.description}</p>
+                    <div style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--clr-blue-dark); font-weight: 500;">
+                        <i class="uil uil-calendar-alt"></i> ${evt.date}
+                        &nbsp; | &nbsp; 
+                        <i class="uil uil-map-marker"></i> ${evt.location}
+                    </div>
+                    <p class="card-desc" style="margin-top: 0.5rem;">${evt.description}</p>
+                    <div class="card-footer" style="justify-content: flex-end;">
+                        <a href="${evt.mapsUrl}" target="_blank" rel="noopener noreferrer" class="btn-map">
+                            <i class="uil uil-map-marker"></i> Google Maps
+                        </a>
+                    </div>
                 </div>
             `;
-            card.addEventListener("click", () => {
-                showEventDetailScreen(evt);
-            });
+            
             eventsList.appendChild(card);
         });
     }
