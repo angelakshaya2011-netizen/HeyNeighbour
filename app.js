@@ -194,6 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
     openEventsBtn.addEventListener("click", () => {
         dashboardModal.style.display = "none";
         appContainer.style.display = "none";
+        premiumFab.style.display = "none";
         eventsScreen.style.display = "block";
         window.scrollTo(0,0);
         renderPremiumEvents(""); 
@@ -202,6 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
     closeEventsScreenBtn.addEventListener("click", () => {
         eventsScreen.style.display = "none";
         appContainer.style.display = "block";
+        premiumFab.style.display = "flex";
     });
 
     closeConverterBtn.addEventListener("click", () => {
