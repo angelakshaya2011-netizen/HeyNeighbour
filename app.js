@@ -307,6 +307,42 @@ document.addEventListener("DOMContentLoaded", () => {
     // --- Premium Events Logic ---
     const eventsSearchInput = document.getElementById("events-search-input");
     const eventsList = document.getElementById("events-list");
+    
+    // Details Screen Elements
+    const eventDetailScreen = document.getElementById("event-detail-screen");
+    const detailTitle = document.getElementById("detail-title");
+    const detailCulture = document.getElementById("detail-culture");
+    const detailDate = document.getElementById("detail-date");
+    const detailLocation = document.getElementById("detail-location");
+    const detailImg = document.getElementById("detail-img");
+    const detailDesc = document.getElementById("detail-desc");
+    const backToHomeBtn = document.getElementById("back-to-home-btn");
+
+    function showEventDetailScreen(evt) {
+        // Hide modal and main app
+        const eventsModal = document.getElementById("events-modal");
+        const appContainer = document.getElementById("app-container");
+        eventsModal.style.display = "none";
+        appContainer.style.display = "none";
+        
+        // Populate
+        detailTitle.textContent = evt.title;
+        detailCulture.textContent = evt.culture;
+        detailDate.textContent = evt.date;
+        detailLocation.textContent = evt.location;
+        detailImg.src = evt.imageUrl;
+        detailDesc.textContent = evt.description;
+
+        // Show screen
+        eventDetailScreen.style.display = "block";
+        window.scrollTo(0,0);
+    }
+
+    backToHomeBtn.addEventListener("click", () => {
+        const appContainer = document.getElementById("app-container");
+        eventDetailScreen.style.display = "none";
+        appContainer.style.display = "block";
+    });
 
     function renderPremiumEvents(query) {
         eventsList.innerHTML = "";
@@ -329,6 +365,7 @@ document.addEventListener("DOMContentLoaded", () => {
         filteredEvents.forEach(evt => {
             const card = document.createElement("div");
             card.className = "event-card";
+            card.style.cursor = "pointer";
             card.innerHTML = `
                 <img src="${evt.imageUrl}" alt="${evt.title}" class="event-img" loading="lazy">
                 <div class="event-details">
@@ -341,6 +378,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     <p class="event-desc" style="margin-top:0.5rem; font-size:0.85rem;">${evt.description}</p>
                 </div>
             `;
+            card.addEventListener("click", () => {
+                showEventDetailScreen(evt);
+            });
             eventsList.appendChild(card);
         });
     }
