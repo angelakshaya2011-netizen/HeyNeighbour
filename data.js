@@ -513,7 +513,6 @@ const placesData = [
         imageUrl: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=600&q=80',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=LOB+Midtown+Jalisco+Guadalajara'
     },
-
     {
         id: 53,
         name: 'Studio F',
@@ -525,7 +524,6 @@ const placesData = [
         imageUrl: 'https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?w=600&q=80',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Studio+F+Guadalajara'
     },
-
     {
         id: 54,
         name: 'Cloe',
@@ -547,6 +545,66 @@ const placesData = [
         speaksEnglish: true,
         imageUrl: 'https://images.unsplash.com/photo-1560243563-062bfc001d68?w=600&q=80',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Julio+Boutique+Guadalajara'
+    },
+    {
+        id: 56,
+        name: 'BM Saloon',
+        category: 'Hair Salons',
+        description: 'An aesthetic center specializing in creative hair styling, image consulting, and professional hair care. Located in the upscale Italia Providencia neighborhood.',
+        rating: 4.8,
+        speaksEnglish: true,
+        imageUrl: 'https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=BM+Saloon+Lopez+Mateos+Guadalajara'
+    },
+    {
+        id: 57,
+        name: 'Neurone Salón',
+        category: 'Hair Salons',
+        description: 'A modern, full-service salon offering precision haircuts, professional coloring, and expert styling in a contemporary environment in Zapopan.',
+        rating: 4.5,
+        speaksEnglish: false,
+        imageUrl: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Neurone+Salon+Zapopan+Guadalajara'
+    },
+    {
+        id: 58,
+        name: 'Criminal Chic',
+        category: 'Hair Salons',
+        description: 'A high-end, trendy author salon specializing in personalized cuts and creative styling. Very popular with the expat community in Ladrón de Guevara.',
+        rating: 4.7,
+        speaksEnglish: true,
+        imageUrl: 'https://images.unsplash.com/photo-1562322140-8baeececf3df?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Criminal+Chic+Joaquin+Angulo+Guadalajara'
+    },
+    {
+        id: 59,
+        name: 'Maria Sotho',
+        category: 'Hair Salons',
+        description: 'A boutique aesthetic center offering personalized hair and image services in an intimate, professional setting in Jardines Alcalde.',
+        rating: 4.7,
+        speaksEnglish: false,
+        imageUrl: 'https://images.unsplash.com/photo-1560066984-138daaa4e4e1?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Maria+Sotho+Guadalajara'
+    },
+    {
+        id: 60,
+        name: "Mom & Son's Salon",
+        category: 'Hair Salons',
+        description: 'A highly-rated barbershop and beauty salon loved by locals and expats alike. Known for consistent quality cuts and a welcoming atmosphere in Ladrón de Guevara.',
+        rating: 4.8,
+        speaksEnglish: true,
+        imageUrl: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Mom+and+Sons+Salon+Guadalajara'
+    },
+    {
+        id: 61,
+        name: 'El Silloncito',
+        category: 'Hair Salons',
+        description: 'The go-to children\'s hair salon in Guadalajara, with a fun and colorful environment designed to make haircuts enjoyable for kids of all ages.',
+        rating: 4.7,
+        speaksEnglish: true,
+        imageUrl: 'https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=El+Silloncito+Americana+Guadalajara'
     }
 ];
 
