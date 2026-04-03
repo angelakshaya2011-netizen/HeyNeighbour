@@ -198,6 +198,23 @@ body {
     color: #666;
 }
 
+.badge-veg-yes {
+    background-color: #d4f7d4;
+    color: #2e7d32;
+}
+
+.badge-veg-no {
+    background-color: #fdecea;
+    color: #b71c1c;
+}
+
+.card-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    align-items: center;
+}
+
 .btn-map {
     display: inline-flex;
     align-items: center;

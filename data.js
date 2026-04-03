@@ -162,17 +162,6 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Pizza+Power+Valparaiso+Guadalajara'
     },
     {
-        id: 16,
-        name: 'Suehiro',
-        category: 'Restaurants',
-        vegetarianOptions: true,
-        description: 'One of the oldest and most respected traditional Japanese restaurants in the city.',
-        rating: 4.8,
-        speaksEnglish: true,
-        imageUrl: 'https://images.unsplash.com/photo-1579027989536-b7b1f875659b?w=600&q=80',
-        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Suehiro+Guadalajara'
-    },
-    {
         id: 17,
         name: 'Qin Oriental Food',
         category: 'Restaurants',
@@ -226,17 +215,6 @@ const placesData = [
         speaksEnglish: false,
         imageUrl: 'https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?w=600&q=80',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Tacos+Juan+Guadalajara'
-    },
-    {
-        id: 22,
-        name: 'Carl’s Jr Midtown',
-        category: 'Restaurants',
-        vegetarianOptions: false,
-        description: 'Reliable fast-food burgers and shakes, located conveniently inside the Midtown Plaza.',
-        rating: 4.0,
-        speaksEnglish: true,
-        imageUrl: 'https://images.unsplash.com/photo-1586816001966-79b736744398?w=600&q=80',
-        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Carls+Jr+Midtown+Jalisco'
     },
     {
         id: 23,
@@ -405,17 +383,6 @@ const placesData = [
     },
     {
         id: 38,
-        name: 'Subway',
-        category: 'Restaurants',
-        vegetarianOptions: true,
-        description: 'Quick build-your-own sandwich franchise available at various spots including malls.',
-        rating: 3.9,
-        speaksEnglish: true,
-        imageUrl: 'https://images.unsplash.com/photo-1509722747041-616f39b57569?w=600&q=80',
-        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Subway+Guadalajara'
-    },
-    {
-        id: 39,
         name: 'El Alto',
         category: 'Restaurants',
         vegetarianOptions: false,
@@ -426,7 +393,7 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=El+Alto+Guadalajara'
     },
     {
-        id: 40,
+        id: 39,
         name: 'La Lira',
         category: 'Restaurants',
         vegetarianOptions: false,
@@ -437,7 +404,7 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=La+Lira+Carniceria+Guadalajara'
     },
     {
-        id: 41,
+        id: 40,
         name: 'Tacos Al Vapor El Costquito',
         category: 'Restaurants',
         vegetarianOptions: false,
@@ -446,28 +413,6 @@ const placesData = [
         speaksEnglish: false,
         imageUrl: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Tacos+Al+Vapor+El+Costquito+Guadalajara'
-    },
-    {
-        id: 42,
-        name: 'Super Salads',
-        category: 'Restaurants',
-        vegetarianOptions: true,
-        description: 'Fresh and customizable salads, paninis, and soups. Perfect for a quick, healthy meal.',
-        rating: 4.4,
-        speaksEnglish: true,
-        imageUrl: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80',
-        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Super+Salads+Guadalajara'
-    },
-    {
-        id: 43,
-        name: 'Pizza Hut',
-        category: 'Restaurants',
-        vegetarianOptions: true,
-        description: 'Classic international pizza chain providing deep dish pizzas, pasta, and wings.',
-        rating: 4.0,
-        speaksEnglish: true,
-        imageUrl: 'https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=600&q=80',
-        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Pizza+Hut+Guadalajara'
     },
     {
         id: 44,
@@ -568,19 +513,9 @@ const placesData = [
         imageUrl: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=600&q=80',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=LOB+Midtown+Jalisco+Guadalajara'
     },
+
     {
         id: 53,
-        name: 'Human 1931',
-        category: 'Clothing',
-        priceRange: '$$',
-        description: 'A stylish clothing boutique focused on contemporary casual wear and urban fashion statement pieces.',
-        rating: 4.4,
-        speaksEnglish: true,
-        imageUrl: 'https://images.unsplash.com/photo-1555529771-55ec48dfa2ab?w=600&q=80',
-        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Human+1931+Guadalajara'
-    },
-    {
-        id: 54,
         name: 'Studio F',
         category: 'Clothing',
         priceRange: '$$$',
@@ -590,30 +525,9 @@ const placesData = [
         imageUrl: 'https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?w=600&q=80',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Studio+F+Guadalajara'
     },
+
     {
-        id: 55,
-        name: 'Loro Piana',
-        category: 'Clothing',
-        priceRange: '$$$$$',
-        description: 'Luxury Italian brand offering unequivocally high-end, sophisticated clothing and accessories crafted from the finest materials.',
-        rating: 4.8,
-        speaksEnglish: true,
-        imageUrl: 'https://images.unsplash.com/photo-1445205170230-053b83016050?w=600&q=80',
-        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Loro+Piana+Guadalajara'
-    },
-    {
-        id: 56,
-        name: 'Pineda Covalin',
-        category: 'Clothing',
-        priceRange: '$$$',
-        description: 'Iconic Mexican design house featuring gorgeous silk scarfs, ties, and clothing deeply inspired by Mexican traditions and art.',
-        rating: 4.9,
-        speaksEnglish: true,
-        imageUrl: 'https://images.unsplash.com/photo-1574634534894-89d7576c8259?w=600&q=80',
-        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Pineda+Covalin+Guadalajara'
-    },
-    {
-        id: 57,
+        id: 54,
         name: 'Cloe',
         category: 'Clothing',
         priceRange: '$$',
@@ -624,7 +538,7 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Cloe+Guadalajara'
     },
     {
-        id: 58,
+        id: 55,
         name: 'Julio',
         category: 'Clothing',
         priceRange: '$$$',

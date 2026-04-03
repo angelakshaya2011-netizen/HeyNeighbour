@@ -47,9 +47,15 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                     <p class="card-desc">${place.description}</p>
                     <div class="card-footer">
-                        <span class="badge ${place.speaksEnglish ? 'badge-english-yes' : 'badge-english-no'}">
-                            ${place.speaksEnglish ? '<i class="uil uil-comment-alt-check"></i> English' : 'Spanish Only'}
-                        </span>
+                        <div class="card-badges">
+                            <span class="badge ${place.speaksEnglish ? 'badge-english-yes' : 'badge-english-no'}">
+                                ${place.speaksEnglish ? '<i class="uil uil-comment-alt-check"></i> English' : 'Spanish Only'}
+                            </span>
+                            ${place.category === 'Restaurants' ? `
+                            <span class="badge ${place.vegetarianOptions ? 'badge-veg-yes' : 'badge-veg-no'}">
+                                ${place.vegetarianOptions ? '🌿 Veg Friendly' : '🍖 Not Veg'}
+                            </span>` : ''}
+                        </div>
                         <a href="${place.mapsUrl}" target="_blank" rel="noopener noreferrer" class="btn-map">
                             <i class="uil uil-map-marker"></i> Google Maps
                         </a>
