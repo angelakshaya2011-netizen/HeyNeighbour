@@ -193,10 +193,17 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    let tempUserData = null;
+    let currentVerificationCode = null;
+
+    const verificationForm = document.getElementById("verification-form");
+    const verifyEmailDisplay = document.getElementById("verify-email-display");
+    const btnBackLogin = document.getElementById("btn-back-login");
+
     loginForm.addEventListener("submit", (e) => {
         e.preventDefault(); // Prevent page reload
         
-        const userData = {
+        tempUserData = {
             name: document.getElementById("user-name").value,
             email: document.getElementById("user-email").value,
             nationality: document.getElementById("user-nationality").value,
@@ -204,11 +211,44 @@ document.addEventListener("DOMContentLoaded", () => {
             language: document.getElementById("user-language").value
         };
         
-        // Save to browser storage
-        localStorage.setItem("heyNeighborUser", JSON.stringify(userData));
+        // Generate random 4-digit code
+        currentVerificationCode = Math.floor(1000 + Math.random() * 9000).toString();
         
-        // Initialize the app with the new user
-        initApp();
+        // Simulate sending email
+        alert("SIMULATED EMAIL:\n\nHello " + tempUserData.name + ",\nYour verification code is: " + currentVerificationCode);
+        
+        // Update UI
+        verifyEmailDisplay.textContent = tempUserData.email;
+        loginForm.style.display = "none";
+        verificationForm.style.display = "block";
+        document.getElementById("verify-code").value = "";
+    });
+
+    verificationForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const enteredCode = document.getElementById("verify-code").value;
+
+        if (enteredCode === currentVerificationCode) {
+            // Success!
+            localStorage.setItem("heyNeighborUser", JSON.stringify(tempUserData));
+            // Cleanup UI states for next time
+            verificationForm.style.display = "none";
+            loginForm.style.display = "flex";
+            loginForm.reset();
+            currentVerificationCode = null;
+            tempUserData = null;
+            // Boot app
+            initApp();
+        } else {
+            alert("Incorrect verification code. Please try again.");
+        }
+    });
+
+    btnBackLogin.addEventListener("click", () => {
+        verificationForm.style.display = "none";
+        loginForm.style.display = "flex";
+        currentVerificationCode = null;
+        tempUserData = null;
     });
 
     // Run initialization on load

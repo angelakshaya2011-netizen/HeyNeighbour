@@ -474,6 +474,53 @@ body {
     transform: translateY(-2px);
 }
 
+/* --- Verification UI --- */
+.verification-inputs {
+    margin-bottom: 1.5rem;
+}
+
+.verify-input {
+    width: 100%;
+    padding: 1rem !important;
+    font-size: 2rem !important;
+    letter-spacing: 0.5rem;
+    text-align: center;
+    border: 2px dashed var(--clr-blue) !important;
+    background: rgba(255, 255, 255, 0.8) !important;
+    color: var(--clr-blue-dark);
+    font-weight: 700;
+}
+
+.verify-input:focus {
+    border-style: solid !important;
+}
+
+.verification-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-secondary {
+    background-color: #e2e8f0;
+    color: var(--text-main);
+    border: none;
+    padding: 1rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    flex: 1;
+    transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #cbd5e1;
+}
+
+.verification-actions .btn-submit {
+    flex: 2;
+}
+
 /* --- Premium FAB --- */
 .premium-fab {
     position: fixed;
