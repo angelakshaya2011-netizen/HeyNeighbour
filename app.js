@@ -72,6 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const appContainer = document.getElementById("app-container");
     const loginForm = document.getElementById("login-form");
     const welcomeHeading = document.getElementById("welcome-heading");
+    const premiumFab = document.getElementById("premium-fab");
 
     function initApp() {
         const savedUser = localStorage.getItem("heyNeighborUser");
@@ -124,7 +125,6 @@ document.addEventListener("DOMContentLoaded", () => {
     initApp();
 
     // --- Premium Currency Converter Logic ---
-    const premiumFab = document.getElementById("premium-fab");
     const paymentModal = document.getElementById("payment-modal");
     const dashboardModal = document.getElementById("dashboard-modal");
     const converterModal = document.getElementById("converter-modal");
