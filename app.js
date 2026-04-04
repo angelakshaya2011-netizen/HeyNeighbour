@@ -83,13 +83,22 @@ document.addEventListener("DOMContentLoaded", () => {
             appContainer.style.display = "block";
             welcomeHeading.innerHTML = `Hey ${userData.name}! <i class="uil uil-smile"></i>`;
             
+            // Show FAB and restore premium look if applicable
+            premiumFab.style.display = "flex";
+            if (checkPremiumStatus()) {
+                premiumFab.classList.add("unlocked");
+            } else {
+                premiumFab.classList.remove("unlocked");
+            }
+            
             // Render logic
             renderFilters();
             renderPlaces();
         } else {
-            // No user, show login
-            loginContainer.style.display = "flex"; // CSS handles the layout
+            // No user — hide everything and show login
+            loginContainer.style.display = "flex";
             appContainer.style.display = "none";
+            premiumFab.style.display = "none";
         }
     }
 
@@ -135,10 +144,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const usdResult = document.getElementById("usd-result");
     const currentRateDisplay = document.getElementById("current-rate-display");
     
-    const triggerScanBtn = document.getElementById("trigger-scan-btn");
-    const cameraInput = document.getElementById("camera-input");
-    const scanStatus = document.getElementById("scan-status");
-
     let mxnExchangeRate = 17.00; // Fallback default rate
 
     // Fetch live rate
@@ -216,7 +221,6 @@ document.addEventListener("DOMContentLoaded", () => {
         converterModal.style.display = "none";
         mxnInput.value = "";
         usdResult.textContent = "$0.00 USD";
-        scanStatus.style.display = "none";
     });
 
     // Mock Payment Submit
@@ -239,81 +243,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 1500); // 1.5s delay mimic
     });
 
-    // Initialize FAB look if already premium
-    if (checkPremiumStatus()) {
-        premiumFab.classList.add("unlocked");
-    }
 
-    // --- OCR Logic ---
-    triggerScanBtn.addEventListener("click", () => {
-        cameraInput.click();
-    });
-
-    cameraInput.addEventListener("change", async (e) => {
-        if (!e.target.files || e.target.files.length === 0) return;
-        const file = e.target.files[0];
-        
-        scanStatus.style.display = "block";
-        scanStatus.innerHTML = '<i class="uil uil-spinner uil-spin"></i> Analyzing image...';
-        triggerScanBtn.disabled = true;
-
-        try {
-            const { data: { text } } = await Tesseract.recognize(file, 'eng');
-            
-            console.log("OCR Raw Text:", text);
-            
-            // Improved Regex:
-            // 1. Explicitly looks for $ followed by numbers (e.g., $15, $ 15.99)
-            // 2. OR looks for any number with exactly two decimal places (e.g., 15.99 or 15,99)
-            const regex = /(?:\$)\s*(\d+(?:[.,]\d{2})?)|(\d+[.,]\d{2})/g;
-            let bestPrice = 0;
-            let matchFound = false;
-
-            let m;
-            while ((m = regex.exec(text)) !== null) {
-                let numStr = m[1] || m[2];
-                if (numStr) {
-                    numStr = numStr.replace(',', '.'); // normalize comma to dot
-                    const val = parseFloat(numStr);
-                    if (!isNaN(val) && val > 0) {
-                        // Keep highest value (useful if scanning a receipt, the total is usually highest)
-                        if (val > bestPrice) {
-                            bestPrice = val;
-                            matchFound = true;
-                        }
-                    }
-                }
-            }
-
-            // Fallback if no strict price format is found
-            if (!matchFound) {
-                // Look for any standalone numbers, prioritizing double/triple digits to avoid noise (like '1' or '0')
-                const fallbackRegex = /\b(\d{2,5}(?:\.\d{2})?)\b/g;
-                let fb;
-                while ((fb = fallbackRegex.exec(text)) !== null) {
-                    const fallbackVal = parseFloat(fb[1]);
-                    if (!isNaN(fallbackVal) && fallbackVal > bestPrice) {
-                        bestPrice = fallbackVal;
-                        matchFound = true;
-                    }
-                }
-            }
-            
-            if (matchFound) {
-                mxnInput.value = bestPrice;
-                convertMXNToUSD();
-                scanStatus.innerHTML = '<i class="uil uil-check-circle" style="color:var(--clr-green-dark)"></i> Price found!';
-            } else {
-                scanStatus.innerHTML = '<i class="uil uil-exclamation-circle" style="color:red"></i> No clear price detected in photo. Try again.';
-            }
-        } catch (error) {
-            console.error("OCR Error:", error);
-            scanStatus.innerHTML = '<i class="uil uil-times-circle" style="color:red"></i> Error analyzing image.';
-        } finally {
-            triggerScanBtn.disabled = false;
-            cameraInput.value = ""; // reset
-        }
-    });
 
     // --- Premium Events Logic ---
     const eventsSearchInput = document.getElementById("events-search-input");
@@ -416,8 +346,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     logoutBtn.addEventListener("click", () => {
         localStorage.removeItem("heyNeighborUser");
-        // We purposely do NOT clear 'heyNeighborPremium' so the device remembers
+        // Preserve 'heyNeighborPremium' so the device remembers on next login
         profileModal.style.display = "none";
+        premiumFab.style.display = "none"; // hide FAB immediately on logout
         initApp(); // will detect no user and show login screen
     });
 

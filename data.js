@@ -605,6 +605,96 @@ const placesData = [
         speaksEnglish: true,
         imageUrl: 'https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=600&q=80',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=El+Silloncito+Americana+Guadalajara'
+    },
+    {
+        id: 62,
+        name: 'Hospital Veterinario Guadalajara',
+        category: 'Vets',
+        description: '24/7 full-service veterinary hospital offering surgery, radiology, internal medicine, and a pharmacy. One of the most complete emergency animal hospitals in the city.',
+        rating: 4.4,
+        speaksEnglish: true,
+        imageUrl: 'https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Hospital+Veterinario+Guadalajara+Lopez+Mateos'
+    },
+    {
+        id: 63,
+        name: 'El Doc',
+        category: 'Vets',
+        description: 'Boutique veterinary clinic offering general consultations, grooming, and internal medicine. Known for personalized, high-quality care in an upscale environment.',
+        rating: 4.7,
+        speaksEnglish: true,
+        imageUrl: 'https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=El+Doc+veterinaria+Guadalajara'
+    },
+    {
+        id: 64,
+        name: 'Hospital Veterinario Arboledas',
+        category: 'Vets',
+        description: 'A large-scale 24-hour veterinary hospital specializing in orthopedics, intensive care, and complex surgeries. Trusted by expats for emergency and specialist care.',
+        rating: 4.4,
+        speaksEnglish: true,
+        imageUrl: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Hospital+Veterinario+Arboledas+Guadalajara'
+    },
+    {
+        id: 65,
+        name: 'Clínica Veterinaria Solares',
+        category: 'Vets',
+        description: 'A modern veterinary clinic in the Solares residential complex offering dentistry, dermatology, and specialized aesthetic care for pets in a calm, professional setting.',
+        rating: 4.1,
+        speaksEnglish: true,
+        imageUrl: 'https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Clinica+Veterinaria+Solares+Zapopan'
+    },
+    {
+        id: 66,
+        name: 'VetPets',
+        category: 'Vets',
+        description: 'A reliable general veterinary hospital providing preventive medicine, vaccinations, and surgery. Well located near the university district.',
+        rating: 4.1,
+        speaksEnglish: false,
+        imageUrl: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=VetPets+Hospital+Veterinario+Guadalajara'
+    },
+    {
+        id: 67,
+        name: 'PET Clinik',
+        category: 'Vets',
+        description: 'A high-end, modern veterinary facility offering advanced surgery, laboratory diagnostics, and 24-hour emergency care. Top choice for expats seeking premium pet healthcare.',
+        rating: 4.8,
+        speaksEnglish: true,
+        imageUrl: 'https://images.unsplash.com/photo-1548767797-d8c844163c4a?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=PET+Clinik+Hospital+Veterinario+Zapopan'
+    },
+    {
+        id: 68,
+        name: 'Veterinaria Moro',
+        category: 'Vets',
+        description: 'A specialized veterinary diagnostic center providing hematology, laboratory studies, and expert clinical analysis. Known for its highly professional and thorough approach.',
+        rating: 4.7,
+        speaksEnglish: true,
+        imageUrl: 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Servicios+Veterinarios+Moro+Guadalajara'
+    },
+    {
+        id: 69,
+        name: 'Lomont Hospital Veterinario',
+        category: 'Vets',
+        description: 'A specialized veterinary hospital focused on traumatology, orthopedics, and neurology. One of the few facilities in the city offering this level of specialist care.',
+        rating: 4.3,
+        speaksEnglish: true,
+        imageUrl: 'https://images.unsplash.com/photo-1617791160505-6f00504e3519?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Lomont+Hospital+Veterinario+Guadalajara'
+    },
+    {
+        id: 70,
+        name: "Veterinaria Cat's & Dog's",
+        category: 'Vets',
+        description: 'A friendly neighborhood veterinary clinic offering primary care, general consultations, vaccinations, and grooming services for cats and dogs.',
+        rating: 4.3,
+        speaksEnglish: false,
+        imageUrl: 'https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=600&q=80',
+        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Veterinaria+Cats+and+Dogs+Guadalajara"
     }
 ];
 
