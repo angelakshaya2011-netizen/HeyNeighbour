@@ -15,7 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
             "Restaurants": "uil-restaurant",
             "Clothing": "uil-shopping-bag",
             "Hair Salons": "uil-scissors",
-            "Vets": "uil-paw"
+            "Vets": "uil-paw",
+            "Clinics": "uil-medical-square",
+            "Entertainment": "uil-ticket"
         };
         return icons[cat] || "uil-tag-alt";
     }
@@ -131,6 +133,10 @@ document.addEventListener("DOMContentLoaded", () => {
                             ${place.category === 'Restaurants' ? `
                             <span class="badge ${place.vegetarianOptions ? 'badge-veg-yes' : 'badge-veg-no'}">
                                 ${place.vegetarianOptions ? '🌿 Veg Friendly' : '🍖 Not Veg'}
+                            </span>` : ''}
+                            ${place.category === 'Entertainment' ? `
+                            <span class="badge ${place.familyFriendly ? 'badge-veg-yes' : 'badge-veg-no'}">
+                                ${place.familyFriendly ? '👨‍👩‍👧‍👦 Family Friendly' : '🔞 Adults Only'}
                             </span>` : ''}
                         </div>
                         <a href="${place.mapsUrl}" target="_blank" rel="noopener noreferrer" class="btn-map">

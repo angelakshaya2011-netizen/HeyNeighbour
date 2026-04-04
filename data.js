@@ -795,9 +795,151 @@ const placesData = [
         speaksEnglish: false,
         imageUrl: 'https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?w=600&q=80',
         mapsUrl: 'https://www.google.com/maps/place/Unidad+de+Patolog%C3%ADa+Cl%C3%ADnica+e+Imagenolog%C3%ADa/@20.6790268,-103.4106715,13z/data=!3m1!5s0x8428ae1162d94179:0x115b1e977b881e1e!4m10!1m2!2m1!1sLa+Unidad+de+Patologia+Guadalajara!3m6!1s0x8428ae6f337d958d:0xcb076a23316a80c1!8m2!3d20.6790268!4d-103.3756526!15sCiJMYSBVbmlkYWQgZGUgUGF0b2xvZ2lhIEd1YWRhbGFqYXJhWiQiImxhIHVuaWRhZCBkZSBwYXRvbG9naWEgZ3VhZGFsYWphcmGSAQttZWRpY2FsX2xhYpoBI0NoWkRTVWhOTUc5blMwVkpRMEZuVFVOWk1uRnRSRXBSRUFF4AEA-gEECGsQNg!16s%2Fg%2F1tx1thwk?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D'
+    },
+    {
+        id: 101,
+        name: 'Arena Astros de Jalisco',
+        category: 'Entertainment',
+        familyFriendly: true,
+        description: 'Cheer for the local professional basketball team! A vibrant, safe arena perfect for sports enthusiasts and families.',
+        rating: 4.8,
+        speaksEnglish: false,
+        imageUrl: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Arena+Astros+Jalisco+Guadalajara'
+    },
+    {
+        id: 102,
+        name: 'Parque Avila Camacho',
+        category: 'Entertainment',
+        familyFriendly: true,
+        description: 'A beautiful public park offering boat rides, playgrounds, and plenty of green spaces. Extremely familiar and great for an outdoor picnic.',
+        rating: 4.5,
+        speaksEnglish: false,
+        imageUrl: 'https://images.unsplash.com/photo-1498855926480-d98e83099315?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Parque+Avila+Camacho+Guadalajara'
+    },
+    {
+        id: 103,
+        name: 'MAZ - Museo de Arte de Zapopan',
+        category: 'Entertainment',
+        familyFriendly: true,
+        description: 'Contemporary art museum in the heart of Zapopan. Offers dynamic exhibitions and cultural workshops for all ages.',
+        rating: 4.6,
+        speaksEnglish: true,
+        imageUrl: 'https://images.unsplash.com/photo-1518998053401-b22fb4119864?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Museo+de+Arte+de+Zapopan'
+    },
+    {
+        id: 104,
+        name: 'Zoológico Guadalajara',
+        category: 'Entertainment',
+        familyFriendly: true,
+        description: 'One of the most important zoos in Latin America. Features a safari, aquarium, and panoramic cable car ride.',
+        rating: 4.7,
+        speaksEnglish: true,
+        imageUrl: 'https://images.unsplash.com/photo-1534567059665-cbbe8b2b640e?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Zoologico+Guadalajara'
+    },
+    {
+        id: 105,
+        name: 'Parque Los Colomos',
+        category: 'Entertainment',
+        familyFriendly: true,
+        description: 'An iconic forest inside the city. Ideal for jogging, feeding squirrels, and exploring proper Japanese gardens.',
+        rating: 4.8,
+        speaksEnglish: true,
+        imageUrl: 'https://images.unsplash.com/photo-1519331379826-f10be5486c6f?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Parque+Los+Colomos+Guadalajara'
+    },
+    {
+        id: 106,
+        name: 'Pista de Patinaje Bugambilias',
+        category: 'Entertainment',
+        familyFriendly: true,
+        description: 'An indoor ice skating rink located in the Bugambilias mall. Perfect for cooling down and family fun.',
+        rating: 4.3,
+        speaksEnglish: false,
+        imageUrl: 'https://images.unsplash.com/photo-1502920514313-52581002a659?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Pista+de+Hielo+Bugambilias+Guadalajara'
+    },
+    {
+        id: 107,
+        name: 'La Cineteca FICG',
+        category: 'Entertainment',
+        familyFriendly: true,
+        description: 'The premier center for cinema showcasing independent, international, and mainstream films. Completely appropriate for the entire family depending on the screening.',
+        rating: 4.9,
+        speaksEnglish: true,
+        imageUrl: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Cineteca+FICG+Guadalajara'
+    },
+    {
+        id: 108,
+        name: 'KIMA',
+        category: 'Entertainment',
+        familyFriendly: true,
+        description: 'An exciting indoor action-park with trampolines, climbing walls, and obstacle courses that guarantee a fun day out.',
+        rating: 4.6,
+        speaksEnglish: false,
+        imageUrl: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Kima+Guadalajara'
+    },
+    {
+        id: 109,
+        name: 'KidZania',
+        category: 'Entertainment',
+        familyFriendly: true,
+        description: 'An interactive mini-city built for kids to role-play professions. Extremely engaging and educational!',
+        rating: 4.8,
+        speaksEnglish: false,
+        imageUrl: 'https://images.unsplash.com/photo-1566450653303-2614cbb292ea?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=KidZania+Guadalajara'
+    },
+    {
+        id: 110,
+        name: 'Panorama',
+        category: 'Entertainment',
+        familyFriendly: true,
+        description: 'A vibrant indoor climbing and bouldering gym. Great for active families and people looking for a physical challenge.',
+        rating: 4.7,
+        speaksEnglish: true,
+        imageUrl: 'https://images.unsplash.com/photo-1522163182402-834f871fd851?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Panorama+climbing+Guadalajara'
+    },
+    {
+        id: 111,
+        name: 'Cinery',
+        category: 'Entertainment',
+        familyFriendly: true,
+        description: 'An upscale, comfortable cinema experience offering great food and immersive movie viewings for a relaxed evening.',
+        rating: 4.5,
+        speaksEnglish: false,
+        imageUrl: 'https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Cinery+Guadalajara'
+    },
+    {
+        id: 112,
+        name: 'Biblioteca Pública del Estado',
+        category: 'Entertainment',
+        familyFriendly: true,
+        description: 'A massive, modern public library containing vast collections of books. It has dedicated reading zones and children\'s areas.',
+        rating: 4.9,
+        speaksEnglish: true,
+        imageUrl: 'https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Biblioteca+Publica+del+Estado+de+Jalisco'
+    },
+    {
+        id: 113,
+        name: 'Vía RecreActiva',
+        category: 'Entertainment',
+        familyFriendly: true,
+        description: 'Every Sunday, major avenues are closed to cars. People come out to cycle, rollerblade, and walk their pets in a completely festive and safe setting.',
+        rating: 4.8,
+        speaksEnglish: true,
+        imageUrl: 'https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Via+RecreActiva+Guadalajara'
     }
 ];
-
 const eventsData = [
     {
         id: 1,
