@@ -276,11 +276,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const currentRateDisplay = document.getElementById("current-rate-display");
     
     let mxnExchangeRate = 17.00; // Fallback default rate
+    let liveUpdateInterval = null;
 
     // Fetch live rate
     async function fetchExchangeRate() {
         try {
-            const res = await fetch("https://api.exchangerate-api.com/v4/latest/USD");
+            currentRateDisplay.textContent = "Updating..."; // Visual feedback
+            const res = await fetch("https://api.exchangerate-api.com/v4/latest/USD?t=" + new Date().getTime()); // Bypass cache
             const data = await res.json();
             if (data && data.rates && data.rates.MXN) {
                 mxnExchangeRate = data.rates.MXN;
@@ -289,6 +291,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error("Could not fetch live exchange rate. Using fallback.");
         }
         currentRateDisplay.textContent = mxnExchangeRate.toFixed(2);
+        convertMXNToUSD(); // Refresh conversion with new rate
     }
     
     // Convert logic (MXN to USD)
@@ -328,9 +331,11 @@ document.addEventListener("DOMContentLoaded", () => {
     openConverterBtn.addEventListener("click", () => {
         dashboardModal.style.display = "none";
         converterModal.style.display = "flex";
-        if (currentRateDisplay.textContent === "Loading...") {
-            fetchExchangeRate();
-        }
+        
+        // Always fetch immediately and start live polling every 10 seconds
+        fetchExchangeRate();
+        if (liveUpdateInterval) clearInterval(liveUpdateInterval);
+        liveUpdateInterval = setInterval(fetchExchangeRate, 10000);
     });
 
     openEventsBtn.addEventListener("click", () => {
@@ -352,6 +357,11 @@ document.addEventListener("DOMContentLoaded", () => {
         converterModal.style.display = "none";
         mxnInput.value = "";
         usdResult.textContent = "$0.00 USD";
+        
+        if (liveUpdateInterval) {
+            clearInterval(liveUpdateInterval);
+            liveUpdateInterval = null;
+        }
     });
 
     // Mock Payment Submit
