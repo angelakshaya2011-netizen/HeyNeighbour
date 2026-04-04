@@ -76,26 +76,191 @@ body {
 }
 
 .filter-btn {
+    display: none; /* legacy, replaced by dropdown */
+}
+
+/* --- Category Dropdown --- */
+.filters-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.category-dropdown-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 340px;
+}
+
+.category-dropdown-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
     background: white;
     border: 2px solid var(--clr-blue);
     color: var(--clr-blue-dark);
-    padding: 0.5rem 1.5rem;
+    padding: 0.8rem 1.25rem;
     border-radius: 50px;
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(162, 210, 255, 0.2);
+    font-family: inherit;
 }
 
-.filter-btn:hover {
-    background: rgba(162, 210, 255, 0.2);
+.category-dropdown-btn:hover {
+    background: rgba(162, 210, 255, 0.12);
+    box-shadow: 0 6px 20px rgba(162, 210, 255, 0.35);
 }
 
-.filter-btn.active {
+.dropdown-btn-left {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+#dropdown-arrow {
+    transition: transform 0.3s ease;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.category-dropdown-list {
+    position: absolute;
+    top: calc(100% + 0.6rem);
+    left: 0;
+    right: 0;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 12px 40px rgba(31, 38, 135, 0.13);
+    border: 1px solid rgba(162, 210, 255, 0.35);
+    overflow: hidden;
+    z-index: 50;
+    animation: dropdownSlide 0.2s ease-out;
+}
+
+@keyframes dropdownSlide {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.9rem 1.25rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-main);
+    transition: background 0.2s ease;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.dropdown-item:last-child { border-bottom: none; }
+
+.dropdown-item:hover {
+    background: rgba(162, 210, 255, 0.18);
+    color: var(--clr-blue-dark);
+}
+
+.dropdown-item i {
+    font-size: 1.1rem;
+    color: var(--clr-blue-dark);
+    width: 22px;
+    text-align: center;
+}
+
+/* --- Search Bar Section --- */
+.search-bar-section {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    max-width: 580px;
+    animation: fadeSlideIn 0.25s ease-out;
+}
+
+@keyframes fadeSlideIn {
+    from { opacity: 0; transform: translateX(-10px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+.back-to-cat-btn {
+    background: white;
+    border: 2px solid var(--clr-blue);
+    color: var(--clr-blue-dark);
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.back-to-cat-btn:hover {
     background: var(--clr-blue);
     color: white;
-    box-shadow: 0 4px 10px rgba(162, 210, 255, 0.4);
 }
+
+.search-input-wrapper {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon-input {
+    position: absolute;
+    left: 1rem;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    pointer-events: none;
+}
+
+.place-search-input {
+    width: 100%;
+    padding: 0.8rem 2.75rem 0.8rem 2.8rem;
+    border: 2px solid var(--clr-blue);
+    border-radius: 50px;
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+    background: white;
+    color: var(--text-main);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(162, 210, 255, 0.2);
+}
+
+.place-search-input:focus {
+    border-color: var(--clr-blue-dark);
+    box-shadow: 0 0 0 3px rgba(162, 210, 255, 0.3);
+}
+
+.clear-search-btn {
+    position: absolute;
+    right: 0.85rem;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0.25rem;
+    border-radius: 50%;
+    transition: color 0.2s ease;
+}
+
+.clear-search-btn:hover { color: var(--text-main); }
 
 /* Grid layout */
 .grid {

@@ -6,30 +6,107 @@ document.addEventListener("DOMContentLoaded", () => {
     const categories = ["All", ...new Set(placesData.map(place => place.category))];
     
     let currentCategory = "All";
+    let currentSearchTerm = "";
+    let dropdownOpen = false;
 
-    function renderFilters() {
-        filtersContainer.innerHTML = "";
+    function getCategoryIcon(cat) {
+        const icons = {
+            "All": "uil-apps",
+            "Restaurants": "uil-restaurant",
+            "Clothing": "uil-shopping-bag",
+            "Hair Salons": "uil-scissors",
+            "Vets": "uil-paw"
+        };
+        return icons[cat] || "uil-tag-alt";
+    }
+
+    function buildDropdown() {
+        const list = document.getElementById("category-dropdown-list");
+        if (!list) return;
+        list.innerHTML = "";
         categories.forEach(cat => {
-            const btn = document.createElement("button");
-            btn.className = `filter-btn ${cat === currentCategory ? "active" : ""}`;
-            btn.textContent = cat;
-            btn.addEventListener("click", () => {
-                currentCategory = cat;
-                renderFilters(); // update active class
-                renderPlaces();
-            });
-            filtersContainer.appendChild(btn);
+            const item = document.createElement("div");
+            item.className = "dropdown-item";
+            item.innerHTML = `<i class="uil ${getCategoryIcon(cat)}"></i> ${cat}`;
+            item.addEventListener("click", () => selectCategory(cat));
+            list.appendChild(item);
         });
+    }
+
+    function toggleDropdown() {
+        dropdownOpen = !dropdownOpen;
+        const list = document.getElementById("category-dropdown-list");
+        const arrow = document.getElementById("dropdown-arrow");
+        list.style.display = dropdownOpen ? "block" : "none";
+        if (arrow) arrow.style.transform = dropdownOpen ? "rotate(180deg)" : "";
+    }
+
+    function selectCategory(cat) {
+        currentCategory = cat;
+        currentSearchTerm = "";
+        dropdownOpen = false;
+
+        const list = document.getElementById("category-dropdown-list");
+        const arrow = document.getElementById("dropdown-arrow");
+        const dropdownWrapper = document.getElementById("category-dropdown-wrapper");
+        const searchSection = document.getElementById("search-bar-section");
+        const searchInput = document.getElementById("place-search-input");
+        const clearBtn = document.getElementById("clear-search-btn");
+
+        if (list) list.style.display = "none";
+        if (arrow) arrow.style.transform = "";
+        if (dropdownWrapper) dropdownWrapper.style.display = "none";
+        if (searchSection) {
+            searchSection.style.display = "flex";
+            if (searchInput) {
+                searchInput.placeholder = cat === "All" ? "Search all places..." : `Search within ${cat}...`;
+                searchInput.value = "";
+                searchInput.focus();
+            }
+            if (clearBtn) clearBtn.style.display = "none";
+        }
+        renderPlaces();
+    }
+
+    function backToDropdown() {
+        currentCategory = "All";
+        currentSearchTerm = "";
+        dropdownOpen = false;
+
+        const dropdownWrapper = document.getElementById("category-dropdown-wrapper");
+        const searchSection = document.getElementById("search-bar-section");
+        const list = document.getElementById("category-dropdown-list");
+        const arrow = document.getElementById("dropdown-arrow");
+
+        if (searchSection) searchSection.style.display = "none";
+        if (dropdownWrapper) dropdownWrapper.style.display = "block";
+        if (list) list.style.display = "none";
+        if (arrow) arrow.style.transform = "";
+        renderPlaces();
     }
 
     function renderPlaces() {
         grid.innerHTML = "";
-        
-        const filteredPlaces = currentCategory === "All" 
-            ? placesData 
+
+        let filtered = currentCategory === "All"
+            ? placesData
             : placesData.filter(place => place.category === currentCategory);
 
-        filteredPlaces.forEach(place => {
+        if (currentSearchTerm.trim()) {
+            const term = currentSearchTerm.toLowerCase().trim();
+            filtered = filtered.filter(place =>
+                place.name.toLowerCase().includes(term) ||
+                place.description.toLowerCase().includes(term) ||
+                place.category.toLowerCase().includes(term)
+            );
+        }
+
+        if (filtered.length === 0) {
+            grid.innerHTML = `<p style="text-align:center; color:var(--text-muted); margin-top:2rem; grid-column: 1 / -1; font-size:1.1rem;">No results found for "<strong>${currentSearchTerm}</strong>".</p>`;
+            return;
+        }
+
+        filtered.forEach(place => {
             const card = document.createElement("div");
             card.className = "card";
             
@@ -91,9 +168,9 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 premiumFab.classList.remove("unlocked");
             }
-            
+
             // Render logic
-            renderFilters();
+            buildDropdown();
             renderPlaces();
         } else {
             // No user — hide everything and show login
@@ -123,6 +200,54 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Run initialization on load
     initApp();
+
+    // --- Dropdown & Search Event Listeners ---
+    const dropdownBtn = document.getElementById("category-dropdown-btn");
+    if (dropdownBtn) {
+        dropdownBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            toggleDropdown();
+        });
+    }
+
+    // Close dropdown when clicking outside
+    document.addEventListener("click", (e) => {
+        if (dropdownOpen) {
+            const wrapper = document.getElementById("category-dropdown-wrapper");
+            if (wrapper && !wrapper.contains(e.target)) {
+                dropdownOpen = false;
+                const list = document.getElementById("category-dropdown-list");
+                const arrow = document.getElementById("dropdown-arrow");
+                if (list) list.style.display = "none";
+                if (arrow) arrow.style.transform = "";
+            }
+        }
+    });
+
+    const backBtn = document.getElementById("back-to-categories-btn");
+    if (backBtn) backBtn.addEventListener("click", backToDropdown);
+
+    const placeSearchInput = document.getElementById("place-search-input");
+    const clearSearchBtn = document.getElementById("clear-search-btn");
+
+    if (placeSearchInput) {
+        placeSearchInput.addEventListener("input", (e) => {
+            currentSearchTerm = e.target.value;
+            if (clearSearchBtn) {
+                clearSearchBtn.style.display = currentSearchTerm ? "flex" : "none";
+            }
+            renderPlaces();
+        });
+    }
+
+    if (clearSearchBtn) {
+        clearSearchBtn.addEventListener("click", () => {
+            currentSearchTerm = "";
+            if (placeSearchInput) placeSearchInput.value = "";
+            clearSearchBtn.style.display = "none";
+            renderPlaces();
+        });
+    }
 
     // --- Premium Currency Converter Logic ---
     const paymentModal = document.getElementById("payment-modal");

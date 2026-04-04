@@ -47,8 +47,29 @@
 
     <main class="container">
         <section class="filters-section">
-            <div id="category-filters" class="filters">
-                <!-- Buttons will be injected here by JS -->
+            <div class="category-dropdown-wrapper" id="category-dropdown-wrapper">
+                <button id="category-dropdown-btn" class="category-dropdown-btn">
+                    <span class="dropdown-btn-left">
+                        <i class="uil uil-apps"></i>
+                        <span id="dropdown-label">Browse Categories</span>
+                    </span>
+                    <i class="uil uil-angle-down" id="dropdown-arrow"></i>
+                </button>
+                <div id="category-dropdown-list" class="category-dropdown-list" style="display:none;">
+                    <!-- injected by JS -->
+                </div>
+            </div>
+            <div id="search-bar-section" class="search-bar-section" style="display:none;">
+                <button id="back-to-categories-btn" class="back-to-cat-btn" title="Back to categories">
+                    <i class="uil uil-arrow-left"></i>
+                </button>
+                <div class="search-input-wrapper">
+                    <i class="uil uil-search search-icon-input"></i>
+                    <input type="text" id="place-search-input" class="place-search-input" placeholder="Search...">
+                    <button id="clear-search-btn" class="clear-search-btn" style="display:none;">
+                        <i class="uil uil-times"></i>
+                    </button>
+                </div>
             </div>
         </section>
 
