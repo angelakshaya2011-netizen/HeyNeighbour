@@ -96,11 +96,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (currentSearchTerm.trim()) {
             const term = currentSearchTerm.toLowerCase().trim();
-            filtered = filtered.filter(place =>
-                place.name.toLowerCase().includes(term) ||
-                place.description.toLowerCase().includes(term) ||
-                place.category.toLowerCase().includes(term)
-            );
+            filtered = filtered.filter(place => {
+                const searchTokens = [
+                    place.name,
+                    place.description,
+                    place.category,
+                    place.speaksEnglish ? 'english speaking english' : 'spanish only',
+                    place.vegetarianOptions ? 'vegetarian veg options friendly' : '',
+                    place.familyFriendly ? 'family friendly kids familiar' : 'adults only'
+                ].join(' ').toLowerCase();
+                
+                return searchTokens.includes(term);
+            });
         }
 
         if (filtered.length === 0) {
