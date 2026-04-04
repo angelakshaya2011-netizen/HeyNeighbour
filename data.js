@@ -874,17 +874,6 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Cineteca+FICG+Guadalajara'
     },
     {
-        id: 108,
-        name: 'KIMA',
-        category: 'Entertainment',
-        familyFriendly: true,
-        description: 'An exciting indoor action-park with trampolines, climbing walls, and obstacle courses that guarantee a fun day out.',
-        rating: 4.6,
-        speaksEnglish: false,
-        imageUrl: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?w=600&q=80',
-        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Kima+Guadalajara'
-    },
-    {
         id: 109,
         name: 'KidZania',
         category: 'Entertainment',
@@ -897,14 +886,14 @@ const placesData = [
     },
     {
         id: 110,
-        name: 'Panorama',
+        name: 'Motion Boulder',
         category: 'Entertainment',
         familyFriendly: true,
         description: 'A vibrant indoor climbing and bouldering gym. Great for active families and people looking for a physical challenge.',
         rating: 4.7,
         speaksEnglish: true,
         imageUrl: 'https://images.unsplash.com/photo-1522163182402-834f871fd851?w=600&q=80',
-        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Panorama+climbing+Guadalajara'
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Motion+Boulder+Guadalajara'
     },
     {
         id: 111,
