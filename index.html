@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <!-- Unicons for easy icons without react -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 </head>
+
 <body>
     <div id="login-container" class="login-wrapper">
         <div class="login-card">
@@ -41,42 +43,42 @@
             <button id="profile-btn" class="profile-btn" title="Your Profile"><i class="uil uil-user"></i></button>
             <div class="header-content">
                 <h1 id="welcome-heading">Hey Neighbor <i class="uil uil-smile"></i></h1>
-            <p>Your guide to the best spots in Guadalajara, categorized just for you.</p>
-        </div>
-    </header>
-
-    <main class="container">
-        <section class="filters-section">
-            <div class="category-dropdown-wrapper" id="category-dropdown-wrapper">
-                <button id="category-dropdown-btn" class="category-dropdown-btn">
-                    <span class="dropdown-btn-left">
-                        <i class="uil uil-apps"></i>
-                        <span id="dropdown-label">Browse Categories</span>
-                    </span>
-                    <i class="uil uil-angle-down" id="dropdown-arrow"></i>
-                </button>
-                <div id="category-dropdown-list" class="category-dropdown-list" style="display:none;">
-                    <!-- injected by JS -->
-                </div>
+                <p>Here are the best spots in GDL, that the community recommended</p>
             </div>
-            <div id="search-bar-section" class="search-bar-section" style="display:none;">
-                <button id="back-to-categories-btn" class="back-to-cat-btn" title="Back to categories">
-                    <i class="uil uil-arrow-left"></i>
-                </button>
-                <div class="search-input-wrapper">
-                    <i class="uil uil-search search-icon-input"></i>
-                    <input type="text" id="place-search-input" class="place-search-input" placeholder="Search...">
-                    <button id="clear-search-btn" class="clear-search-btn" style="display:none;">
-                        <i class="uil uil-times"></i>
+        </header>
+
+        <main class="container">
+            <section class="filters-section">
+                <div class="category-dropdown-wrapper" id="category-dropdown-wrapper">
+                    <button id="category-dropdown-btn" class="category-dropdown-btn">
+                        <span class="dropdown-btn-left">
+                            <i class="uil uil-apps"></i>
+                            <span id="dropdown-label">Browse Categories</span>
+                        </span>
+                        <i class="uil uil-angle-down" id="dropdown-arrow"></i>
                     </button>
+                    <div id="category-dropdown-list" class="category-dropdown-list" style="display:none;">
+                        <!-- injected by JS -->
+                    </div>
                 </div>
-            </div>
-        </section>
+                <div id="search-bar-section" class="search-bar-section" style="display:none;">
+                    <button id="back-to-categories-btn" class="back-to-cat-btn" title="Back to categories">
+                        <i class="uil uil-arrow-left"></i>
+                    </button>
+                    <div class="search-input-wrapper">
+                        <i class="uil uil-search search-icon-input"></i>
+                        <input type="text" id="place-search-input" class="place-search-input" placeholder="Search...">
+                        <button id="clear-search-btn" class="clear-search-btn" style="display:none;">
+                            <i class="uil uil-times"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
 
-        <section id="places-grid" class="grid">
-            <!-- Place cards will be injected here by JS -->
-        </section>
-    </main>
+            <section id="places-grid" class="grid">
+                <!-- Place cards will be injected here by JS -->
+            </section>
+        </main>
     </div> <!-- Close app-container -->
 
     <!-- Floating Action Button for Premium Feature -->
@@ -127,9 +129,9 @@
                     <label>MXN Amount ($)</label>
                     <input type="number" id="mxn-input" placeholder="e.g. 250.00" step="0.01">
                 </div>
-                
-                </div>
-            
+
+            </div>
+
             <div class="converter-result">
                 <h4>Equals to</h4>
                 <div class="mxn-amount" id="usd-result">$0.00 USD</div>
@@ -209,15 +211,19 @@
 
     <!-- Events Screen -->
     <div id="events-screen" style="display: none; background-color: var(--bg-color); min-height: 100vh;">
-        <header class="header detail-header" style="text-align: left; padding: 2rem; display: flex; flex-direction: column; align-items: flex-start; border-radius: 0 0 30px 30px;">
-            <button id="close-events-screen-btn" class="btn-scan" style="margin-bottom: 2rem; padding: 0.5rem 1rem;"><i class="uil uil-arrow-left"></i> Back to Dashboard</button>
+        <header class="header detail-header"
+            style="text-align: left; padding: 2rem; display: flex; flex-direction: column; align-items: flex-start; border-radius: 0 0 30px 30px;">
+            <button id="close-events-screen-btn" class="btn-scan" style="margin-bottom: 2rem; padding: 0.5rem 1rem;"><i
+                    class="uil uil-arrow-left"></i> Back to Dashboard</button>
             <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">Cultural Events 🏮</h1>
             <p style="color: var(--bg-color); opacity: 0.9;">Find international festivals and events near you.</p>
         </header>
 
         <main class="container" style="padding-top: 2rem;">
             <div class="input-group" style="margin-bottom: 2rem;">
-                <input type="text" id="events-search-input" placeholder="Search a culture (e.g., India, German) or festival..." style="width:100%; padding: 1rem; border-radius: 10px; border: 2px solid var(--clr-blue); outline: none; font-size: 1rem;">
+                <input type="text" id="events-search-input"
+                    placeholder="Search a culture (e.g., India, German) or festival..."
+                    style="width:100%; padding: 1rem; border-radius: 10px; border: 2px solid var(--clr-blue); outline: none; font-size: 1rem;">
             </div>
             <div id="events-list" class="grid">
                 <!-- Events will be output here by JS -->
@@ -228,4 +234,5 @@
     <script src="data.js"></script>
     <script src="app.js"></script>
 </body>
+
 </html>
