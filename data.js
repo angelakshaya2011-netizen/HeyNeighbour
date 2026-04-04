@@ -695,6 +695,106 @@ const placesData = [
         speaksEnglish: false,
         imageUrl: 'https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=600&q=80',
         mapsUrl: "https://www.google.com/maps/search/?api=1&query=Veterinaria+Cats+and+Dogs+Guadalajara"
+    },
+    {
+        id: 71,
+        name: 'México Americano Hospital',
+        category: 'Clinics',
+        description: 'A reliable hospital providing general surgery, maternity care, and family medicine.',
+        rating: 3.6,
+        speaksEnglish: true,
+        imageUrl: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Hospital+Mexico+Americano+Guadalajara'
+    },
+    {
+        id: 72,
+        name: 'Hospital Puerta de Hierro',
+        category: 'Clinics',
+        description: 'A high-end medical center specializing in advanced surgeries, cardiology, and sports medicine.',
+        rating: 4.0,
+        speaksEnglish: true,
+        imageUrl: 'https://images.unsplash.com/photo-1538108149393-cebb47ac7984?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Hospital+Puerta+de+Hierro+Andares+Guadalajara'
+    },
+    {
+        id: 73,
+        name: 'Hospital San Javier',
+        category: 'Clinics',
+        description: 'A full-service hospital known for cancer treatment, heart surgery, and 24/7 emergencies.',
+        rating: 3.7,
+        speaksEnglish: true,
+        imageUrl: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Hospital+San+Javier+Guadalajara'
+    },
+    {
+        id: 74,
+        name: 'Hospital San Francisco de Asís',
+        category: 'Clinics',
+        description: 'A professional facility focused on general medical care, internal medicine, and surgery.',
+        rating: 3.5,
+        speaksEnglish: false,
+        imageUrl: 'https://images.unsplash.com/photo-1551076805-e1869033e561?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Hospital+San+Francisco+de+Asis+Guadalajara'
+    },
+    {
+        id: 75,
+        name: 'Hospital Jardines',
+        category: 'Clinics',
+        description: 'A private hospital known for orthopedic surgery, weight loss procedures, and emergencies.',
+        rating: 3.6,
+        speaksEnglish: false,
+        imageUrl: 'https://images.unsplash.com/photo-1502740479091-635887520276?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Hospital+Jardines+Guadalajara'
+    },
+    {
+        id: 76,
+        name: 'Clinica Ginecologica Providencia',
+        category: 'Clinics',
+        description: 'A smaller medical center offering outpatient surgery, laboratory tests, and general check-ups.',
+        rating: 2.7,
+        speaksEnglish: false,
+        imageUrl: 'https://images.unsplash.com/photo-1638202993928-7267aad84c31?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Clinica+Ginecologica+Providencia+Guadalajara'
+    },
+    {
+        id: 77,
+        name: 'Real San José Hospital',
+        category: 'Clinics',
+        description: 'A modern facility providing high-tech imaging, maternity services, and specialized consultations.',
+        rating: 3.4,
+        speaksEnglish: false,
+        imageUrl: 'https://images.unsplash.com/photo-1560205001-a76cd1fba76d?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/place/Hospital+Real+San+Jose/@20.6973647,-103.4195811,14z/data=!3m1!5s0x8428ae889fa0fa41:0x4d14c68df9722d93!4m10!1m2!2m1!1sHospital+Real+San+Jose+Guadalajara!3m6!1s0x8428ae88a051e085:0xba5be62f4811d11b!8m2!3d20.6728373!4d-103.4095175!15sCiJIb3NwaXRhbCBSZWFsIFNhbiBKb3NlIEd1YWRhbGFqYXJhkgEQcHJpdmF0ZV9ob3NwaXRhbOABAA!16s%2Fg%2F1tdp9ygs?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D'
+    },
+    {
+        id: 78,
+        name: 'Ninus Pediatric Hospital',
+        category: 'Clinics',
+        description: 'A hospital built specifically for the medical needs of children.',
+        rating: 4.5,
+        speaksEnglish: true,
+        imageUrl: 'https://images.unsplash.com/photo-1542898953-ce20cd292558?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Ninus+Centro+Integral+Pediatrico+Guadalajara'
+    },
+    {
+        id: 79,
+        name: 'San Jose Valle Real Hospital',
+        category: 'Clinics',
+        description: 'A specialized branch focused on pediatric emergencies and children\'s health check-ups.',
+        rating: 3.7,
+        speaksEnglish: true,
+        imageUrl: 'https://images.unsplash.com/photo-1596541223130-5d56447ceb6c?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Hospital+Real+San+Jose+Valle+Real+Guadalajara'
+    },
+    {
+        id: 80,
+        name: 'La Unidad de Patología',
+        category: 'Clinics',
+        description: 'A premier diagnostic building for blood tests, biopsies, and advanced medical imaging.',
+        rating: 3.9,
+        speaksEnglish: false,
+        imageUrl: 'https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/place/Unidad+de+Patolog%C3%ADa+Cl%C3%ADnica+e+Imagenolog%C3%ADa/@20.6790268,-103.4106715,13z/data=!3m1!5s0x8428ae1162d94179:0x115b1e977b881e1e!4m10!1m2!2m1!1sLa+Unidad+de+Patologia+Guadalajara!3m6!1s0x8428ae6f337d958d:0xcb076a23316a80c1!8m2!3d20.6790268!4d-103.3756526!15sCiJMYSBVbmlkYWQgZGUgUGF0b2xvZ2lhIEd1YWRhbGFqYXJhWiQiImxhIHVuaWRhZCBkZSBwYXRvbG9naWEgZ3VhZGFsYWphcmGSAQttZWRpY2FsX2xhYpoBI0NoWkRTVWhOTUc5blMwVkpRMEZuVFVOWk1uRnRSRXBSRUFF4AEA-gEECGsQNg!16s%2Fg%2F1tx1thwk?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D'
     }
 ];
 
