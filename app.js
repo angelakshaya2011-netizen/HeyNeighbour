@@ -1,25 +1,25 @@
 document.addEventListener("DOMContentLoaded", () => {
     const grid = document.getElementById("places-grid");
     const filtersContainer = document.getElementById("category-filters");
-    
+
     // Extract unique categories from placesData (which is loaded via data.js)
     const categories = ["All", ...new Set(placesData.map(place => place.category))];
-    
+
     let currentCategory = "All";
     let currentSearchTerm = "";
     let dropdownOpen = false;
 
-    function getCategoryIcon(cat) {
-        const icons = {
-            "All": "uil-apps",
-            "Restaurants": "uil-restaurant",
-            "Clothing": "uil-shopping-bag",
-            "Hair Salons": "uil-scissors",
-            "Vets": "uil-paw",
-            "Clinics": "uil-medical-square",
-            "Entertainment": "uil-ticket"
+    function getCategoryEmoji(cat) {
+        const emojis = {
+            "All": "🌍",
+            "Restaurants": "🍽️",
+            "Clothing": "👕",
+            "Hair Salons": "✂️",
+            "Vets": "🐾",
+            "Clinics": "🏥",
+            "Entertainment": "🎭"
         };
-        return icons[cat] || "uil-tag-alt";
+        return emojis[cat] || "🏷️";
     }
 
     function buildDropdown() {
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
         categories.forEach(cat => {
             const item = document.createElement("div");
             item.className = "dropdown-item";
-            item.innerHTML = `<i class="uil ${getCategoryIcon(cat)}"></i> ${cat}`;
+            item.innerHTML = `<span style="font-size: 1.2em; margin-right: 8px;">${getCategoryEmoji(cat)}</span> ${cat}`;
             item.addEventListener("click", () => selectCategory(cat));
             list.appendChild(item);
         });
@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     place.vegetarianOptions ? 'vegetarian veg options friendly' : '',
                     place.familyFriendly ? 'family friendly kids familiar' : 'adults only'
                 ].join(' ').toLowerCase();
-                
+
                 return searchTokens.includes(term);
             });
         }
@@ -118,14 +118,14 @@ document.addEventListener("DOMContentLoaded", () => {
         filtered.forEach(place => {
             const card = document.createElement("div");
             card.className = "card";
-            
+
             card.innerHTML = `
                 <img src="${place.imageUrl}" alt="${place.name}" class="card-img" loading="lazy">
                 <div class="card-content">
                     <div class="card-header">
                         <div>
                             <h3 class="card-title">${place.name}</h3>
-                            <span class="card-category">${place.category}</span>
+                            <span class="card-category">${getCategoryEmoji(place.category)} ${place.category}</span>
                         </div>
                         <div class="card-rating">
                             <i class="uil uil-star"></i> ${place.rating}
@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                 </div>
             `;
-            
+
             grid.appendChild(card);
         });
     }
@@ -166,14 +166,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function initApp() {
         const savedUser = localStorage.getItem("heyNeighborUser");
-        
+
         if (savedUser) {
             // User exists, show app and personalize
             const userData = JSON.parse(savedUser);
             loginContainer.style.display = "none";
             appContainer.style.display = "block";
             welcomeHeading.innerHTML = `Hey ${userData.name}! <i class="uil uil-smile"></i>`;
-            
+
             // Show FAB and restore premium look if applicable
             premiumFab.style.display = "flex";
             if (checkPremiumStatus()) {
@@ -185,6 +185,12 @@ document.addEventListener("DOMContentLoaded", () => {
             // Render logic
             buildDropdown();
             renderPlaces();
+            
+            // Check for onboarding
+            const onboarded = localStorage.getItem("heyNeighborOnboarded");
+            if (!onboarded) {
+                document.getElementById("instruction-modal").style.display = "flex";
+            }
         } else {
             // No user — hide everything and show login
             loginContainer.style.display = "flex";
@@ -200,9 +206,27 @@ document.addEventListener("DOMContentLoaded", () => {
     const verifyEmailDisplay = document.getElementById("verify-email-display");
     const btnBackLogin = document.getElementById("btn-back-login");
 
+    // --- Instruction Modal Logic ---
+    const instructionModal = document.getElementById("instruction-modal");
+    const closeInstructionBtn = document.getElementById("close-instruction-btn");
+    const helpBtn = document.getElementById("help-btn");
+
+    if (helpBtn) {
+        helpBtn.addEventListener("click", () => {
+            instructionModal.style.display = "flex";
+        });
+    }
+
+    if (closeInstructionBtn) {
+        closeInstructionBtn.addEventListener("click", () => {
+            instructionModal.style.display = "none";
+            localStorage.setItem("heyNeighborOnboarded", "true");
+        });
+    }
+
     loginForm.addEventListener("submit", (e) => {
         e.preventDefault(); // Prevent page reload
-        
+
         tempUserData = {
             name: document.getElementById("user-name").value,
             email: document.getElementById("user-email").value,
@@ -210,13 +234,13 @@ document.addEventListener("DOMContentLoaded", () => {
             age: document.getElementById("user-age").value,
             language: document.getElementById("user-language").value
         };
-        
+
         // Generate random 4-digit code
         currentVerificationCode = Math.floor(1000 + Math.random() * 9000).toString();
-        
+
         // Simulate sending email
         alert("SIMULATED EMAIL:\n\nHello " + tempUserData.name + ",\nYour verification code is: " + currentVerificationCode);
-        
+
         // Update UI
         verifyEmailDisplay.textContent = tempUserData.email;
         loginForm.style.display = "none";
@@ -237,8 +261,29 @@ document.addEventListener("DOMContentLoaded", () => {
             loginForm.reset();
             currentVerificationCode = null;
             tempUserData = null;
-            // Boot app
-            initApp();
+
+            // Show splash instead of direct boot
+            loginContainer.style.display = "none";
+            const splashScreen = document.getElementById("splash-screen");
+            if (splashScreen) {
+                splashScreen.style.display = "flex";
+
+                // Allow browser to render display flex fully
+                setTimeout(() => {
+                    splashScreen.style.opacity = "1";
+
+                    setTimeout(() => {
+                        splashScreen.style.opacity = "0";
+                        setTimeout(() => {
+                            splashScreen.style.display = "none";
+                            // Boot app
+                            initApp();
+                        }, 500); // fade out transition
+                    }, 2500); // 0.5s fade in + 1.5s fully visible
+                }, 50);
+            } else {
+                initApp();
+            }
         } else {
             alert("Incorrect verification code. Please try again.");
         }
@@ -307,52 +352,124 @@ document.addEventListener("DOMContentLoaded", () => {
     const dashboardModal = document.getElementById("dashboard-modal");
     const converterModal = document.getElementById("converter-modal");
     const eventsScreen = document.getElementById("events-screen");
-    
+
     const closePaymentBtn = document.getElementById("close-payment-modal");
     const closeDashboardBtn = document.getElementById("close-dashboard-modal");
     const closeConverterBtn = document.getElementById("close-converter-modal");
     const closeEventsScreenBtn = document.getElementById("close-events-screen-btn");
-    
+
     const openConverterBtn = document.getElementById("open-converter-btn");
     const openEventsBtn = document.getElementById("open-events-btn");
-    
+
     const paymentForm = document.getElementById("payment-form");
-    
-    const mxnInput = document.getElementById("mxn-input");
-    const usdResult = document.getElementById("usd-result");
+
+    // New Multi-Currency Elements
+    const fromCurrencySelect = document.getElementById("from-currency-select");
+    const toCurrencySelect = document.getElementById("to-currency-select");
+    const converterAmountInput = document.getElementById("converter-amount-input");
+    const converterResultDisplay = document.getElementById("converter-result-display");
     const currentRateDisplay = document.getElementById("current-rate-display");
-    
-    let mxnExchangeRate = 17.00; // Fallback default rate
+    const baseSymbolDisplay = document.getElementById("base-symbol-display");
+    const targetSymbolDisplay = document.getElementById("target-symbol-display");
+
+    let currentExchangeRates = {}; 
+    let baseCurrency = "USD";
+    let targetCurrency = "MXN";
     let liveUpdateInterval = null;
 
-    // Fetch live rate
-    async function fetchExchangeRate() {
-        try {
-            currentRateDisplay.textContent = "Updating..."; // Visual feedback
-            const res = await fetch("https://api.exchangerate-api.com/v4/latest/USD?t=" + new Date().getTime()); // Bypass cache
-            const data = await res.json();
-            if (data && data.rates && data.rates.MXN) {
-                mxnExchangeRate = data.rates.MXN;
-            }
-        } catch (error) {
-            console.error("Could not fetch live exchange rate. Using fallback.");
-        }
-        currentRateDisplay.textContent = mxnExchangeRate.toFixed(2);
-        convertMXNToUSD(); // Refresh conversion with new rate
-    }
-    
-    // Convert logic (MXN to USD)
-    function convertMXNToUSD() {
-        const mxnVal = parseFloat(mxnInput.value);
-        if (isNaN(mxnVal) || mxnExchangeRate === 0) {
-            usdResult.textContent = "$0.00 USD";
-            return;
-        }
-        const usdVal = (mxnVal / mxnExchangeRate).toFixed(2);
-        usdResult.textContent = `$${usdVal} USD`;
+    const commonCurrencies = [
+        "USD", "EUR", "GBP", "JPY", "CAD", "AUD", "MXN", "INR", "BRL", "CHF", "CNY", "HKD", "NZD", "SEK", "KRW", "SGD", "NOK", "TRY", "RUB", "ZAR", "THB", "MYR", "IDR", "PHP", "TWD", "DKK", "PLN", "AED", "SAR"
+    ];
+
+    function populateCurrencyDropdowns() {
+        if (!fromCurrencySelect || !toCurrencySelect) return;
+        
+        fromCurrencySelect.innerHTML = "";
+        toCurrencySelect.innerHTML = "";
+        
+        commonCurrencies.sort().forEach(code => {
+            const optFrom = document.createElement("option");
+            optFrom.value = code;
+            optFrom.textContent = code;
+            if (code === baseCurrency) optFrom.selected = true;
+            fromCurrencySelect.appendChild(optFrom);
+
+            const optTo = document.createElement("option");
+            optTo.value = code;
+            optTo.textContent = code;
+            if (code === targetCurrency) optTo.selected = true;
+            toCurrencySelect.appendChild(optTo);
+        });
     }
 
-    mxnInput.addEventListener("input", convertMXNToUSD);
+    async function fetchExchangeRate() {
+        try {
+            if (currentRateDisplay) currentRateDisplay.textContent = "Updating...";
+            
+            baseCurrency = fromCurrencySelect.value;
+            targetCurrency = toCurrencySelect.value;
+            
+            const res = await fetch(`https://api.exchangerate-api.com/v4/latest/${baseCurrency}?t=${new Date().getTime()}`);
+            const data = await res.json();
+            
+            if (data && data.rates) {
+                currentExchangeRates = data.rates;
+                const rate = currentExchangeRates[targetCurrency];
+                
+                if (currentRateDisplay) currentRateDisplay.textContent = rate.toFixed(4);
+                if (baseSymbolDisplay) baseSymbolDisplay.textContent = baseCurrency;
+                if (targetSymbolDisplay) targetSymbolDisplay.textContent = targetCurrency;
+                
+                performConversion();
+            }
+        } catch (error) {
+            console.error("Could not fetch live exchange rate:", error);
+            if (currentRateDisplay) currentRateDisplay.textContent = "Error";
+        }
+    }
+
+    function performConversion() {
+        const amount = parseFloat(converterAmountInput.value);
+        if (isNaN(amount)) {
+            converterResultDisplay.textContent = "0.00";
+            return;
+        }
+
+        const rate = currentExchangeRates[targetCurrency];
+        if (rate) {
+            const result = (amount * rate).toFixed(2);
+            // Format with currency symbol if possible, or just code
+            converterResultDisplay.textContent = `${result} ${targetCurrency}`;
+        }
+    }
+
+    // Listeners
+    if (fromCurrencySelect) {
+        fromCurrencySelect.addEventListener("change", () => {
+            fetchExchangeRate();
+        });
+    }
+
+    if (toCurrencySelect) {
+        toCurrencySelect.addEventListener("change", () => {
+            const rate = currentExchangeRates[toCurrencySelect.value];
+            if (rate) {
+                targetCurrency = toCurrencySelect.value;
+                if (currentRateDisplay) currentRateDisplay.textContent = rate.toFixed(4);
+                if (targetSymbolDisplay) targetSymbolDisplay.textContent = targetCurrency;
+                performConversion();
+            } else {
+                fetchExchangeRate();
+            }
+        });
+    }
+
+    if (converterAmountInput) {
+        converterAmountInput.addEventListener("input", performConversion);
+    }
+
+    // Initialize dropdowns once
+    populateCurrencyDropdowns();
 
     function checkPremiumStatus() {
         return localStorage.getItem("heyNeighborPremium") === "true";
@@ -378,11 +495,11 @@ document.addEventListener("DOMContentLoaded", () => {
     openConverterBtn.addEventListener("click", () => {
         dashboardModal.style.display = "none";
         converterModal.style.display = "flex";
-        
-        // Always fetch immediately and start live polling every 10 seconds
+
+        // Always fetch immediately and start live polling every 5 seconds
         fetchExchangeRate();
         if (liveUpdateInterval) clearInterval(liveUpdateInterval);
-        liveUpdateInterval = setInterval(fetchExchangeRate, 10000);
+        liveUpdateInterval = setInterval(fetchExchangeRate, 5000);
     });
 
     openEventsBtn.addEventListener("click", () => {
@@ -390,8 +507,8 @@ document.addEventListener("DOMContentLoaded", () => {
         appContainer.style.display = "none";
         premiumFab.style.display = "none";
         eventsScreen.style.display = "block";
-        window.scrollTo(0,0);
-        renderPremiumEvents(""); 
+        window.scrollTo(0, 0);
+        renderPremiumEvents("");
     });
 
     closeEventsScreenBtn.addEventListener("click", () => {
@@ -404,7 +521,7 @@ document.addEventListener("DOMContentLoaded", () => {
         converterModal.style.display = "none";
         mxnInput.value = "";
         usdResult.textContent = "$0.00 USD";
-        
+
         if (liveUpdateInterval) {
             clearInterval(liveUpdateInterval);
             liveUpdateInterval = null;
@@ -418,14 +535,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const originalText = payBtn.textContent;
         payBtn.textContent = "Processing...";
         payBtn.disabled = true;
-        
+
         setTimeout(() => {
             localStorage.setItem("heyNeighborPremium", "true");
             payBtn.textContent = originalText;
             payBtn.disabled = false;
             paymentModal.style.display = "none";
             premiumFab.classList.add("unlocked");
-            
+
             // Open dashboard directly instead of converter
             dashboardModal.style.display = "flex";
         }, 1500); // 1.5s delay mimic
@@ -440,11 +557,11 @@ document.addEventListener("DOMContentLoaded", () => {
     function renderPremiumEvents(query) {
         eventsList.innerHTML = "";
         const lowerQuery = query.toLowerCase().trim();
-        
+
         let filteredEvents = eventsData;
         if (lowerQuery !== "") {
-            filteredEvents = eventsData.filter(event => 
-                event.title.toLowerCase().includes(lowerQuery) || 
+            filteredEvents = eventsData.filter(event =>
+                event.title.toLowerCase().includes(lowerQuery) ||
                 event.culture.toLowerCase().includes(lowerQuery) ||
                 event.location.toLowerCase().includes(lowerQuery)
             );
@@ -458,7 +575,7 @@ document.addEventListener("DOMContentLoaded", () => {
         filteredEvents.forEach(evt => {
             const card = document.createElement("div");
             card.className = "card";
-            
+
             card.innerHTML = `
                 <img src="${evt.imageUrl}" alt="${evt.title}" class="card-img" loading="lazy">
                 <div class="card-content">
@@ -481,7 +598,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                 </div>
             `;
-            
+
             eventsList.appendChild(card);
         });
     }
