@@ -519,8 +519,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     closeConverterBtn.addEventListener("click", () => {
         converterModal.style.display = "none";
-        mxnInput.value = "";
-        usdResult.textContent = "$0.00 USD";
+        if (converterAmountInput) converterAmountInput.value = "";
+        if (converterResultDisplay) converterResultDisplay.textContent = "0.00";
 
         if (liveUpdateInterval) {
             clearInterval(liveUpdateInterval);
