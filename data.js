@@ -1,7 +1,7 @@
 const placesData = [
     {
         id: 1,
-        name: 'Café Icarus',
+        name: 'CafÃ© Icarus',
         category: 'Restaurants',
         description: 'Ideal place to have breakfast and brunch with your friends.They are known for their cold brew coffe.',
         rating: 4.7,
@@ -21,9 +21,9 @@ const placesData = [
     },
     {
         id: 3,
-        name: 'Cantalú',
+        name: 'CantalÃº',
         category: 'Restaurants',
-        description: 'A cozy health-focused café specializing in baguettes, chapatas, and "Vaketos" (unique keto-friendly desserts).',
+        description: 'A cozy health-focused cafÃ© specializing in baguettes, chapatas, and "Vaketos" (unique keto-friendly desserts).',
         speaksEnglish: true,
         rating: 4.6,
         vegetarianOptions: true,
@@ -48,7 +48,7 @@ const placesData = [
         description: 'Excellent contemporary Nayarit-style seafood restaurant, perfect for a high-end lunch.',
         rating: 4.9,
         speaksEnglish: true,
-        imageUrl: 'https://images.unsplash.com/photo-1615141982883-c7da0e69f591?w=600&q=80',
+        imageUrl: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/56/dc/23/campomar-punto-sur.jpg?w=1400&h=-1&s=1',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Campomar+Andares+Guadalajara'
     },
     {
@@ -75,7 +75,7 @@ const placesData = [
     },
     {
         id: 8,
-        name: 'Tortas Toño',
+        name: 'Tortas ToÃ±o',
         category: 'Restaurants',
         vegetarianOptions: false,
         description: 'One of the most famous chains for Tortas Ahogadas (pork sandwiches drowned in tomato and chili sauce).',
@@ -92,7 +92,7 @@ const placesData = [
         description: 'A contemporary Mexican restaurant that reinterprets traditional street food into high-end dishes with a vibrant, festive atmosphere',
         rating: 4.4,
         speaksEnglish: true,
-        imageUrl: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=600&q=80',
+        imageUrl: 'https://porfirios.com.mx/en/wp-content/uploads/sites/2/2023/09/porfirios-mejor-restaurante-mexicano-en-puebla.jpg',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Porfirios+Guadalajara'
     },
     {
@@ -103,12 +103,12 @@ const placesData = [
         description: 'A contemporary Mexican restaurant that reinterprets traditional street food into high-end dishes with a vibrant, festive atmosphere',
         rating: 4.4,
         speaksEnglish: true,
-        imageUrl: 'https://images.unsplash.com/photo-1563514995968-07d4b4dd5fa5?w=600&q=80',
+        imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNBvmJvPnakWcqRqzXiUgFwUi_ehyqePhpKA&s',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Nikolaza+Guadalajara'
     },
     {
         id: 11,
-        name: 'Carne Asada Ramón',
+        name: 'Carne Asada RamÃ³n',
         category: 'Restaurants',
         vegetarianOptions: false,
         description: 'Authentic local spot famous for its traditional carne asada and homemade style tortillas.',
@@ -119,10 +119,10 @@ const placesData = [
     },
     {
         id: 12,
-        name: 'Café Presente',
+        name: 'CafÃ© Presente',
         category: 'Restaurants',
         vegetarianOptions: true,
-        description: 'A cozy café with great coffee and a relaxing atmosphere, perfect for a quiet afternoon or reading.',
+        description: 'A cozy cafÃ© with great coffee and a relaxing atmosphere, perfect for a quiet afternoon or reading.',
         rating: 4.5,
         speaksEnglish: true,
         imageUrl: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600&q=80',
@@ -147,7 +147,7 @@ const placesData = [
         description: 'An authentic Greek restaurant offering delicious gyros, pita bread, and Mediterranean flavors.',
         rating: 4.6,
         speaksEnglish: true,
-        imageUrl: 'https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=600&q=80',
+        imageUrl: 'https://henriquezlara.com/wp-content/uploads/2022/11/GYROPOLUS_HENRIQUEZLARA_03.jpg',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Gyropolus+Guadalajara'
     },
     {
@@ -162,7 +162,7 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Pizza+Power+Valparaiso+Guadalajara'
     },
     {
-        id: 17,
+        id: 16,
         name: 'Qin Oriental Food',
         category: 'Restaurants',
         vegetarianOptions: true,
@@ -173,30 +173,30 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Qin+Oriental+Food+Midtown+Guadalajara'
     },
     {
-        id: 18,
+        id: 17,
         name: 'La Artesanal',
         category: 'Restaurants',
         vegetarianOptions: true,
         description: 'A lovely spot featuring artisanal baking, sandwiches, and healthy eating options.',
         rating: 4.6,
         speaksEnglish: true,
-        imageUrl: 'https://images.unsplash.com/photo-1495474472200-c8f2ba1cbdd0?w=600&q=80',
+        imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT0FdsoV9fmukYD9whxrdD4YAZALKrJ2miXQ&s',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=La+Artesanal+Midtown+Guadalajara'
     },
     {
-        id: 19,
+        id: 18,
         name: 'Las Flautas Gdl',
         category: 'Restaurants',
         vegetarianOptions: false,
-        description: 'A classic local spot at Valparaíso 2372 known for its incredibly crispy and savory Mexican flautas.',
+        description: 'A classic local spot at ValparaÃ­so 2372 known for its incredibly crispy and savory Mexican flautas.',
         rating: 4.7,
         speaksEnglish: false,
-        imageUrl: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80',
+        imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2zt1mTwY8duZyODr93bxgdERStSEQwHIICQ&s',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Las+Flautas+Gdl+Valparaiso'
     },
     {
-        id: 20,
-        name: 'Mar De Cortés',
+        id: 19,
+        name: 'Mar De CortÃ©s',
         category: 'Restaurants',
         vegetarianOptions: false,
         description: 'A premium seafood restaurant offering fresh coastal flavors and a refined dining experience.',
@@ -206,7 +206,7 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Mar+de+Cortes+Restaurante+Guadalajara'
     },
     {
-        id: 21,
+        id: 20,
         name: 'Tacos Juan',
         category: 'Restaurants',
         vegetarianOptions: false,
@@ -217,29 +217,29 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Tacos+Juan+Guadalajara'
     },
     {
-        id: 23,
-        name: 'Las Tortas Rika',
+        id: 21,
+        name: 'Las Tortas Ahogadas el Rika',
         category: 'Restaurants',
         vegetarianOptions: false,
         description: 'Local favorite serving hearty, flavorful tortas in a fast, casual environment.',
         rating: 4.2,
         speaksEnglish: false,
-        imageUrl: 'https://images.unsplash.com/photo-1628840042765-356cda07504e?w=600&q=80',
+        imageUrl: 'https://images.rappi.com.mx/restaurants_logo/1930199984-1720715441335.png',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Las+Tortas+Rika+Guadalajara'
     },
     {
-        id: 24,
+        id: 22,
         name: 'Damiana',
         category: 'Restaurants',
         vegetarianOptions: true,
-        description: 'A beautiful blend of coffee culture and literature. A quiet place to enjoy a café y libros.',
+        description: 'A beautiful blend of coffee culture and literature. A quiet place to enjoy a cafÃ© y libros.',
         rating: 4.8,
         speaksEnglish: true,
-        imageUrl: 'https://images.unsplash.com/photo-1507133750070-44473e5a40a4?w=600&q=80',
+        imageUrl: 'https://scontent.fgdl3-1.fna.fbcdn.net/v/t39.30808-6/527601621_768356262385194_3527198534014599397_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=1d70fc&_nc_ohc=NsEFOHFSHncQ7kNvwHjlMgv&_nc_oc=AdrWSNSYoWmViscE08QqAs5JNszJ99ViKViTmxAETQtIp-OSuuUEo2xEzTBlRKmLnms6uNhemtfSU5EYIC38LSVD&_nc_zt=23&_nc_ht=scontent.fgdl3-1.fna&_nc_gid=vDzb12-lh1ZQEhhG7YWyzQ&_nc_ss=7a3a8&oh=00_Af3ljgeZ4svaI_clS_4efHlh3m7pIEFNPXnIdDfun8_3fA&oe=69DA1D5A',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Damiana+Guadalajara'
     },
     {
-        id: 25,
+        id: 23,
         name: 'Sano Pecado',
         category: 'Restaurants',
         vegetarianOptions: true,
@@ -250,7 +250,7 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Sano+Pecado+Guadalajara'
     },
     {
-        id: 26,
+        id: 24,
         name: 'Suntory',
         category: 'Restaurants',
         vegetarianOptions: true,
@@ -261,7 +261,7 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Suntory+Guadalajara'
     },
     {
-        id: 27,
+        id: 25,
         name: 'Tacos Paris',
         category: 'Restaurants',
         vegetarianOptions: false,
@@ -272,7 +272,7 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Tacos+Paris+Guadalajara'
     },
     {
-        id: 28,
+        id: 26,
         name: 'Buffalo Wild Wings',
         category: 'Restaurants',
         vegetarianOptions: false,
@@ -283,19 +283,19 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Buffalo+Wild+Wings+Midtown+Guadalajara'
     },
     {
-        id: 29,
+        id: 27,
         name: 'Mil Caguamas',
         category: 'Restaurants',
         vegetarianOptions: false,
         description: 'Relaxed bar and grill setting offering large portions of seafood and cold beer.',
         rating: 4.3,
         speaksEnglish: false,
-        imageUrl: 'https://images.unsplash.com/photo-1534068307252-eb0ae9ee6820?w=600&q=80',
+        imageUrl: 'https://tb-static.uber.com/prod/image-proc/processed_images/76d581f9b2a1438e428fe24c926577a9/c9252e6c6cd289c588c3381bc77b1dfc.jpeg',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Mil+Caguamas+Guadalajara'
     },
     {
-        id: 30,
-        name: 'Tacos Los Asados (López Mateos)',
+        id: 28,
+        name: 'Tacos Los Asados (LÃ³pez Mateos)',
         category: 'Restaurants',
         vegetarianOptions: false,
         description: 'Convenient and extremely flavorful tacos right off Lopez Mateos, perfect for a quick bite.',
@@ -305,18 +305,18 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Tacos+Los+Asados+Lopez+Mateos+Guadalajara'
     },
     {
-        id: 31,
+        id: 29,
         name: 'Nohm Cha',
         category: 'Restaurants',
         vegetarianOptions: true,
         description: 'Trendy spot known for serving unique teas, boba, and snacks with a lively aesthetic.',
         rating: 4.6,
         speaksEnglish: true,
-        imageUrl: 'https://images.unsplash.com/photo-1525648199074-cee30ba79a4a?w=600&q=80',
+        imageUrl: 'https://tb-static.uber.com/prod/image-proc/processed_images/1d9d77183b1241bf5feb1129b31a0365/885ba8620d45ab36746a0e8c7b85ee66.jpeg',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Nohm+Cha+Guadalajara'
     },
     {
-        id: 32,
+        id: 30,
         name: 'Santa Lucia 66',
         category: 'Restaurants',
         vegetarianOptions: true,
@@ -327,73 +327,73 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Santa+Lucia+66+Guadalajara'
     },
     {
-        id: 33,
+        id: 31,
         name: 'Tyrano',
         category: 'Restaurants',
         vegetarianOptions: false,
         description: 'Vibrant dining destination offering hearty meals and specialty crafted sandwiches and cuts.',
         rating: 4.3,
         speaksEnglish: true,
-        imageUrl: 'https://images.unsplash.com/photo-1508737804141-4c3b688e2546?w=600&q=80',
+        imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReaAa8HT5Yr38rOKT16Wo1GiijNmn-vUOoUA&s',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Tyrano+Guadalajara'
     },
     {
-        id: 34,
+        id: 32,
         name: 'Dainzu',
         category: 'Restaurants',
         vegetarianOptions: false,
         description: 'Very traditional and highly acclaimed Oaxacan food. Perfect to try mole, tlayudas, and authentic regional cuisine.',
         rating: 4.8,
         speaksEnglish: false,
-        imageUrl: 'https://images.unsplash.com/photo-1582234372722-50d7ccc30ebd?w=600&q=80',
+        imageUrl: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/03/fc/d2/47/restaurante-dainzu.jpg?w=600&h=400&s=1',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Dainzu+Guadalajara'
     },
     {
-        id: 35,
-        name: 'Frozé',
+        id: 33,
+        name: 'FrozÃ©',
         category: 'Restaurants',
         vegetarianOptions: true,
         description: 'A stylish spot focused to frozen beverages and refreshing desserts. Amazing for a hot day.',
         rating: 4.4,
         speaksEnglish: true,
-        imageUrl: 'https://images.unsplash.com/photo-1558222218-b7b54eede3f3?w=600&q=80',
+        imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5qoYA2oT03klp2q82vPwZ2hCXExCMFyM5FA&s',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Froze+Guadalajara'
     },
     {
-        id: 36,
+        id: 34,
         name: 'Vagos',
         category: 'Restaurants',
         vegetarianOptions: false,
         description: 'Cool informal spot with a laidback vibe, great bar foods, and drinks.',
         rating: 4.3,
         speaksEnglish: false,
-        imageUrl: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=600&q=80',
+        imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQADNwEcQy7bFifFQ34q_ArTxxPhZw2QRy5RQ&s',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Vagos+Guadalajara'
     },
     {
-        id: 37,
+        id: 35,
         name: 'El Terrible Juan',
         category: 'Restaurants',
         vegetarianOptions: true,
-        description: 'A hip café and breakfast spot famous for its unique brunch menu and exceptional coffee.',
+        description: 'A hip cafÃ© and breakfast spot famous for its unique brunch menu and exceptional coffee.',
         rating: 4.7,
         speaksEnglish: true,
         imageUrl: 'https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=600&q=80',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=El+Terrible+Juan+Guadalajara'
     },
     {
-        id: 38,
-        name: 'El Alto',
+        id: 36,
+        name: 'Finca los Altos',
         category: 'Restaurants',
         vegetarianOptions: false,
         description: 'A lively traditional dining option offering an array of Mexican dishes and cold drinks.',
         rating: 4.5,
         speaksEnglish: false,
-        imageUrl: 'https://images.unsplash.com/photo-1514326640560-7d063ef2aed5?w=600&q=80',
+        imageUrl: 'https://scontent.fgdl3-1.fna.fbcdn.net/v/t39.30808-6/469470418_122153362676310220_7980715346035930833_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=1d70fc&_nc_ohc=tnmf6wjAo24Q7kNvwFskLZH&_nc_oc=Adoq0PQdaH-gVL_93KGyjPHKJn8upFqmP-G7fF0RAA-WADzlnlAxKcHK962fM1FAQVMaENJWA7MfIrosuVEra1BO&_nc_zt=23&_nc_ht=scontent.fgdl3-1.fna&_nc_gid=x-bS_IibLVGlGz5W-ehdjg&_nc_ss=7a3a8&oh=00_Af1PAIY82i_A8X53FXKiWPIKPlattTAjLvrMzGTvMxvjeg&oe=69DA44C8',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=El+Alto+Guadalajara'
     },
     {
-        id: 39,
+        id: 37,
         name: 'La Lira',
         category: 'Restaurants',
         vegetarianOptions: false,
@@ -401,21 +401,9 @@ const placesData = [
         rating: 4.7,
         speaksEnglish: false,
         imageUrl: 'https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=600&q=80',
-        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=La+Lira+Carniceria+Guadalajara'
     },
     {
-        id: 40,
-        name: 'Tacos Al Vapor El Costquito',
-        category: 'Restaurants',
-        vegetarianOptions: false,
-        description: 'Unbeatable comfort food: freshly made "tacos al vapor" (steamed tacos) that are wildly popular locally.',
-        rating: 4.6,
-        speaksEnglish: false,
-        imageUrl: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80',
-        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Tacos+Al+Vapor+El+Costquito+Guadalajara'
-    },
-    {
-        id: 44,
+        id: 38,
         name: 'Sushi Central',
         category: 'Restaurants',
         vegetarianOptions: true,
@@ -426,7 +414,7 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Sushi+Central+Guadalajara'
     },
     {
-        id: 45,
+        id: 39,
         name: 'Negroni',
         category: 'Restaurants',
         vegetarianOptions: true,
@@ -437,7 +425,7 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Negroni+Midtown+Guadalajara'
     },
     {
-        id: 46,
+        id: 40,
         name: 'Nuevo Mundo - Plaza del Sol',
         category: 'Clothing',
         priceRange: '$$',
@@ -448,7 +436,7 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Nuevo+Mundo+Plaza+del+Sol+Guadalajara'
     },
     {
-        id: 47,
+        id: 41,
         name: 'Lefties',
         category: 'Clothing',
         priceRange: '$',
@@ -459,51 +447,51 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Lefties+Guadalajara'
     },
     {
-        id: 48,
+        id: 42,
         name: 'Cuidado con el Perro',
         category: 'Clothing',
         priceRange: '$',
         description: 'Highly popular Mexican fast-fashion brand famous for casual wear, graphic tees, and incredibly accessible prices.',
         rating: 4.3,
         speaksEnglish: false,
-        imageUrl: 'https://images.unsplash.com/photo-1528698827591-e19cdd722f0a?w=600&q=80',
+        imageUrl: 'https://scontent.fgdl3-1.fna.fbcdn.net/v/t39.30808-6/590802978_1456846999782091_8201110300015074117_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=13d280&_nc_ohc=hYiFdRQgedEQ7kNvwE75ZPj&_nc_oc=Adpax4v-1sloMUCFihpH12BHeYaUVF_KJb84utmZO3rxWMORvhBVtiZZ5dkt-2rd6NJhAB895NTVTAnjEL_BrGgF&_nc_zt=23&_nc_ht=scontent.fgdl3-1.fna&_nc_gid=I2H9T51uHWgWA-fCx10k8Q&_nc_ss=7a3a8&oh=00_Af3aDq8MnAnF2k22PS_uEVhgLZwklrFOCuRdFOIJsRZJiQ&oe=69DA0DF9',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Cuidado+con+el+Perro+Guadalajara'
     },
     {
-        id: 49,
+        id: 43,
         name: 'Zara',
         category: 'Clothing',
         priceRange: '$$',
         description: 'Well-known international fast-fashion retailer providing stylish and contemporary clothing for men and women.',
         rating: 4.4,
         speaksEnglish: true,
-        imageUrl: 'https://images.unsplash.com/photo-1580828369062-81525a7eb84f?w=600&q=80',
+        imageUrl: 'https://imagenes.elpais.com/resizer/v2/UNPXMS3K45E4BN75UMZNXHNXTU.jpg?auth=f203c4115873db07847bc2f588390dc58a242aae464d69e5059832becfcc8160&width=1960&height=1470&focal=2469%2C338',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Zara+Guadalajara'
     },
     {
-        id: 50,
+        id: 44,
         name: 'Pull and Bear',
         category: 'Clothing',
         priceRange: '$$',
         description: 'Trendy, youth-focused brand with a casual aesthetic, offering urban clothing and accessories.',
         rating: 4.3,
         speaksEnglish: true,
-        imageUrl: 'https://images.unsplash.com/photo-1564585222527-c2777a5bc6cb?w=600&q=80',
+        imageUrl: 'https://galeriasgdl.mx/wp-content/uploads/2023/08/PULL-BEAR.jpg',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Pull+and+Bear+Guadalajara'
     },
     {
-        id: 51,
-        name: 'Shasa (Sasha)',
+        id: 45,
+        name: 'Shasa',
         category: 'Clothing',
         priceRange: '$$',
         description: 'A prominent fashion retailer offering stylish, modern, and youthful womens apparel and accessories.',
         rating: 4.2,
         speaksEnglish: false,
-        imageUrl: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&q=80',
+        imageUrl: 'https://assets.hotfashion.mx/accounts/2/events/4/editions/34/blogArticles/575/media/951b200d-6288-401b-acc5-b39667ccfe85.jpg',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Shasa+Guadalajara'
     },
     {
-        id: 52,
+        id: 46,
         name: 'LOB (Sucursal Midtown Jalisco)',
         category: 'Clothing',
         priceRange: '$$',
@@ -514,7 +502,7 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=LOB+Midtown+Jalisco+Guadalajara'
     },
     {
-        id: 53,
+        id: 47,
         name: 'Studio F',
         category: 'Clothing',
         priceRange: '$$$',
@@ -525,7 +513,7 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Studio+F+Guadalajara'
     },
     {
-        id: 54,
+        id: 48,
         name: 'Cloe',
         category: 'Clothing',
         priceRange: '$$',
@@ -536,7 +524,7 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Cloe+Guadalajara'
     },
     {
-        id: 55,
+        id: 49,
         name: 'Julio',
         category: 'Clothing',
         priceRange: '$$$',
@@ -547,7 +535,7 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Julio+Boutique+Guadalajara'
     },
     {
-        id: 56,
+        id: 50,
         name: 'BM Saloon',
         category: 'Hair Salons',
         description: 'An aesthetic center specializing in creative hair styling, image consulting, and professional hair care. Located in the upscale Italia Providencia neighborhood.',
@@ -557,8 +545,8 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=BM+Saloon+Lopez+Mateos+Guadalajara'
     },
     {
-        id: 57,
-        name: 'Neurone Salón',
+        id: 51,
+        name: 'Neurone SalÃ³n',
         category: 'Hair Salons',
         description: 'A modern, full-service salon offering precision haircuts, professional coloring, and expert styling in a contemporary environment in Zapopan.',
         rating: 4.5,
@@ -567,57 +555,57 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Neurone+Salon+Zapopan+Guadalajara'
     },
     {
-        id: 58,
+        id: 52,
         name: 'Criminal Chic',
         category: 'Hair Salons',
-        description: 'A high-end, trendy author salon specializing in personalized cuts and creative styling. Very popular with the expat community in Ladrón de Guevara.',
+        description: 'A high-end, trendy author salon specializing in personalized cuts and creative styling. Very popular with the expat community in LadrÃ³n de Guevara.',
         rating: 4.7,
         speaksEnglish: true,
         imageUrl: 'https://images.unsplash.com/photo-1562322140-8baeececf3df?w=600&q=80',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Criminal+Chic+Joaquin+Angulo+Guadalajara'
     },
     {
-        id: 59,
+        id: 53,
         name: 'Maria Sotho',
         category: 'Hair Salons',
         description: 'A boutique aesthetic center offering personalized hair and image services in an intimate, professional setting in Jardines Alcalde.',
         rating: 4.7,
         speaksEnglish: false,
-        imageUrl: 'https://images.unsplash.com/photo-1560066984-138daaa4e4e1?w=600&q=80',
+        imageUrl: 'https://scontent.fgdl10-1.fna.fbcdn.net/v/t39.30808-6/312802464_2037269859791049_4936027710920592520_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=1d70fc&_nc_ohc=UofDn_LEBd0Q7kNvwH6jk1E&_nc_oc=AdrrcqjUE4d5DcUpalA1lZDodpmvAtp-tZqH_5r6_YDGIbvNaHJ5tETeB87UNQpfMx03ckd1oXZCkP09Zt6UqMgt&_nc_zt=23&_nc_ht=scontent.fgdl10-1.fna&_nc_gid=nr5Me1FSWn-5D60vrrv3Tw&_nc_ss=7a3a8&oh=00_Af3o3i9-gZiMF5JTY76JFubQYx_ZV7aOW-j3xMF8CVSapQ&oe=69DA2E17',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Maria+Sotho+Guadalajara'
     },
     {
-        id: 60,
+        id: 54,
         name: "Mom & Son's Salon",
         category: 'Hair Salons',
-        description: 'A highly-rated barbershop and beauty salon loved by locals and expats alike. Known for consistent quality cuts and a welcoming atmosphere in Ladrón de Guevara.',
+        description: 'A highly-rated barbershop and beauty salon loved by locals and expats alike. Known for consistent quality cuts and a welcoming atmosphere in LadrÃ³n de Guevara.',
         rating: 4.8,
         speaksEnglish: true,
-        imageUrl: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&q=80',
+        imageUrl: 'https://mid-townjalisco.com.mx/wp-content/uploads/elementor/thumbs/MomSons-r0rzs60fvy5u71mmkve7wgciq6p1mtomvbom4q096w.webp',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Mom+and+Sons+Salon+Guadalajara'
     },
     {
-        id: 61,
+        id: 55,
         name: 'El Silloncito',
         category: 'Hair Salons',
         description: 'The go-to children\'s hair salon in Guadalajara, with a fun and colorful environment designed to make haircuts enjoyable for kids of all ages.',
         rating: 4.7,
         speaksEnglish: true,
-        imageUrl: 'https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=600&q=80',
+        imageUrl: 'https://elsilloncito.com.mx/img/design/logo-og.jpg',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=El+Silloncito+Americana+Guadalajara'
     },
     {
-        id: 62,
+        id: 56,
         name: 'Hospital Veterinario Guadalajara',
         category: 'Vets',
         description: '24/7 full-service veterinary hospital offering surgery, radiology, internal medicine, and a pharmacy. One of the most complete emergency animal hospitals in the city.',
         rating: 4.4,
         speaksEnglish: true,
-        imageUrl: 'https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=600&q=80',
+        imageUrl: 'https://scontent.fgdl10-1.fna.fbcdn.net/v/t39.30808-6/469793584_573105348801376_5322662547425049532_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=2a1932&_nc_ohc=hPJK0ByXiHoQ7kNvwGkWV2c&_nc_oc=AdpVlIkb14m-wcFv1RGEZfxMeevFktskQa-hjr6MnPsnCyWDbkMDM3BWAVf_qYMnM-1sz8DWpWxJkKqUNZxiYyGB&_nc_zt=23&_nc_ht=scontent.fgdl10-1.fna&_nc_gid=nENkIAntQZKeuczTASMQ7g&_nc_ss=7a3a8&oh=00_Af0dHfV-5-eh-NqR8qIjyZnirG6wX9Ivp9KPN2NX8a0zhg&oe=69DA190F',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Hospital+Veterinario+Guadalajara+Lopez+Mateos'
     },
     {
-        id: 63,
+        id: 57,
         name: 'El Doc',
         category: 'Vets',
         description: 'Boutique veterinary clinic offering general consultations, grooming, and internal medicine. Known for personalized, high-quality care in an upscale environment.',
@@ -627,7 +615,7 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=El+Doc+veterinaria+Guadalajara'
     },
     {
-        id: 64,
+        id: 58,
         name: 'Hospital Veterinario Arboledas',
         category: 'Vets',
         description: 'A large-scale 24-hour veterinary hospital specializing in orthopedics, intensive care, and complex surgeries. Trusted by expats for emergency and specialist care.',
@@ -637,17 +625,17 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Hospital+Veterinario+Arboledas+Guadalajara'
     },
     {
-        id: 65,
-        name: 'Clínica Veterinaria Solares',
+        id: 59,
+        name: 'ClÃ­nica Veterinaria Solares',
         category: 'Vets',
         description: 'A modern veterinary clinic in the Solares residential complex offering dentistry, dermatology, and specialized aesthetic care for pets in a calm, professional setting.',
         rating: 4.1,
         speaksEnglish: true,
-        imageUrl: 'https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=600&q=80',
+        imageUrl: 'https://mivet.com/wp-content/uploads/2024/10/clinica_solares_2.jpg',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Clinica+Veterinaria+Solares+Zapopan'
     },
     {
-        id: 66,
+        id: 60,
         name: 'VetPets',
         category: 'Vets',
         description: 'A reliable general veterinary hospital providing preventive medicine, vaccinations, and surgery. Well located near the university district.',
@@ -657,17 +645,17 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=VetPets+Hospital+Veterinario+Guadalajara'
     },
     {
-        id: 67,
+        id: 61,
         name: 'PET Clinik',
         category: 'Vets',
         description: 'A high-end, modern veterinary facility offering advanced surgery, laboratory diagnostics, and 24-hour emergency care. Top choice for expats seeking premium pet healthcare.',
         rating: 4.8,
         speaksEnglish: true,
-        imageUrl: 'https://images.unsplash.com/photo-1548767797-d8c844163c4a?w=600&q=80',
+        imageUrl: 'https://scontent.fgdl3-1.fna.fbcdn.net/v/t39.30808-6/358664365_743835694413785_6330227947454179697_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=1d70fc&_nc_ohc=LBd_hxJNSwQQ7kNvwH6cE_t&_nc_oc=AdpeXGu1tguzIMbYuqzHW1lGMkEhV-rKnfGKdDmfFvbeJ9QF3SDDmImb78XooCBBk7hYWGr4xaX9vXQc2heKG1Sr&_nc_zt=23&_nc_ht=scontent.fgdl3-1.fna&_nc_gid=Oy9UsHch9rhwIlX-nVnSsg&_nc_ss=7a3a8&oh=00_Af18_cwowZeG4eJNFeC4PNBwBB0cRhTl-hI9-eJhDfdSiQ&oe=69DA4971',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=PET+Clinik+Hospital+Veterinario+Zapopan'
     },
     {
-        id: 68,
+        id: 62,
         name: 'Veterinaria Moro',
         category: 'Vets',
         description: 'A specialized veterinary diagnostic center providing hematology, laboratory studies, and expert clinical analysis. Known for its highly professional and thorough approach.',
@@ -677,17 +665,17 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Servicios+Veterinarios+Moro+Guadalajara'
     },
     {
-        id: 69,
+        id: 63,
         name: 'Lomont Hospital Veterinario',
         category: 'Vets',
         description: 'A specialized veterinary hospital focused on traumatology, orthopedics, and neurology. One of the few facilities in the city offering this level of specialist care.',
         rating: 4.3,
         speaksEnglish: true,
-        imageUrl: 'https://images.unsplash.com/photo-1617791160505-6f00504e3519?w=600&q=80',
+        imageUrl: 'https://scontent.fgdl10-1.fna.fbcdn.net/v/t39.30808-6/342182717_621022726189007_6836651587672774337_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=1d70fc&_nc_ohc=qeeB32VfMZEQ7kNvwELNVXs&_nc_oc=Adr8gv9x7UOmhb885Q5Oc--S5fT4UnaWVgow4qXb-PtvP1Chz-SM9Cn5JZ2IUgkRKQ6Iu4jpEc3aCYsjKDDeE_qO&_nc_zt=23&_nc_ht=scontent.fgdl10-1.fna&_nc_gid=zf0jc6GdpqctrugPZ8PYRQ&_nc_ss=7a3a8&oh=00_Af0r8w6tZayLlZVzhqGcYUTULI7IhiuTZ5Dsa3iDrPIzbA&oe=69DA3E41',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Lomont+Hospital+Veterinario+Guadalajara'
     },
     {
-        id: 70,
+        id: 64,
         name: "Veterinaria Cat's & Dog's",
         category: 'Vets',
         description: 'A friendly neighborhood veterinary clinic offering primary care, general consultations, vaccinations, and grooming services for cats and dogs.',
@@ -697,8 +685,8 @@ const placesData = [
         mapsUrl: "https://www.google.com/maps/search/?api=1&query=Veterinaria+Cats+and+Dogs+Guadalajara"
     },
     {
-        id: 71,
-        name: 'México Americano Hospital',
+        id: 65,
+        name: 'MÃ©xico Americano Hospital',
         category: 'Clinics',
         description: 'A reliable hospital providing general surgery, maternity care, and family medicine.',
         rating: 3.6,
@@ -707,17 +695,17 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Hospital+Mexico+Americano+Guadalajara'
     },
     {
-        id: 72,
+        id: 66,
         name: 'Hospital Puerta de Hierro',
         category: 'Clinics',
         description: 'A high-end medical center specializing in advanced surgeries, cardiology, and sports medicine.',
         rating: 4.0,
         speaksEnglish: true,
-        imageUrl: 'https://images.unsplash.com/photo-1538108149393-cebb47ac7984?w=600&q=80',
+        imageUrl: 'https://i0.wp.com/hospitalespuertadehierro.com/wp-content/uploads/2020/04/Ambulatoria-scaled.jpg?fit=2560%2C1607&ssl=1',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Hospital+Puerta+de+Hierro+Andares+Guadalajara'
     },
     {
-        id: 73,
+        id: 67,
         name: 'Hospital San Javier',
         category: 'Clinics',
         description: 'A full-service hospital known for cancer treatment, heart surgery, and 24/7 emergencies.',
@@ -727,8 +715,8 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Hospital+San+Javier+Guadalajara'
     },
     {
-        id: 74,
-        name: 'Hospital San Francisco de Asís',
+        id: 68,
+        name: 'Hospital San Francisco de AsÃ­s',
         category: 'Clinics',
         description: 'A professional facility focused on general medical care, internal medicine, and surgery.',
         rating: 3.5,
@@ -737,17 +725,17 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Hospital+San+Francisco+de+Asis+Guadalajara'
     },
     {
-        id: 75,
+        id: 69,
         name: 'Hospital Jardines',
         category: 'Clinics',
         description: 'A private hospital known for orthopedic surgery, weight loss procedures, and emergencies.',
         rating: 3.6,
         speaksEnglish: false,
-        imageUrl: 'https://images.unsplash.com/photo-1502740479091-635887520276?w=600&q=80',
+        imageUrl: 'https://img.bookimed.com/clinic_webp/6436e4b1d7617.webp',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Hospital+Jardines+Guadalajara'
     },
     {
-        id: 76,
+        id: 70,
         name: 'Clinica Ginecologica Providencia',
         category: 'Clinics',
         description: 'A smaller medical center offering outpatient surgery, laboratory tests, and general check-ups.',
@@ -757,17 +745,17 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Clinica+Ginecologica+Providencia+Guadalajara'
     },
     {
-        id: 77,
-        name: 'Real San José Hospital',
+        id: 71,
+        name: 'Real San JosÃ© Hospital',
         category: 'Clinics',
         description: 'A modern facility providing high-tech imaging, maternity services, and specialized consultations.',
         rating: 3.4,
         speaksEnglish: false,
-        imageUrl: 'https://images.unsplash.com/photo-1560205001-a76cd1fba76d?w=600&q=80',
+        imageUrl: 'https://www.tocdoc.com/sites/default/files/consultorios/real_san_jose.jpg',
         mapsUrl: 'https://www.google.com/maps/place/Hospital+Real+San+Jose/@20.6973647,-103.4195811,14z/data=!3m1!5s0x8428ae889fa0fa41:0x4d14c68df9722d93!4m10!1m2!2m1!1sHospital+Real+San+Jose+Guadalajara!3m6!1s0x8428ae88a051e085:0xba5be62f4811d11b!8m2!3d20.6728373!4d-103.4095175!15sCiJIb3NwaXRhbCBSZWFsIFNhbiBKb3NlIEd1YWRhbGFqYXJhkgEQcHJpdmF0ZV9ob3NwaXRhbOABAA!16s%2Fg%2F1tdp9ygs?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D'
     },
     {
-        id: 78,
+        id: 72,
         name: 'Ninus Pediatric Hospital',
         category: 'Clinics',
         description: 'A hospital built specifically for the medical needs of children.',
@@ -777,7 +765,7 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Ninus+Centro+Integral+Pediatrico+Guadalajara'
     },
     {
-        id: 79,
+        id: 73,
         name: 'San Jose Valle Real Hospital',
         category: 'Clinics',
         description: 'A specialized branch focused on pediatric emergencies and children\'s health check-ups.',
@@ -787,17 +775,17 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Hospital+Real+San+Jose+Valle+Real+Guadalajara'
     },
     {
-        id: 80,
-        name: 'La Unidad de Patología',
+        id: 74,
+        name: 'La Unidad de PatologÃ­a',
         category: 'Clinics',
         description: 'A premier diagnostic building for blood tests, biopsies, and advanced medical imaging.',
         rating: 3.9,
         speaksEnglish: false,
-        imageUrl: 'https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?w=600&q=80',
+        imageUrl: 'https://upc.com.mx/img/design/backgrounds/sucursales.jpg',
         mapsUrl: 'https://www.google.com/maps/place/Unidad+de+Patolog%C3%ADa+Cl%C3%ADnica+e+Imagenolog%C3%ADa/@20.6790268,-103.4106715,13z/data=!3m1!5s0x8428ae1162d94179:0x115b1e977b881e1e!4m10!1m2!2m1!1sLa+Unidad+de+Patologia+Guadalajara!3m6!1s0x8428ae6f337d958d:0xcb076a23316a80c1!8m2!3d20.6790268!4d-103.3756526!15sCiJMYSBVbmlkYWQgZGUgUGF0b2xvZ2lhIEd1YWRhbGFqYXJhWiQiImxhIHVuaWRhZCBkZSBwYXRvbG9naWEgZ3VhZGFsYWphcmGSAQttZWRpY2FsX2xhYpoBI0NoWkRTVWhOTUc5blMwVkpRMEZuVFVOWk1uRnRSRXBSRUFF4AEA-gEECGsQNg!16s%2Fg%2F1tx1thwk?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D'
     },
     {
-        id: 101,
+        id: 75,
         name: 'Arena Astros de Jalisco',
         category: 'Entertainment',
         familyFriendly: true,
@@ -808,40 +796,40 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Arena+Astros+Jalisco+Guadalajara'
     },
     {
-        id: 102,
+        id: 76,
         name: 'Parque Avila Camacho',
         category: 'Entertainment',
         familyFriendly: true,
         description: 'A beautiful public park offering boat rides, playgrounds, and plenty of green spaces. Extremely familiar and great for an outdoor picnic.',
         rating: 4.5,
         speaksEnglish: false,
-        imageUrl: 'https://images.unsplash.com/photo-1498855926480-d98e83099315?w=600&q=80',
+        imageUrl: 'https://www.turimexico.com/wp-content/uploads/2017/10/Parque-%C3%81vila-Camacho-en-Guadalajara.jpg',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Parque+Avila+Camacho+Guadalajara'
     },
     {
-        id: 103,
+        id: 77,
         name: 'MAZ - Museo de Arte de Zapopan',
         category: 'Entertainment',
         familyFriendly: true,
         description: 'Contemporary art museum in the heart of Zapopan. Offers dynamic exhibitions and cultural workshops for all ages.',
         rating: 4.6,
         speaksEnglish: true,
-        imageUrl: 'https://images.unsplash.com/photo-1518998053401-b22fb4119864?w=600&q=80',
+        imageUrl: 'https://maz.zapopan.gob.mx/wp-content/uploads/2024/08/fachada_2024_.jpg',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Museo+de+Arte+de+Zapopan'
     },
     {
-        id: 104,
-        name: 'Zoológico Guadalajara',
+        id: 78,
+        name: 'ZoolÃ³gico Guadalajara',
         category: 'Entertainment',
         familyFriendly: true,
         description: 'One of the most important zoos in Latin America. Features a safari, aquarium, and panoramic cable car ride.',
         rating: 4.7,
         speaksEnglish: true,
-        imageUrl: 'https://images.unsplash.com/photo-1534567059665-cbbe8b2b640e?w=600&q=80',
+        imageUrl: 'https://cdn.milenio.com/uploads/media/2023/02/04/zoologico-guadalajara-especial-1.jpg',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Zoologico+Guadalajara'
     },
     {
-        id: 105,
+        id: 79,
         name: 'Parque Los Colomos',
         category: 'Entertainment',
         familyFriendly: true,
@@ -852,18 +840,18 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Parque+Los+Colomos+Guadalajara'
     },
     {
-        id: 106,
+        id: 80,
         name: 'Pista de Patinaje Bugambilias',
         category: 'Entertainment',
         familyFriendly: true,
         description: 'An indoor ice skating rink located in the Bugambilias mall. Perfect for cooling down and family fun.',
         rating: 4.3,
         speaksEnglish: false,
-        imageUrl: 'https://images.unsplash.com/photo-1502920514313-52581002a659?w=600&q=80',
+        imageUrl: 'https://lh5.googleusercontent.com/-UZidP8xjixs/WWgRldPSHXI/AAAAAAAAAR8/wyC3tK0V1r8pUpidVQ9qNZ0fG-bFB0WYgCLIBGAYYCw/photo.jpg',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Pista+de+Hielo+Bugambilias+Guadalajara'
     },
     {
-        id: 107,
+        id: 81,
         name: 'La Cineteca FICG',
         category: 'Entertainment',
         familyFriendly: true,
@@ -874,18 +862,18 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Cineteca+FICG+Guadalajara'
     },
     {
-        id: 109,
+        id: 82,
         name: 'KidZania',
         category: 'Entertainment',
         familyFriendly: true,
         description: 'An interactive mini-city built for kids to role-play professions. Extremely engaging and educational!',
         rating: 4.8,
         speaksEnglish: false,
-        imageUrl: 'https://images.unsplash.com/photo-1566450653303-2614cbb292ea?w=600&q=80',
+        imageUrl: 'https://cdn.sanity.io/images/vr0czzef/production/4b42a61c9238efc0169af545ade63915f6166bf5-1400x800.png?w=3840&h=2194&fm=webp&q=80&fit=max&auto=format',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=KidZania+Guadalajara'
     },
     {
-        id: 110,
+        id: 83,
         name: 'Motion Boulder',
         category: 'Entertainment',
         familyFriendly: true,
@@ -896,7 +884,7 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Motion+Boulder+Guadalajara'
     },
     {
-        id: 111,
+        id: 84,
         name: 'Cinery',
         category: 'Entertainment',
         familyFriendly: true,
@@ -907,8 +895,8 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Cinery+Guadalajara'
     },
     {
-        id: 112,
-        name: 'Biblioteca Pública del Estado',
+        id: 85,
+        name: 'Biblioteca PÃºblica del Estado',
         category: 'Entertainment',
         familyFriendly: true,
         description: 'A massive, modern public library containing vast collections of books. It has dedicated reading zones and children\'s areas.',
@@ -918,8 +906,8 @@ const placesData = [
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Biblioteca+Publica+del+Estado+de+Jalisco'
     },
     {
-        id: 113,
-        name: 'Vía RecreActiva',
+        id: 86,
+        name: 'VÃ­a RecreActiva',
         category: 'Entertainment',
         familyFriendly: true,
         description: 'Every Sunday, major avenues are closed to cars. People come out to cycle, rollerblade, and walk their pets in a completely festive and safe setting.',
@@ -931,17 +919,17 @@ const placesData = [
 ];
 const eventsData = [
     {
-        id: 1,
+        id: 87,
         title: 'Festival Internacional de Cine en Guadalajara',
         culture: 'Mexican / International',
-        date: 'April 17–25, 2026',
+        date: 'April 17â€“25, 2026',
         location: 'Cineteca FICG',
         description: 'One of the most important film festivals in Latin America bringing together filmmakers, actors, and cinema enthusiasts for screenings and networking.',
         imageUrl: 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=600&q=80',
         mapsUrl: 'https://goo.gl/maps/b9nQv2o9rPxXhL1v5'
     },
     {
-        id: 2,
+        id: 88,
         title: 'Diwali Festival de las Luces',
         culture: 'Indian',
         date: 'November 2026',
@@ -951,28 +939,28 @@ const eventsData = [
         mapsUrl: 'https://goo.gl/maps/P5LgZ1j8uT8Tj6hWA'
     },
     {
-        id: 3,
+        id: 89,
         title: 'Fiestas de Octubre',
         culture: 'Mexican',
-        date: 'October – November 2026',
-        location: 'Auditorio Benito Juárez',
+        date: 'October â€“ November 2026',
+        location: 'Auditorio Benito JuÃ¡rez',
         description: 'A massive month-long city-wide celebration showcasing Mexican culture with concerts, regional dances, art exhibits, and a large traditional fair.',
         imageUrl: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&q=80',
         mapsUrl: 'https://goo.gl/maps/hPqE1pWz6kH2x7gM8'
     },
     {
-        id: 4,
+        id: 90,
         title: 'Oktoberfest Guadalajara',
         culture: 'German',
         date: 'Mid-October 2026',
-        location: 'Club Alemán de Occidente',
+        location: 'Club AlemÃ¡n de Occidente',
         description: 'Authentic Bavarian beer, pretzels, bratwurst, and traditional German folk music in a huge festive tent hosted by the local German club.',
         imageUrl: 'https://images.unsplash.com/photo-1538356111053-748a48e1acb8?w=600&q=80',
         mapsUrl: 'https://goo.gl/maps/8JtXz2pMv5QZQzVf7'
     },
     {
-        id: 5,
-        title: 'Romería de la Virgen de Zapopan',
+        id: 91,
+        title: 'RomerÃ­a de la Virgen de Zapopan',
         culture: 'Mexican',
         date: 'October 12, 2026',
         location: 'Guadalajara Cathedral to Basilica of Zapopan',
@@ -981,11 +969,11 @@ const eventsData = [
         mapsUrl: 'https://goo.gl/maps/Z9zXrXoX5vXZqG5H8'
     },
     {
-        id: 6,
+        id: 92,
         title: 'Matsuri Japones',
         culture: 'Japanese',
         date: 'May 2026',
-        location: 'Jardín Japonés, Bosque los Colomos',
+        location: 'JardÃ­n JaponÃ©s, Bosque los Colomos',
         description: 'Experience Japanese culture through an authentic Matsuri with matcha tasting, taiko drumming, and traditional garments within the beautiful Japanese garden.',
         imageUrl: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=600&q=80',
         mapsUrl: 'https://goo.gl/maps/F5PzvG7d5H7Hj8Rj7'
