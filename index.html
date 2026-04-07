@@ -24,13 +24,8 @@
             <form id="login-form">
                 <input type="text" id="user-name" placeholder="Your Name" required>
                 <input type="email" id="user-email" placeholder="Your Email" required>
-                <select id="user-nationality" required>
-                    <option value="" disabled selected>Your Nationality</option>
-                    <option value="USA">United States</option>
-                    <option value="Canada">Canada</option>
-                    <option value="UK">United Kingdom</option>
-                    <option value="Other">Other</option>
-                </select>
+                <input type="text" list="nationalities" id="user-nationality" placeholder="Your Nationality" required autocomplete="off">
+                <datalist id="nationalities"></datalist>
                 <input type="number" id="user-age" placeholder="Your Age" min="1" required>
                 <select id="user-language" required>
                     <option value="" disabled selected>Preferred Language</option>
@@ -198,12 +193,7 @@
                 <div class="input-row">
                     <div class="input-group">
                         <label>Nationality</label>
-                        <select id="edit-user-nationality" class="form-select" required>
-                            <option value="USA">United States</option>
-                            <option value="Canada">Canada</option>
-                            <option value="UK">United Kingdom</option>
-                            <option value="Other">Other</option>
-                        </select>
+                        <input type="text" list="nationalities" id="edit-user-nationality" class="form-select" placeholder="Select Nationality" required autocomplete="off">
                     </div>
                 </div>
                 <div class="input-row">
