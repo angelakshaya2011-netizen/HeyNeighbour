@@ -38,6 +38,9 @@ body {
 .header {
     position: relative;
     background-color: var(--clr-lila);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('header-bg.jpg');
+    background-size: cover;
+    background-position: center;
     color: white;
     padding: 4rem 2rem;
     text-align: center;
@@ -885,7 +888,7 @@ body {
 
 .instruction-text h4 {
     font-size: 1.1rem;
-    color: var(--clr-blue-dark);
+    color: #ffb6b9;
     margin-bottom: 0.3rem;
 }
 
