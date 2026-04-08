@@ -520,7 +520,7 @@
         description: 'One of the most important Mexican brands for premium handbags, luggage, shoes, and fashionable everyday accessories.',
         rating: 4.6,
         speaksEnglish: true,
-        imageUrl: 'https://images.unsplash.com/photo-1584916201218-f4242ceb4809?w=600&q=80',
+        imageUrl: 'https://media.fashionnetwork.com/cdn-cgi/image/fit=contain,width=1000,height=1000,format=auto/m/03dd/d1db/0750/abc2/2370/a2a8/0373/6b5a/1dac/6f82/6f82.jpg',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Cloe+Guadalajara'
     },
     {
@@ -761,7 +761,7 @@
         description: 'A hospital built specifically for the medical needs of children.',
         rating: 4.5,
         speaksEnglish: true,
-        imageUrl: 'https://images.unsplash.com/photo-1542898953-ce20cd292558?w=600&q=80',
+        imageUrl: 'https://scontent.fgdl3-1.fna.fbcdn.net/v/t39.30808-6/576931600_860636499958176_903378426246504629_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=1d70fc&_nc_ohc=RZrIy0WnwAIQ7kNvwEnwX64&_nc_oc=Adoffdq7WZrpaP-3SJxdKRwi4VC6uxextM06-jJ1rdyKGQrLYNEuZqa-CD8vK8E6_seJEZ1wxm8Wqp-A0fKyClm5&_nc_zt=23&_nc_ht=scontent.fgdl3-1.fna&_nc_gid=3bT2Puqi6jNIYy6CF6hEoA&_nc_ss=7a3a8&oh=00_Af1c3ZcUr5q5VWRUjvVlg5A8I9xPbuKxjR5VrV2ZU-X6vg&oe=69DA44B4',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Ninus+Centro+Integral+Pediatrico+Guadalajara'
     },
     {
@@ -771,7 +771,7 @@
         description: 'A specialized branch focused on pediatric emergencies and children\'s health check-ups.',
         rating: 3.7,
         speaksEnglish: true,
-        imageUrl: 'https://images.unsplash.com/photo-1596541223130-5d56447ceb6c?w=600&q=80',
+        imageUrl: 'https://www.google.com/maps/contrib/116627324535825299782/photos/@20.7218921,-103.4296447,3a,75y,90t/data=!3m7!1e2!3m5!1sAF1QipM6hbuLmJcP9NcsY4k8ex_dVzQOZU-hb_0nYqyn!2e10!6shttps:%2F%2Flh3.googleusercontent.com%2Fp%2FAF1QipM6hbuLmJcP9NcsY4k8ex_dVzQOZU-hb_0nYqyn%3Dw462-h260-k-no!7i3994!8i2247!4m3!8m2!3m1!1e1?entry=ttu&g_ep=EgoyMDI2MDQwNi4wIKXMDSoASAFQAw%3D%3D',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Hospital+Real+San+Jose+Valle+Real+Guadalajara'
     },
     {
