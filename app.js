@@ -423,18 +423,36 @@ document.addEventListener("DOMContentLoaded", () => {
             baseCurrency = fromCurrencySelect.value;
             targetCurrency = toCurrencySelect.value;
             
-            const res = await fetch(`https://api.exchangerate-api.com/v4/latest/${baseCurrency}?t=${new Date().getTime()}`);
-            const data = await res.json();
+            if (baseCurrency === targetCurrency) {
+                const rate = 1.0;
+                currentExchangeRates = { [targetCurrency]: rate };
+                if (currentRateDisplay) currentRateDisplay.textContent = rate.toFixed(4);
+                if (baseSymbolDisplay) baseSymbolDisplay.textContent = baseCurrency;
+                if (targetSymbolDisplay) targetSymbolDisplay.textContent = targetCurrency;
+                performConversion();
+                return;
+            }
+
+            const proxyUrl = 'https://api.codetabs.com/v1/proxy?quest=';
+            const googleFinanceUrl = `https://www.google.com/finance/quote/${baseCurrency}-${targetCurrency}`;
             
-            if (data && data.rates) {
-                currentExchangeRates = data.rates;
-                const rate = currentExchangeRates[targetCurrency];
+            const res = await fetch(proxyUrl + encodeURIComponent(googleFinanceUrl));
+            const htmlText = await res.text();
+            
+            // Extract the rate exactly as it appears on Google Finance
+            const match = htmlText.match(/data-last-price="([^"]+)"/);
+            
+            if (match && match[1]) {
+                const rate = parseFloat(match[1]);
+                currentExchangeRates = { [targetCurrency]: rate };
                 
                 if (currentRateDisplay) currentRateDisplay.textContent = rate.toFixed(4);
                 if (baseSymbolDisplay) baseSymbolDisplay.textContent = baseCurrency;
                 if (targetSymbolDisplay) targetSymbolDisplay.textContent = targetCurrency;
                 
                 performConversion();
+            } else {
+                throw new Error("Could not parse rate from Google Finance");
             }
         } catch (error) {
             console.error("Could not fetch live exchange rate:", error);

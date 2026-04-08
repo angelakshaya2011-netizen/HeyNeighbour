@@ -1,7 +1,7 @@
-const placesData = [
+﻿const placesData = [
     {
         id: 1,
-        name: 'CafÃ© Icarus',
+        name: 'Café Icarus',
         category: 'Restaurants',
         description: 'Ideal place to have breakfast and brunch with your friends.They are known for their cold brew coffe.',
         rating: 4.7,
@@ -21,7 +21,7 @@ const placesData = [
     },
     {
         id: 3,
-        name: 'CantalÃº',
+        name: 'Cantalú',
         category: 'Restaurants',
         description: 'A cozy health-focused cafÃ© specializing in baguettes, chapatas, and "Vaketos" (unique keto-friendly desserts).',
         speaksEnglish: true,
@@ -75,7 +75,7 @@ const placesData = [
     },
     {
         id: 8,
-        name: 'Tortas ToÃ±o',
+        name: 'Tortas Toño',
         category: 'Restaurants',
         vegetarianOptions: false,
         description: 'One of the most famous chains for Tortas Ahogadas (pork sandwiches drowned in tomato and chili sauce).',
@@ -108,7 +108,7 @@ const placesData = [
     },
     {
         id: 11,
-        name: 'Carne Asada RamÃ³n',
+        name: 'Carne Asada Ramón',
         category: 'Restaurants',
         vegetarianOptions: false,
         description: 'Authentic local spot famous for its traditional carne asada and homemade style tortillas.',
@@ -119,7 +119,7 @@ const placesData = [
     },
     {
         id: 12,
-        name: 'CafÃ© Presente',
+        name: 'Café Presente',
         category: 'Restaurants',
         vegetarianOptions: true,
         description: 'A cozy cafÃ© with great coffee and a relaxing atmosphere, perfect for a quiet afternoon or reading.',
@@ -196,7 +196,7 @@ const placesData = [
     },
     {
         id: 19,
-        name: 'Mar De CortÃ©s',
+        name: 'Mar De Cortés',
         category: 'Restaurants',
         vegetarianOptions: false,
         description: 'A premium seafood restaurant offering fresh coastal flavors and a refined dining experience.',
@@ -295,7 +295,7 @@ const placesData = [
     },
     {
         id: 28,
-        name: 'Tacos Los Asados (LÃ³pez Mateos)',
+        name: 'Tacos Los Asados (López Mateos)',
         category: 'Restaurants',
         vegetarianOptions: false,
         description: 'Convenient and extremely flavorful tacos right off Lopez Mateos, perfect for a quick bite.',
@@ -350,7 +350,7 @@ const placesData = [
     },
     {
         id: 33,
-        name: 'FrozÃ©',
+        name: 'Frozé',
         category: 'Restaurants',
         vegetarianOptions: true,
         description: 'A stylish spot focused to frozen beverages and refreshing desserts. Amazing for a hot day.',
@@ -546,7 +546,7 @@ const placesData = [
     },
     {
         id: 51,
-        name: 'Neurone SalÃ³n',
+        name: 'Neurone Salón',
         category: 'Hair Salons',
         description: 'A modern, full-service salon offering precision haircuts, professional coloring, and expert styling in a contemporary environment in Zapopan.',
         rating: 4.5,
@@ -626,7 +626,7 @@ const placesData = [
     },
     {
         id: 59,
-        name: 'ClÃ­nica Veterinaria Solares',
+        name: 'Clínica Veterinaria Solares',
         category: 'Vets',
         description: 'A modern veterinary clinic in the Solares residential complex offering dentistry, dermatology, and specialized aesthetic care for pets in a calm, professional setting.',
         rating: 4.1,
@@ -776,7 +776,7 @@ const placesData = [
     },
     {
         id: 74,
-        name: 'La Unidad de PatologÃ­a',
+        name: 'La Unidad de Patología',
         category: 'Clinics',
         description: 'A premier diagnostic building for blood tests, biopsies, and advanced medical imaging.',
         rating: 3.9,
@@ -819,7 +819,7 @@ const placesData = [
     },
     {
         id: 78,
-        name: 'ZoolÃ³gico Guadalajara',
+        name: 'Zoológico Guadalajara',
         category: 'Entertainment',
         familyFriendly: true,
         description: 'One of the most important zoos in Latin America. Features a safari, aquarium, and panoramic cable car ride.',
@@ -896,7 +896,7 @@ const placesData = [
     },
     {
         id: 85,
-        name: 'Biblioteca PÃºblica del Estado',
+        name: 'Biblioteca Pública del Estado',
         category: 'Entertainment',
         familyFriendly: true,
         description: 'A massive, modern public library containing vast collections of books. It has dedicated reading zones and children\'s areas.',
@@ -907,7 +907,7 @@ const placesData = [
     },
     {
         id: 86,
-        name: 'VÃ­a RecreActiva',
+        name: 'Vía RecreActiva',
         category: 'Entertainment',
         familyFriendly: true,
         description: 'Every Sunday, major avenues are closed to cars. People come out to cycle, rollerblade, and walk their pets in a completely festive and safe setting.',
@@ -922,7 +922,7 @@ const eventsData = [
         id: 87,
         title: 'Festival Internacional de Cine en Guadalajara',
         culture: 'Mexican / International',
-        date: 'April 17â€“25, 2026',
+        date: 'April 17–25, 2026',
         location: 'Cineteca FICG',
         description: 'One of the most important film festivals in Latin America bringing together filmmakers, actors, and cinema enthusiasts for screenings and networking.',
         imageUrl: 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=600&q=80',
@@ -942,8 +942,8 @@ const eventsData = [
         id: 89,
         title: 'Fiestas de Octubre',
         culture: 'Mexican',
-        date: 'October â€“ November 2026',
-        location: 'Auditorio Benito JuÃ¡rez',
+        date: 'October – November 2026',
+        location: 'Auditorio Benito Juárez',
         description: 'A massive month-long city-wide celebration showcasing Mexican culture with concerts, regional dances, art exhibits, and a large traditional fair.',
         imageUrl: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&q=80',
         mapsUrl: 'https://goo.gl/maps/hPqE1pWz6kH2x7gM8'
@@ -953,14 +953,14 @@ const eventsData = [
         title: 'Oktoberfest Guadalajara',
         culture: 'German',
         date: 'Mid-October 2026',
-        location: 'Club AlemÃ¡n de Occidente',
+        location: 'Club Alemán de Occidente',
         description: 'Authentic Bavarian beer, pretzels, bratwurst, and traditional German folk music in a huge festive tent hosted by the local German club.',
         imageUrl: 'https://images.unsplash.com/photo-1538356111053-748a48e1acb8?w=600&q=80',
         mapsUrl: 'https://goo.gl/maps/8JtXz2pMv5QZQzVf7'
     },
     {
         id: 91,
-        title: 'RomerÃ­a de la Virgen de Zapopan',
+        title: 'Romería de la Virgen de Zapopan',
         culture: 'Mexican',
         date: 'October 12, 2026',
         location: 'Guadalajara Cathedral to Basilica of Zapopan',
@@ -973,7 +973,7 @@ const eventsData = [
         title: 'Matsuri Japones',
         culture: 'Japanese',
         date: 'May 2026',
-        location: 'JardÃ­n JaponÃ©s, Bosque los Colomos',
+        location: 'Jardín Japonés, Bosque los Colomos',
         description: 'Experience Japanese culture through an authentic Matsuri with matcha tasting, taiko drumming, and traditional garments within the beautiful Japanese garden.',
         imageUrl: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=600&q=80',
         mapsUrl: 'https://goo.gl/maps/F5PzvG7d5H7Hj8Rj7'
