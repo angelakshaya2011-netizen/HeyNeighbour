@@ -716,7 +716,7 @@
     },
     {
         id: 68,
-        name: 'Hospital San Francisco de AsÃ­s',
+        name: 'Hospital San Francisco de Asis',
         category: 'Clinics',
         description: 'A professional facility focused on general medical care, internal medicine, and surgery.',
         rating: 3.5,
