@@ -1,12 +1,12 @@
 :root {
     /* Theme Colors: Lila, Blue, Green */
-    --clr-lila: #CDB4DB;
+    --clr-lila: #ffc7d4;
     /* Soft Lilac */
-    --clr-lila-dark: #A682B8;
-    --clr-blue: #A2D2FF;
+    --clr-lila-dark: #ffb6b9;
+    --clr-blue: #a5e6d7;
     /* Soft Sky Blue */
-    --clr-blue-dark: #7DBEFF;
-    --clr-green: #B9FBC0;
+    --clr-blue-dark: #8ac6d1;
+    --clr-green: #83deef;
     /* Mint Green */
     --clr-green-dark: #81C784;
 
@@ -855,10 +855,12 @@ body {
 .instruction-scroll-container::-webkit-scrollbar {
     width: 6px;
 }
+
 .instruction-scroll-container::-webkit-scrollbar-track {
-    background: rgba(0,0,0,0.03);
+    background: rgba(0, 0, 0, 0.03);
     border-radius: 10px;
 }
+
 .instruction-scroll-container::-webkit-scrollbar-thumb {
     background: var(--clr-blue);
     border-radius: 10px;
@@ -883,12 +885,12 @@ body {
     font-size: 1.5rem;
     color: white;
     flex-shrink: 0;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .instruction-text h4 {
     font-size: 1.1rem;
-    color: #ffb6b9;
+    color: white;
     margin-bottom: 0.3rem;
 }
 
