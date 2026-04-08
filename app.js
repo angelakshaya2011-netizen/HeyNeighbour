@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             </span>
                             ${place.category === 'Restaurants' ? `
                             <span class="badge ${place.vegetarianOptions ? 'badge-veg-yes' : 'badge-veg-no'}">
-                                ${place.vegetarianOptions ? '🌿 Veg Friendly' : '🍖 Not Veg'}
+                                ${place.vegetarianOptions ? '🌿 Vegetarian Options' : '🍖 Not Veg'}
                             </span>` : ''}
                             ${place.category === 'Entertainment' ? `
                             <span class="badge ${place.familyFriendly ? 'badge-veg-yes' : 'badge-veg-no'}">
