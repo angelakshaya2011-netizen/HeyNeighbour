@@ -746,7 +746,7 @@
     },
     {
         id: 71,
-        name: 'Real San JosÃ© Hospital',
+        name: 'Real San Jose Hospital',
         category: 'Clinics',
         description: 'A modern facility providing high-tech imaging, maternity services, and specialized consultations.',
         rating: 3.4,
@@ -763,19 +763,8 @@
         speaksEnglish: true,
         imageUrl: 'https://scontent.fgdl3-1.fna.fbcdn.net/v/t39.30808-6/576931600_860636499958176_903378426246504629_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=1d70fc&_nc_ohc=RZrIy0WnwAIQ7kNvwEnwX64&_nc_oc=Adoffdq7WZrpaP-3SJxdKRwi4VC6uxextM06-jJ1rdyKGQrLYNEuZqa-CD8vK8E6_seJEZ1wxm8Wqp-A0fKyClm5&_nc_zt=23&_nc_ht=scontent.fgdl3-1.fna&_nc_gid=3bT2Puqi6jNIYy6CF6hEoA&_nc_ss=7a3a8&oh=00_Af1c3ZcUr5q5VWRUjvVlg5A8I9xPbuKxjR5VrV2ZU-X6vg&oe=69DA44B4',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Ninus+Centro+Integral+Pediatrico+Guadalajara'
-    },
-    {
+    },    {
         id: 73,
-        name: 'San Jose Valle Real Hospital',
-        category: 'Clinics',
-        description: 'A specialized branch focused on pediatric emergencies and children\'s health check-ups.',
-        rating: 3.7,
-        speaksEnglish: true,
-        imageUrl: 'https://www.google.com/maps/contrib/116627324535825299782/photos/@20.7218921,-103.4296447,3a,75y,90t/data=!3m7!1e2!3m5!1sAF1QipM6hbuLmJcP9NcsY4k8ex_dVzQOZU-hb_0nYqyn!2e10!6shttps:%2F%2Flh3.googleusercontent.com%2Fp%2FAF1QipM6hbuLmJcP9NcsY4k8ex_dVzQOZU-hb_0nYqyn%3Dw462-h260-k-no!7i3994!8i2247!4m3!8m2!3m1!1e1?entry=ttu&g_ep=EgoyMDI2MDQwNi4wIKXMDSoASAFQAw%3D%3D',
-        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Hospital+Real+San+Jose+Valle+Real+Guadalajara'
-    },
-    {
-        id: 74,
         name: 'La Unidad de Patología',
         category: 'Clinics',
         description: 'A premier diagnostic building for blood tests, biopsies, and advanced medical imaging.',
@@ -785,7 +774,7 @@
         mapsUrl: 'https://www.google.com/maps/place/Unidad+de+Patolog%C3%ADa+Cl%C3%ADnica+e+Imagenolog%C3%ADa/@20.6790268,-103.4106715,13z/data=!3m1!5s0x8428ae1162d94179:0x115b1e977b881e1e!4m10!1m2!2m1!1sLa+Unidad+de+Patologia+Guadalajara!3m6!1s0x8428ae6f337d958d:0xcb076a23316a80c1!8m2!3d20.6790268!4d-103.3756526!15sCiJMYSBVbmlkYWQgZGUgUGF0b2xvZ2lhIEd1YWRhbGFqYXJhWiQiImxhIHVuaWRhZCBkZSBwYXRvbG9naWEgZ3VhZGFsYWphcmGSAQttZWRpY2FsX2xhYpoBI0NoWkRTVWhOTUc5blMwVkpRMEZuVFVOWk1uRnRSRXBSRUFF4AEA-gEECGsQNg!16s%2Fg%2F1tx1thwk?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D'
     },
     {
-        id: 75,
+        id: 74,
         name: 'Arena Astros de Jalisco',
         category: 'Entertainment',
         familyFriendly: true,
@@ -796,7 +785,7 @@
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Arena+Astros+Jalisco+Guadalajara'
     },
     {
-        id: 76,
+        id: 75,
         name: 'Parque Avila Camacho',
         category: 'Entertainment',
         familyFriendly: true,
@@ -807,7 +796,7 @@
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Parque+Avila+Camacho+Guadalajara'
     },
     {
-        id: 77,
+        id: 76,
         name: 'MAZ - Museo de Arte de Zapopan',
         category: 'Entertainment',
         familyFriendly: true,
@@ -818,7 +807,7 @@
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Museo+de+Arte+de+Zapopan'
     },
     {
-        id: 78,
+        id: 77,
         name: 'Zoológico Guadalajara',
         category: 'Entertainment',
         familyFriendly: true,
@@ -829,7 +818,7 @@
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Zoologico+Guadalajara'
     },
     {
-        id: 79,
+        id: 78,
         name: 'Parque Los Colomos',
         category: 'Entertainment',
         familyFriendly: true,
@@ -840,7 +829,7 @@
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Parque+Los+Colomos+Guadalajara'
     },
     {
-        id: 80,
+        id: 79,
         name: 'Pista de Patinaje Bugambilias',
         category: 'Entertainment',
         familyFriendly: true,
@@ -851,7 +840,7 @@
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Pista+de+Hielo+Bugambilias+Guadalajara'
     },
     {
-        id: 81,
+        id: 80,
         name: 'La Cineteca FICG',
         category: 'Entertainment',
         familyFriendly: true,
@@ -862,7 +851,7 @@
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Cineteca+FICG+Guadalajara'
     },
     {
-        id: 82,
+        id: 81,
         name: 'KidZania',
         category: 'Entertainment',
         familyFriendly: true,
@@ -873,7 +862,7 @@
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=KidZania+Guadalajara'
     },
     {
-        id: 83,
+        id: 82,
         name: 'Motion Boulder',
         category: 'Entertainment',
         familyFriendly: true,
@@ -884,7 +873,7 @@
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Motion+Boulder+Guadalajara'
     },
     {
-        id: 84,
+        id: 83,
         name: 'Cinery',
         category: 'Entertainment',
         familyFriendly: true,
@@ -895,7 +884,7 @@
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Cinery+Guadalajara'
     },
     {
-        id: 85,
+        id: 84,
         name: 'Biblioteca Pública del Estado',
         category: 'Entertainment',
         familyFriendly: true,
@@ -906,7 +895,7 @@
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Biblioteca+Publica+del+Estado+de+Jalisco'
     },
     {
-        id: 86,
+        id: 85,
         name: 'Vía RecreActiva',
         category: 'Entertainment',
         familyFriendly: true,
@@ -919,7 +908,7 @@
 ];
 const eventsData = [
     {
-        id: 87,
+        id: 86,
         title: 'Festival Internacional de Cine en Guadalajara',
         culture: 'Mexican / International',
         date: 'April 17–25, 2026',
@@ -929,7 +918,7 @@ const eventsData = [
         mapsUrl: 'https://goo.gl/maps/b9nQv2o9rPxXhL1v5'
     },
     {
-        id: 88,
+        id: 87,
         title: 'Diwali Festival de las Luces',
         culture: 'Indian',
         date: 'November 2026',
@@ -939,7 +928,7 @@ const eventsData = [
         mapsUrl: 'https://goo.gl/maps/P5LgZ1j8uT8Tj6hWA'
     },
     {
-        id: 89,
+        id: 88,
         title: 'Fiestas de Octubre',
         culture: 'Mexican',
         date: 'October – November 2026',
@@ -949,7 +938,7 @@ const eventsData = [
         mapsUrl: 'https://goo.gl/maps/hPqE1pWz6kH2x7gM8'
     },
     {
-        id: 90,
+        id: 89,
         title: 'Oktoberfest Guadalajara',
         culture: 'German',
         date: 'Mid-October 2026',
@@ -959,7 +948,7 @@ const eventsData = [
         mapsUrl: 'https://goo.gl/maps/8JtXz2pMv5QZQzVf7'
     },
     {
-        id: 91,
+        id: 90,
         title: 'Romería de la Virgen de Zapopan',
         culture: 'Mexican',
         date: 'October 12, 2026',
@@ -969,7 +958,7 @@ const eventsData = [
         mapsUrl: 'https://goo.gl/maps/Z9zXrXoX5vXZqG5H8'
     },
     {
-        id: 92,
+        id: 91,
         title: 'Matsuri Japones',
         culture: 'Japanese',
         date: 'May 2026',
