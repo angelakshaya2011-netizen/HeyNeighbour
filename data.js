@@ -686,7 +686,7 @@
     },
     {
         id: 65,
-        name: 'MÃ©xico Americano Hospital',
+        name: 'Mexico Americano Hospital',
         category: 'Clinics',
         description: 'A reliable hospital providing general surgery, maternity care, and family medicine.',
         rating: 3.6,
