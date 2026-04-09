@@ -7,6 +7,12 @@
     <title>Hey Neighbor - Guadalajara Expat Guide</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#83deef">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="apple-touch-icon" href="icon-192.png">
     <!-- Unicons for easy icons without react -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 </head>
@@ -103,6 +109,12 @@
     <button id="premium-fab" class="premium-fab" style="display: none;">
         <i class="uil uil-star"></i>
         <span>Premium</span>
+    </button>
+
+    <!-- Download PWA Button -->
+    <button id="pwa-install-btn" class="pwa-install-btn" style="display: none;">
+        <i class="uil uil-download-alt"></i>
+        <span>Download App</span>
     </button>
 
     <!-- Mock Payment Modal -->
@@ -314,8 +326,37 @@
         </div>
     </div>
 
+    <!-- Survey Modal -->
+    <div id="survey-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content" style="max-width: 450px; text-align: center; border: 2px solid #83deef;">
+            <button class="close-modal" id="close-survey-modal"><i class="uil uil-times"></i></button>
+            <div class="modal-header">
+                <i class="uil uil-feedback" style="font-size: 3rem; color: #83deef; margin-bottom: 1rem; display: block;"></i>
+                <h3 style="color: white;">What can we do better?</h3>
+                <p>We'd love to hear your thoughts on how we can improve "Hey Neighbor".</p>
+            </div>
+            <form id="survey-form" class="payment-form" style="margin-top: 1.5rem;">
+                <div class="input-group">
+                    <textarea id="survey-feedback" placeholder="Your suggestions, features you'd like to see, or anything else..." style="width: 100%; min-height: 120px; padding: 1rem; border-radius: 10px; border: 1px solid #ccc; font-family: inherit; font-size: 0.95rem; resize: vertical;" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit" style="width: 100%; margin-top: 1rem; background-color: #83deef;" id="submit-survey-btn">Send Feedback</button>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.8rem;">Responses are sent to our community community board.</p>
+            </form>
+        </div>
+    </div>
+
     <script src="data.js"></script>
     <script src="app.js"></script>
+    <script>
+        // PWA Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(reg => console.log('Service Worker registered', reg))
+                    .catch(err => console.error('Service Worker fallback', err));
+            });
+        }
+    </script>
 </body>
 
 </html>

@@ -1032,3 +1032,49 @@ select.form-select:focus {
     object-fit: contain;
     padding: 1rem;
 }
+/* --- Survey Modal Styling --- */
+#survey-modal .modal-content {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 2px solid #83deef;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+#survey-modal .modal-header h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: #83deef;
+}
+
+#survey-modal textarea::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+#survey-modal textarea:focus {
+    outline: none;
+    border-color: #83deef;
+    box-shadow: 0 0 10px rgba(131, 222, 239, 0.3);
+}
+
+.survey-success-icon {
+    font-size: 4rem;
+    color: #83deef;
+    animation: scaleUp 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes scaleUp {
+    from { transform: scale(0); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* PWA Mobile Adjustments */
+@media (display-mode: standalone) {
+    .header {
+        padding-top: env(safe-area-inset-top, 2.5rem);
+    }
+    .container {
+        padding-bottom: env(safe-area-inset-bottom, 1.5rem);
+    }
+}

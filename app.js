@@ -689,4 +689,64 @@ document.addEventListener("DOMContentLoaded", () => {
         initApp(); // will detect no user and show login screen
     });
 
+    // --- Survey Modal Logic ---
+    const surveyModal = document.getElementById("survey-modal");
+    const closeSurveyBtn = document.getElementById("close-survey-modal");
+    const surveyForm = document.getElementById("survey-form");
+
+    if (closeSurveyBtn) {
+        closeSurveyBtn.addEventListener("click", () => {
+            surveyModal.style.display = "none";
+            localStorage.setItem("heyNeighborSurveyShown", "true");
+        });
+    }
+
+    if (surveyForm) {
+        surveyForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const submitBtn = document.getElementById("submit-survey-btn");
+            const feedback = document.getElementById("survey-feedback").value;
+            const userData = JSON.parse(localStorage.getItem("heyNeighborUser") || "{}");
+
+            if (submitBtn) {
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = "Sending...";
+                submitBtn.disabled = true;
+
+                // Mocking success
+                setTimeout(() => {
+                    surveyForm.innerHTML = `
+                        <div class="survey-success">
+                            <i class="uil uil-check-circle survey-success-icon"></i>
+                            <h4 style="color: white; margin-top: 1rem;">Thank you for your feedback!</h4>
+                            <p style="color: #ccc; margin-top: 0.5rem;">Your suggestions help us build a better experience for everyone.</p>
+                            <button class="btn-submit" style="margin-top: 1.5rem; width: 100%;" onclick="document.getElementById('survey-modal').style.display='none'">Close</button>
+                        </div>
+                    `;
+                    localStorage.setItem("heyNeighborSurveyShown", "true");
+                }, 1000);
+            }
+        });
+    }
+
+    // Trigger survey after "first use" (60 seconds after closing onboarding)
+    function triggerSurvey() {
+        const onboarded = localStorage.getItem("heyNeighborOnboarded");
+        const surveyShown = localStorage.getItem("heyNeighborSurveyShown");
+
+        if (onboarded && !surveyShown) {
+            // Wait 60 seconds of active browsing before showing
+            setTimeout(() => {
+                // Double check if they haven't seen it in the last 60s
+                if (!localStorage.getItem("heyNeighborSurveyShown")) {
+                    const modal = document.getElementById("survey-modal");
+                    if (modal) modal.style.display = "flex";
+                }
+            }, 60000); // 60 seconds
+        }
+    }
+
+    // Call trigger check
+    triggerSurvey();
+
 });
