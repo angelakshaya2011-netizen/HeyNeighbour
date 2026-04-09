@@ -746,6 +746,45 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    // --- PWA "Download" Button Logic ---
+    let deferredPrompt;
+    const pwaInstallBtn = document.getElementById("pwa-install-btn");
+
+    window.addEventListener("beforeinstallprompt", (e) => {
+        // Prevent the mini-infobar from appearing on mobile
+        e.preventDefault();
+        // Stash the event so it can be triggered later.
+        deferredPrompt = e;
+        // Update UI notify the user they can install the PWA
+        if (pwaInstallBtn) {
+            pwaInstallBtn.style.display = "flex";
+        }
+    });
+
+    if (pwaInstallBtn) {
+        pwaInstallBtn.addEventListener("click", async () => {
+            if (deferredPrompt) {
+                // Show the install prompt
+                deferredPrompt.prompt();
+                // Wait for the user to respond to the prompt
+                const { outcome } = await deferredPrompt.userChoice;
+                // Optionally, send analytics event with outcome of user choice
+                console.log(`User response to the install prompt: ${outcome}`);
+                // We've used the prompt, and can't use it again, throw it away
+                deferredPrompt = null;
+                // Hide our install button
+                pwaInstallBtn.style.display = "none";
+            }
+        });
+    }
+
+    // Hide button if app is installed
+    window.addEventListener("appinstalled", () => {
+        if (pwaInstallBtn) pwaInstallBtn.style.display = "none";
+        deferredPrompt = null;
+        console.log("PWA was installed");
+    });
+
     // Call trigger check
     triggerSurvey();
 

@@ -1078,3 +1078,46 @@ select.form-select:focus {
         padding-bottom: env(safe-area-inset-bottom, 1.5rem);
     }
 }
+
+/* --- PWA Install Button --- */
+.pwa-install-btn {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    z-index: 998;
+    background: linear-gradient(135deg, #83deef, #a2d2ff);
+    color: var(--clr-blue-dark);
+    border: none;
+    border-radius: 50px;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    transition: all 0.3s ease;
+    animation: slideInLeft 0.5s ease-out;
+}
+
+.pwa-install-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.pwa-install-btn i {
+    font-size: 1.4rem;
+}
+
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* Hide if already installed */
+@media (display-mode: standalone) {
+    .pwa-install-btn {
+        display: none !important;
+    }
+}
