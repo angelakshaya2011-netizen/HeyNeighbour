@@ -693,6 +693,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const surveyModal = document.getElementById("survey-modal");
     const closeSurveyBtn = document.getElementById("close-survey-modal");
     const surveyForm = document.getElementById("survey-form");
+    const headerSurveyBtn = document.getElementById("header-survey-btn");
+
+    if (headerSurveyBtn) {
+        headerSurveyBtn.addEventListener("click", () => {
+            surveyModal.style.display = "flex";
+        });
+    }
 
     if (closeSurveyBtn) {
         closeSurveyBtn.addEventListener("click", () => {
