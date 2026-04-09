@@ -1121,3 +1121,11 @@ select.form-select:focus {
         display: none !important;
     }
 }
+
+
+/* Feedback Trigger Specific Styling */
+.feedback-trigger {
+    background: rgba(131, 222, 239, 0.4) !important;
+    color: white !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
