@@ -721,7 +721,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 submitBtn.disabled = true;
 
                 // Live connection to Google Sheet
-                fetch('https://script.google.com/a/macros/asfg.edu.mx/s/AKfycbxAEFqPTPCOD9efXwOSJzlObM3JPQw-8zG681Oy7OXPQaoCHSvqNVa7K_gkL3tK1RqYaw/exec', {
+                fetch('https://script.google.com/macros/s/AKfycbxAEFqPTPCOD9efXwOSJzlObM3JPQw-8zG681Oy7OXPQaoCHSvqNVa7K_gkL3tK1RqYaw/exec', {
                     method: 'POST',
                     mode: 'no-cors', 
                     body: JSON.stringify({
