@@ -713,8 +713,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 submitBtn.textContent = "Sending...";
                 submitBtn.disabled = true;
 
-                // Mocking success
-                setTimeout(() => {
+                // Live connection to Google Sheet
+                fetch('https://script.google.com/a/macros/asfg.edu.mx/s/AKfycbxAEFqPTPCOD9efXwOSJzlObM3JPQw-8zG681Oy7OXPQaoCHSvqNVa7K_gkL3tK1RqYaw/exec', {
+                    method: 'POST',
+                    mode: 'no-cors', 
+                    body: JSON.stringify({
+                        name: userData.name || "Anonymous",
+                        email: userData.email || "N/A",
+                        feedback: feedback
+                    })
+                })
+                .then(() => {
                     surveyForm.innerHTML = `
                         <div class="survey-success">
                             <i class="uil uil-check-circle survey-success-icon"></i>
@@ -724,7 +733,12 @@ document.addEventListener("DOMContentLoaded", () => {
                         </div>
                     `;
                     localStorage.setItem("heyNeighborSurveyShown", "true");
-                }, 1000);
+                })
+                .catch(err => {
+                    console.error("Submission error:", err);
+                    submitBtn.textContent = "Error, try again";
+                    submitBtn.disabled = false;
+                });
             }
         });
     }
