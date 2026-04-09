@@ -2,6 +2,116 @@ document.addEventListener("DOMContentLoaded", () => {
     const grid = document.getElementById("places-grid");
     const filtersContainer = document.getElementById("category-filters");
 
+    // --- Translation Configuration ---
+    let translationCache = JSON.parse(localStorage.getItem("heyNeighborTranslations") || "{}");
+    const saveTranslations = () => localStorage.setItem("heyNeighborTranslations", JSON.stringify(translationCache));
+
+    async function translateText(text, targetLang) {
+        if (!targetLang || targetLang === 'en' || !text) return text;
+        
+        const cacheKey = `${targetLang}:${text}`;
+        if (translationCache[cacheKey]) return translationCache[cacheKey];
+
+        try {
+            // Using a proxy to bypass CORS for Google Translate gtx endpoint
+            const proxyUrl = 'https://api.codetabs.com/v1/proxy?quest=';
+            const translateUrl = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${targetLang}&dt=t&q=${encodeURIComponent(text)}`;
+            
+            const response = await fetch(proxyUrl + encodeURIComponent(translateUrl));
+            const data = await response.json();
+            
+            // Google Translate gtx response format: [[["Translated Text", "Source Text", null, null, 3], ...], null, "en"]
+            const translated = data[0].map(item => item[0]).join('');
+            
+            translationCache[cacheKey] = translated;
+            saveTranslations();
+            return translated;
+        } catch (error) {
+            console.error("Translation error:", error);
+            return text; // Fallback to original
+        }
+    }
+
+    const uiStrings = {
+        welcome_heading: "Hey {name}! \u{1F60A}",
+        header_subtext: "Here are the best spots in GDL, that the community recommends!",
+        label_language: "Language",
+        search_placeholder: "Search {cat}...",
+        search_all: "Search all places...",
+        btn_maps: "Google Maps",
+        badge_english: "English",
+        badge_spanish_only: "Spanish Only",
+        badge_veg: "\u{1F33F} Vegetarian Options",
+        badge_not_veg: "\u{1F356} Not Veg",
+        badge_family: "\u{1F468}\u{200D}\u{1F469}\u{200D}\u{1F467}\u{200D}\u{1F466} Family Friendly",
+        badge_adults: "\u{1F51E} Adults Only",
+        login_title: "Welcome to Guadalajara, Mexico!",
+        login_subtitle: "Please tell us a bit about yourself so we can personalize your experience.",
+        ph_name: "Your Name",
+        ph_email: "Your Email",
+        ph_nationality: "Your Nationality",
+        ph_age: "Your Age",
+        btn_start: "Start Exploring",
+        verify_title: "Verify Your Email",
+        verify_subtitle: "We've sent a 4-digit code to {email}.",
+        btn_back: "Go Back",
+        btn_verify: "Verify Code",
+        nav_browse: "Browse Categories",
+        btn_premium: "Premium",
+        btn_download: "Download App",
+        premium_title: "Unlock Premium",
+        premium_subtitle: "Get access to the live currency converter AND the Cultural Events searcher!",
+        profile_title: "Your Profile",
+        profile_subtitle: "Update your details below.",
+        btn_save: "Save Changes",
+        btn_logout: "Log Out",
+        premium_features_title: "Premium Features",
+        premium_features_subtitle: "Select a feature to use.",
+        btn_dashboard_converter: "Currency Converter",
+        btn_dashboard_events: "Cultural Events Search",
+        btn_back_dashboard: "Back to Dashboard",
+        events_title: "Cultural Events",
+        events_subtitle: "Find international festivals and events near you.",
+        survey_title: "What can we do better?",
+        survey_subtitle: "We'd love to hear your thoughts on how we can improve \"Hey Neighbor\"."
+    };
+
+    async function updateUILanguage() {
+        const userData = JSON.parse(localStorage.getItem("heyNeighborUser") || "{}");
+        const lang = userData.language || "en";
+        
+        // Translate static elements with data-i18n
+        const translatable = document.querySelectorAll("[data-i18n]");
+        for (const el of translatable) {
+            const key = el.getAttribute("data-i18n");
+            let original = uiStrings[key] || el.textContent;
+            
+            if (key === 'welcome_heading') {
+                original = original.replace("{name}", userData.name || "Neighbor");
+            }
+            if (key === 'verify_subtitle') {
+                original = original.replace("{email}", userData.email || "");
+            }
+            
+            const translated = await translateText(original, lang);
+            
+            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                el.placeholder = translated;
+            } else if (el.tagName === 'LABEL' && el.nextElementSibling && el.nextElementSibling.tagName === 'INPUT') {
+                // If it's a label for an input, translate it normally
+                el.textContent = translated;
+            } else {
+                // Specific handling for icons
+                const icon = el.querySelector('i');
+                if (icon) {
+                    el.innerHTML = `${icon.outerHTML} ${translated}`;
+                } else {
+                    el.textContent = translated;
+                }
+            }
+        }
+    }
+
     // --- Populate Nationalities ---
     const allNationalities = [
         "Afghan", "Albanian", "Algerian", "American", "Andorran", "Angolan", "Antiguans", "Argentinean", "Armenian", "Australian", "Austrian", "Azerbaijani", "Bahamian", "Bahraini", "Bangladeshi", "Barbadian", "Barbudans", "Batswana", "Belarusian", "Belgian", "Belizean", "Beninese", "Bhutanese", "Bolivian", "Bosnian", "Brazilian", "British", "Bruneian", "Bulgarian", "Burkinabe", "Burmese", "Burundian", "Cambodian", "Cameroonian", "Canadian", "Cape Verdean", "Central African", "Chadian", "Chilean", "Chinese", "Colombian", "Comoran", "Congolese", "Costa Rican", "Croatian", "Cuban", "Cypriot", "Czech", "Danish", "Djibouti", "Dominican", "Dutch", "East Timorese", "Ecuadorean", "Egyptian", "Emirian", "Equatorial Guinean", "Eritrean", "Estonian", "Ethiopian", "Fijian", "Filipino", "Finnish", "French", "Gabonese", "Gambian", "Georgian", "German", "Ghanaian", "Greek", "Grenadian", "Guatemalan", "Guinea-Bissauan", "Guinean", "Guyanese", "Haitian", "Herzegovinian", "Honduran", "Hungarian", "I-Kiribati", "Icelander", "Indian", "Indonesian", "Iranian", "Iraqi", "Irish", "Israeli", "Italian", "Ivorian", "Jamaican", "Japanese", "Jordanian", "Kazakhstani", "Kenyan", "Kittian and Nevisian", "Kuwaiti", "Kyrgyz", "Laotian", "Latvian", "Lebanese", "Liberian", "Libyan", "Liechtensteiner", "Lithuanian", "Luxembourger", "Macedonian", "Malagasy", "Malawian", "Malaysian", "Maldivan", "Malian", "Maltese", "Marshallese", "Mauritanian", "Mauritian", "Mexican", "Micronesian", "Moldovan", "Monacan", "Mongolian", "Moroccan", "Mosotho", "Motswana", "Mozambican", "Namibian", "Nauruan", "Nepalese", "New Zealander", "Nicaraguan", "Nigerian", "Nigerien", "North Korean", "Northern Irish", "Norwegian", "Omani", "Pakistani", "Palauan", "Palestinian", "Panamanian", "Papua New Guinean", "Paraguayan", "Peruvian", "Polish", "Portuguese", "Qatari", "Romanian", "Russian", "Rwandan", "Saint Lucian", "Salvadoran", "Samoan", "San Marinese", "Sao Tomean", "Saudi", "Scottish", "Senegalese", "Serbian", "Seychellois", "Sierra Leonean", "Singaporean", "Slovakian", "Slovenian", "Solomon Islander", "Somali", "South African", "South Korean", "Spanish", "Sri Lankan", "Sudanese", "Surinamer", "Swazi", "Swedish", "Swiss", "Syrian", "Taiwanese", "Tajik", "Tanzanian", "Thai", "Togolese", "Tongan", "Trinidadian/Tobagonian", "Tunisian", "Turkish", "Tuvaluan", "Ugandan", "Ukrainian", "Uruguayan", "Uzbekistani", "Venezuelan", "Vietnamese", "Welsh", "Yemenite", "Zambian", "Zimbabwean"
@@ -145,7 +255,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             <i class="uil uil-star"></i> ${place.rating}
                         </div>
                     </div>
-                    <p class="card-desc">${place.description}</p>
+                    <p class="card-desc" id="desc-${place.id}">${place.description}</p>
                     <div class="card-footer">
                         <div class="card-badges">
                             <span class="badge ${place.speaksEnglish ? 'badge-english-yes' : 'badge-english-no'}">
@@ -160,7 +270,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 ${place.familyFriendly ? '👨‍👩‍👧‍👦 Family Friendly' : '🔞 Adults Only'}
                             </span>` : ''}
                         </div>
-                        <a href="${place.mapsUrl}" target="_blank" rel="noopener noreferrer" class="btn-map">
+                        <a href="${evt.mapsUrl}" target="_blank" rel="noopener noreferrer" class="btn-map" data-i18n="btn_maps">
                             <i class="uil uil-map-marker"></i> Google Maps
                         </a>
                     </div>
@@ -168,6 +278,15 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
 
             grid.appendChild(card);
+
+            // Fetch translation asynchronously
+            const user = JSON.parse(localStorage.getItem("heyNeighborUser") || "{}");
+            if (user.language && user.language !== 'en') {
+                translateText(place.description, user.language).then(translated => {
+                    const descEl = document.getElementById(`desc-${place.id}`);
+                    if (descEl) descEl.textContent = translated;
+                });
+            }
         });
     }
 
@@ -186,7 +305,12 @@ document.addEventListener("DOMContentLoaded", () => {
             const userData = JSON.parse(savedUser);
             loginContainer.style.display = "none";
             appContainer.style.display = "block";
+            
+            // Personalized welcome - will be updated by UI translation
             welcomeHeading.innerHTML = `Hey ${userData.name}! <i class="uil uil-smile"></i>`;
+
+            // Run UI translation
+            updateUILanguage();
 
             // Show FAB and restore premium look if applicable
             premiumFab.style.display = "flex";
@@ -622,7 +746,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         &nbsp; | &nbsp; 
                         <i class="uil uil-map-marker"></i> ${evt.location}
                     </div>
-                    <p class="card-desc" style="margin-top: 0.5rem;">${evt.description}</p>
+                    <p class="card-desc" id="evt-desc-${evt.id}" style="margin-top: 0.5rem;">${evt.description}</p>
                     <div class="card-footer" style="justify-content: flex-end;">
                         <a href="${evt.mapsUrl}" target="_blank" rel="noopener noreferrer" class="btn-map">
                             <i class="uil uil-map-marker"></i> Google Maps
@@ -632,6 +756,15 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
 
             eventsList.appendChild(card);
+
+            // Fetch translation asynchronously
+            const user = JSON.parse(localStorage.getItem("heyNeighborUser") || "{}");
+            if (user.language && user.language !== 'en') {
+                translateText(evt.description, user.language).then(translated => {
+                    const descEl = document.getElementById(`evt-desc-${evt.id}`);
+                    if (descEl) descEl.textContent = translated;
+                });
+            }
         });
     }
 
@@ -654,7 +787,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("edit-user-email").value = userData.email || "";
             document.getElementById("edit-user-nationality").value = userData.nationality || "USA";
             document.getElementById("edit-user-age").value = userData.age || "";
-            document.getElementById("edit-user-language").value = userData.language || "English";
+            document.getElementById("edit-user-language").value = userData.language || "en";
         }
     }
 
