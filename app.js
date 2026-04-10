@@ -70,6 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
         btn_dashboard_converter: "Currency Converter",
         btn_dashboard_events: "Cultural Events Search",
         btn_back_dashboard: "Back to Dashboard",
+        btn_dashboard_units: "Unit Converter",
         events_title: "Cultural Events",
         events_subtitle: "Find international festivals and events near you.",
         survey_title: "What can we do better?",
@@ -270,7 +271,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 ${place.familyFriendly ? '👨‍👩‍👧‍👦 Family Friendly' : '🔞 Adults Only'}
                             </span>` : ''}
                         </div>
-                        <a href="${evt.mapsUrl}" target="_blank" rel="noopener noreferrer" class="btn-map" data-i18n="btn_maps">
+                        <a href="${place.mapsUrl}" target="_blank" rel="noopener noreferrer" class="btn-map" data-i18n="btn_maps">
                             <i class="uil uil-map-marker"></i> Google Maps
                         </a>
                     </div>
@@ -771,6 +772,159 @@ document.addEventListener("DOMContentLoaded", () => {
     eventsSearchInput.addEventListener("input", (e) => {
         renderPremiumEvents(e.target.value);
     });
+
+    // --- Unit Converter Logic ---
+    const unitConverterModal = document.getElementById("unit-converter-modal");
+    const closeUnitConverterBtn = document.getElementById("close-unit-converter-modal");
+    const openUnitConverterBtn = document.getElementById("open-unit-converter-btn");
+    const unitCategorySelect = document.getElementById("unit-category-select");
+    const unitFromSelect = document.getElementById("unit-from-select");
+    const unitToSelect = document.getElementById("unit-to-select");
+    const unitAmountInput = document.getElementById("unit-amount-input");
+    const unitResultDisplay = document.getElementById("unit-result-display");
+
+    const unitData = {
+        "Length": {
+            units: {
+                "Kilometers (km)": 1000,
+                "Miles (mi)": 1609.344,
+                "Meters (m)": 1,
+                "Feet (ft)": 0.3048,
+                "Inches (in)": 0.0254
+            }
+        },
+        "Weight": {
+            units: {
+                "Kilograms (kg)": 1000,
+                "Pounds (lb)": 453.592,
+                "Grams (g)": 1,
+                "Ounces (oz)": 28.3495
+            }
+        },
+        "Temperature": {
+            special: true,
+            units: {
+                "Celsius (°C)": null,
+                "Fahrenheit (°F)": null
+            }
+        },
+        "Volume": {
+            units: {
+                "Liters (L)": 1000,
+                "Gallons (gal)": 3785.41,
+                "Milliliters (mL)": 1,
+                "Fluid Ounces (fl oz)": 29.5735
+            }
+        }
+    };
+
+    function populateUnitCategory() {
+        if (!unitCategorySelect) return;
+        unitCategorySelect.innerHTML = "";
+        Object.keys(unitData).forEach(cat => {
+            const opt = document.createElement("option");
+            opt.value = cat;
+            opt.textContent = cat;
+            unitCategorySelect.appendChild(opt);
+        });
+        populateUnitSelects();
+    }
+
+    function populateUnitSelects() {
+        if (!unitFromSelect || !unitToSelect || !unitCategorySelect) return;
+        const category = unitCategorySelect.value;
+        const units = Object.keys(unitData[category].units);
+
+        unitFromSelect.innerHTML = "";
+        unitToSelect.innerHTML = "";
+
+        units.forEach((unit, index) => {
+            const optFrom = document.createElement("option");
+            optFrom.value = unit;
+            optFrom.textContent = unit;
+            if (index === 0) optFrom.selected = true;
+            unitFromSelect.appendChild(optFrom);
+
+            const optTo = document.createElement("option");
+            optTo.value = unit;
+            optTo.textContent = unit;
+            if (index === 1) optTo.selected = true;
+            unitToSelect.appendChild(optTo);
+        });
+
+        performUnitConversion();
+    }
+
+    function convertTemperature(value, from, to) {
+        let celsius;
+        if (from.startsWith("Celsius")) celsius = value;
+        else if (from.startsWith("Fahrenheit")) celsius = (value - 32) * 5 / 9;
+        else if (from.startsWith("Kelvin")) celsius = value - 273.15;
+
+        if (to.startsWith("Celsius")) return celsius;
+        else if (to.startsWith("Fahrenheit")) return celsius * 9 / 5 + 32;
+        else if (to.startsWith("Kelvin")) return celsius + 273.15;
+        return value;
+    }
+
+    function performUnitConversion() {
+        if (!unitAmountInput || !unitResultDisplay) return;
+
+        const amount = parseFloat(unitAmountInput.value);
+        if (isNaN(amount)) {
+            unitResultDisplay.textContent = "0.00";
+            return;
+        }
+
+        const category = unitCategorySelect.value;
+        const fromUnit = unitFromSelect.value;
+        const toUnit = unitToSelect.value;
+
+        let result;
+        if (unitData[category].special) {
+            result = convertTemperature(amount, fromUnit, toUnit);
+        } else {
+            const fromFactor = unitData[category].units[fromUnit];
+            const toFactor = unitData[category].units[toUnit];
+            result = (amount * fromFactor) / toFactor;
+        }
+
+        if (Number.isInteger(result)) {
+            unitResultDisplay.textContent = `${result} ${toUnit}`;
+        } else {
+            unitResultDisplay.textContent = `${result.toFixed(4)} ${toUnit}`;
+        }
+    }
+
+    if (unitCategorySelect) {
+        unitCategorySelect.addEventListener("change", populateUnitSelects);
+    }
+    if (unitFromSelect) {
+        unitFromSelect.addEventListener("change", performUnitConversion);
+    }
+    if (unitToSelect) {
+        unitToSelect.addEventListener("change", performUnitConversion);
+    }
+    if (unitAmountInput) {
+        unitAmountInput.addEventListener("input", performUnitConversion);
+    }
+
+    if (openUnitConverterBtn) {
+        openUnitConverterBtn.addEventListener("click", () => {
+            dashboardModal.style.display = "none";
+            unitConverterModal.style.display = "flex";
+        });
+    }
+
+    if (closeUnitConverterBtn) {
+        closeUnitConverterBtn.addEventListener("click", () => {
+            unitConverterModal.style.display = "none";
+            if (unitAmountInput) unitAmountInput.value = "";
+            if (unitResultDisplay) unitResultDisplay.textContent = "0.00";
+        });
+    }
+
+    populateUnitCategory();
 
     // --- Profile & Logout Logic ---
     const profileBtn = document.getElementById("profile-btn");

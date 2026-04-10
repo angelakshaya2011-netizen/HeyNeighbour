@@ -815,11 +815,10 @@ body {
     color: var(--clr-green-dark);
 }
 
-/* --- Header Actions Styling --- */
 .header-actions {
     position: absolute;
     top: 1.5rem;
-    right: 2rem;
+    left: 2rem;
     display: flex;
     gap: 0.8rem;
 }
@@ -827,23 +826,21 @@ body {
 .app-logo {
     position: absolute;
     top: 1rem;
-    left: 1.5rem;
+    right: 1.5rem;
     width: 140px;
     height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     z-index: 100;
 }
 
 @media (max-width: 768px) {
     .header-actions {
         top: 1.5rem;
-        right: 1rem;
+        left: 1rem;
     }
     .app-logo {
         width: 100px;
         top: 0.8rem;
-        left: 1rem;
+        right: 1rem;
     }
 }
 

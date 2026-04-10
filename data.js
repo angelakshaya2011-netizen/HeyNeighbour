@@ -1,4 +1,4 @@
-﻿const placesData = [
+const placesData = [
     {
         id: 1,
         name: 'Café Icarus',
@@ -401,6 +401,7 @@
         rating: 4.7,
         speaksEnglish: false,
         imageUrl: 'https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=600&q=80',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=La+Lira+Guadalajara'
     },
     {
         id: 38,
