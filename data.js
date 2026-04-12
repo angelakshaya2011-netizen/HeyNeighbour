@@ -3,9 +3,10 @@ const placesData = [
         id: 1,
         name: 'Café Icarus',
         category: 'Restaurants',
+        vegetarianOptions: true,
         description: 'Ideal place to have breakfast and brunch with your friends.They are known for their cold brew coffe.',
         rating: 4.7,
-        speaksEnglish: false,
+        speaksEnglish: true,
         imageUrl: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=80',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Cafe+Icarus+Guadalajara'
     },
@@ -45,6 +46,7 @@ const placesData = [
         id: 5,
         name: 'Campomar',
         category: 'Restaurants',
+        vegetarianOptions: false,
         description: 'Excellent contemporary Nayarit-style seafood restaurant, perfect for a high-end lunch.',
         rating: 4.9,
         speaksEnglish: true,
@@ -81,7 +83,7 @@ const placesData = [
         description: 'One of the most famous chains for Tortas Ahogadas (pork sandwiches drowned in tomato and chili sauce).',
         rating: 4.5,
         speaksEnglish: false,
-        imageUrl: 'https://images.unsplash.com/photo-1628840042765-356cda07504e?w=600&q=80',
+        imageUrl: 'https://www.facebook.com/photo/?fbid=3495514190680296&set=a.663500565820282',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Tortas+Tono+Guadalajara'
     },
     {
@@ -198,7 +200,7 @@ const placesData = [
         id: 19,
         name: 'Mar De Cortés',
         category: 'Restaurants',
-        vegetarianOptions: false,
+        vegetarianOptions: true,
         description: 'A premium seafood restaurant offering fresh coastal flavors and a refined dining experience.',
         rating: 4.5,
         speaksEnglish: true,
@@ -289,7 +291,7 @@ const placesData = [
         vegetarianOptions: false,
         description: 'Relaxed bar and grill setting offering large portions of seafood and cold beer.',
         rating: 4.3,
-        speaksEnglish: false,
+        speaksEnglish: true,
         imageUrl: 'https://tb-static.uber.com/prod/image-proc/processed_images/76d581f9b2a1438e428fe24c926577a9/c9252e6c6cd289c588c3381bc77b1dfc.jpeg',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Mil+Caguamas+Guadalajara'
     },
@@ -319,7 +321,7 @@ const placesData = [
         id: 30,
         name: 'Santa Lucia 66',
         category: 'Restaurants',
-        vegetarianOptions: true,
+        vegetarianOptions: false,
         description: 'An intimate dining experience with contemporary cuisine and excellent service.',
         rating: 4.5,
         speaksEnglish: true,
@@ -561,7 +563,7 @@ const placesData = [
         category: 'Hair Salons',
         description: 'A high-end, trendy author salon specializing in personalized cuts and creative styling. Very popular with the expat community in LadrÃ³n de Guevara.',
         rating: 4.7,
-        speaksEnglish: true,
+        speaksEnglish: false,
         imageUrl: 'https://images.unsplash.com/photo-1562322140-8baeececf3df?w=600&q=80',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Criminal+Chic+Joaquin+Angulo+Guadalajara'
     },
@@ -581,7 +583,7 @@ const placesData = [
         category: 'Hair Salons',
         description: 'A highly-rated barbershop and beauty salon loved by locals and expats alike. Known for consistent quality cuts and a welcoming atmosphere in LadrÃ³n de Guevara.',
         rating: 4.8,
-        speaksEnglish: true,
+        speaksEnglish: false,
         imageUrl: 'https://mid-townjalisco.com.mx/wp-content/uploads/elementor/thumbs/MomSons-r0rzs60fvy5u71mmkve7wgciq6p1mtomvbom4q096w.webp',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Mom+and+Sons+Salon+Guadalajara'
     },
@@ -591,7 +593,7 @@ const placesData = [
         category: 'Hair Salons',
         description: 'The go-to children\'s hair salon in Guadalajara, with a fun and colorful environment designed to make haircuts enjoyable for kids of all ages.',
         rating: 4.7,
-        speaksEnglish: true,
+        speaksEnglish: false,
         imageUrl: 'https://elsilloncito.com.mx/img/design/logo-og.jpg',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=El+Silloncito+Americana+Guadalajara'
     },
@@ -764,7 +766,7 @@ const placesData = [
         speaksEnglish: true,
         imageUrl: 'https://scontent.fgdl3-1.fna.fbcdn.net/v/t39.30808-6/576931600_860636499958176_903378426246504629_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=1d70fc&_nc_ohc=RZrIy0WnwAIQ7kNvwEnwX64&_nc_oc=Adoffdq7WZrpaP-3SJxdKRwi4VC6uxextM06-jJ1rdyKGQrLYNEuZqa-CD8vK8E6_seJEZ1wxm8Wqp-A0fKyClm5&_nc_zt=23&_nc_ht=scontent.fgdl3-1.fna&_nc_gid=3bT2Puqi6jNIYy6CF6hEoA&_nc_ss=7a3a8&oh=00_Af1c3ZcUr5q5VWRUjvVlg5A8I9xPbuKxjR5VrV2ZU-X6vg&oe=69DA44B4',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Ninus+Centro+Integral+Pediatrico+Guadalajara'
-    },    {
+    }, {
         id: 73,
         name: 'La Unidad de Patología',
         category: 'Clinics',
@@ -825,7 +827,7 @@ const placesData = [
         familyFriendly: true,
         description: 'An iconic forest inside the city. Ideal for jogging, feeding squirrels, and exploring proper Japanese gardens.',
         rating: 4.8,
-        speaksEnglish: true,
+        speaksEnglish: false,
         imageUrl: 'https://images.unsplash.com/photo-1519331379826-f10be5486c6f?w=600&q=80',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Parque+Los+Colomos+Guadalajara'
     },
@@ -916,17 +918,17 @@ const eventsData = [
         location: 'Cineteca FICG',
         description: 'One of the most important film festivals in Latin America bringing together filmmakers, actors, and cinema enthusiasts for screenings and networking.',
         imageUrl: 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=600&q=80',
-        mapsUrl: 'https://goo.gl/maps/b9nQv2o9rPxXhL1v5'
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Cineteca+FICG'
     },
     {
         id: 87,
         title: 'Diwali Festival de las Luces',
         culture: 'Indian',
         date: 'November 2026',
-        location: 'Expo Guadalajara',
+        location: 'Olimpo Salón de Eventos',
         description: 'Celebrate the Indian Festival of Lights with traditional food, dance performances, henna art, and spectacular lighting displays presented by the Indian expat community.',
-        imageUrl: 'https://images.unsplash.com/photo-1514222134-b57eaf8ce22e?w=600&q=80',
-        mapsUrl: 'https://goo.gl/maps/P5LgZ1j8uT8Tj6hWA'
+        imageUrl: 'https://www.facebook.com/photo/?fbid=423669099750834&set=a.423669073084170',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Olimpo+salon+de+eventos+en+zapopan+guadalajara'
     },
     {
         id: 88,
@@ -936,17 +938,17 @@ const eventsData = [
         location: 'Auditorio Benito Juárez',
         description: 'A massive month-long city-wide celebration showcasing Mexican culture with concerts, regional dances, art exhibits, and a large traditional fair.',
         imageUrl: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&q=80',
-        mapsUrl: 'https://goo.gl/maps/hPqE1pWz6kH2x7gM8'
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Auditorio+Benito+Juarez'
     },
     {
         id: 89,
-        title: 'Oktoberfest Guadalajara',
+        title: 'Otoñobier Fest',
         culture: 'German',
         date: 'Mid-October 2026',
-        location: 'Club Alemán de Occidente',
-        description: 'Authentic Bavarian beer, pretzels, bratwurst, and traditional German folk music in a huge festive tent hosted by the local German club.',
+        location: 'Near Parque Metropolitano',
+        description: 'Authentic Bavarian beer, pretzels, bratwurst, and traditional German folk music in a huge festive tent.',
         imageUrl: 'https://images.unsplash.com/photo-1538356111053-748a48e1acb8?w=600&q=80',
-        mapsUrl: 'https://goo.gl/maps/8JtXz2pMv5QZQzVf7'
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Parque+Metropolitano+Guadalajara'
     },
     {
         id: 90,
@@ -955,17 +957,7 @@ const eventsData = [
         date: 'October 12, 2026',
         location: 'Guadalajara Cathedral to Basilica of Zapopan',
         description: 'A deeply significant UNESCO recognized cultural procession involving millions of people accompanying the image of the Virgin of Zapopan on an 8km pilgrimage.',
-        imageUrl: 'https://images.unsplash.com/photo-1549488344-c7821eb57d9b?w=600&q=80',
-        mapsUrl: 'https://goo.gl/maps/Z9zXrXoX5vXZqG5H8'
+        imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Catedral_de_costado_recibiendo_a_la_Virgen_de_Zapopan.jpg?width=600',
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Basilica+de+Zapopan'
     },
-    {
-        id: 91,
-        title: 'Matsuri Japones',
-        culture: 'Japanese',
-        date: 'May 2026',
-        location: 'Jardín Japonés, Bosque los Colomos',
-        description: 'Experience Japanese culture through an authentic Matsuri with matcha tasting, taiko drumming, and traditional garments within the beautiful Japanese garden.',
-        imageUrl: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=600&q=80',
-        mapsUrl: 'https://goo.gl/maps/F5PzvG7d5H7Hj8Rj7'
-    }
 ];

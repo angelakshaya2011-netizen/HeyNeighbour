@@ -559,16 +559,18 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             const proxyUrl = 'https://api.codetabs.com/v1/proxy?quest=';
-            const googleFinanceUrl = `https://www.google.com/finance/quote/${baseCurrency}-${targetCurrency}`;
+            // Append a cache-busting timestamp to ensure the proxy always fetches the latest rate
+            const googleFinanceUrl = `https://www.google.com/finance/quote/${baseCurrency}-${targetCurrency}?hl=en&_cb=${Date.now()}`;
             
             const res = await fetch(proxyUrl + encodeURIComponent(googleFinanceUrl));
             const htmlText = await res.text();
             
-            // Extract the rate exactly as it appears on Google Finance
-            const match = htmlText.match(/data-last-price="([^"]+)"/);
+            // Extract the rate exactly as it appears on Google Finance using the current HTML classes
+            const match = htmlText.match(/class="YMlKec fxKbKc"[^>]*>([^<]+)/);
             
             if (match && match[1]) {
-                const rate = parseFloat(match[1]);
+                const rateStr = match[1].replace(/,/g, '');
+                const rate = parseFloat(rateStr);
                 currentExchangeRates = { [targetCurrency]: rate };
                 
                 if (currentRateDisplay) currentRateDisplay.textContent = rate.toFixed(4);

@@ -38,7 +38,7 @@ body {
 .header {
     position: relative;
     background-color: var(--clr-lila);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('header-bg.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('header-bg.png');
     background-size: cover;
     background-position: center;
     color: white;
@@ -49,6 +49,16 @@ body {
     box-shadow: 0 4px 20px rgba(205, 180, 219, 0.4);
     margin-bottom: 2rem;
 }
+
+.app-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    overflow: hidden;
+    object-fit: cover;
+    mix-blend-mode: multiply;
+}
+
 
 .header-content h1 {
     font-size: 3rem;
@@ -644,7 +654,7 @@ body {
 
 .modal-header h3 {
     font-size: 1.8rem;
-    color: var(--clr-lila-dark);
+    color: white;
     margin-bottom: 0.5rem;
 }
 
