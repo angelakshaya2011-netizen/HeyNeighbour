@@ -83,7 +83,7 @@ const placesData = [
         description: 'One of the most famous chains for Tortas Ahogadas (pork sandwiches drowned in tomato and chili sauce).',
         rating: 4.5,
         speaksEnglish: false,
-        imageUrl: 'https://www.facebook.com/photo/?fbid=3495514190680296&set=a.663500565820282',
+        imageUrl: 'https://lh3.googleusercontent.com/gps-cs-s/APNQkAEX5l9svdmUBRpS-GPK9t0l11OmRnpCvbfFoU-o5VkwHilUAeYMSlmoacbSGuaqR2E-i4Y9ATQXtstDcKk_7astSXeEKs7a8AsCfp-DpFULXOTjvqI60mwIaBmvNmHzZG_FkQDOuw=s762-k-no',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Tortas+Tono+Guadalajara'
     },
     {
@@ -927,7 +927,7 @@ const eventsData = [
         date: 'November 2026',
         location: 'Olimpo Salón de Eventos',
         description: 'Celebrate the Indian Festival of Lights with traditional food, dance performances, henna art, and spectacular lighting displays presented by the Indian expat community.',
-        imageUrl: 'https://www.facebook.com/photo/?fbid=423669099750834&set=a.423669073084170',
+        imageUrl: 'https://lh3.googleusercontent.com/p/AF1QipMg6Qe9cyX8rIowGrzexahNMI4CMbeh-VUiyNW5=s3072-v1',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Olimpo+salon+de+eventos+en+zapopan+guadalajara'
     },
     {
@@ -947,7 +947,7 @@ const eventsData = [
         date: 'Mid-October 2026',
         location: 'Near Parque Metropolitano',
         description: 'Authentic Bavarian beer, pretzels, bratwurst, and traditional German folk music in a huge festive tent.',
-        imageUrl: 'https://images.unsplash.com/photo-1538356111053-748a48e1acb8?w=600&q=80',
+        imageUrl: 'https://lh3.googleusercontent.com/p/AF1QipPb-FOtNsltqQOy9vlXB3dMVDXrwKuXQwlc_xo-=s3072-v1',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Parque+Metropolitano+Guadalajara'
     },
     {
