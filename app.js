@@ -1,4 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // Check for payment success on load
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('payment') === 'success') {
+        localStorage.setItem("heyNeighborPremium", "true");
+        // Remove the query param from URL without refreshing
+        const newUrl = window.location.pathname;
+        window.history.replaceState({}, document.title, newUrl);
+        // Show success notification
+        setTimeout(() => {
+            alert("✨ Welcome to Premium! Your features are now unlocked.");
+        }, 1000);
+    }
+
     const grid = document.getElementById("places-grid");
     const filtersContainer = document.getElementById("category-filters");
 
@@ -8,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     async function translateText(text, targetLang) {
         if (!targetLang || targetLang === 'en' || !text) return text;
-        
+
         const cacheKey = `${targetLang}:${text}`;
         if (translationCache[cacheKey]) return translationCache[cacheKey];
 
@@ -16,13 +29,13 @@ document.addEventListener("DOMContentLoaded", () => {
             // Using a proxy to bypass CORS for Google Translate gtx endpoint
             const proxyUrl = 'https://api.codetabs.com/v1/proxy?quest=';
             const translateUrl = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${targetLang}&dt=t&q=${encodeURIComponent(text)}`;
-            
+
             const response = await fetch(proxyUrl + encodeURIComponent(translateUrl));
             const data = await response.json();
-            
+
             // Google Translate gtx response format: [[["Translated Text", "Source Text", null, null, 3], ...], null, "en"]
             const translated = data[0].map(item => item[0]).join('');
-            
+
             translationCache[cacheKey] = translated;
             saveTranslations();
             return translated;
@@ -60,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
         btn_premium: "Premium",
         btn_download: "Download App",
         premium_title: "Unlock Premium",
-        premium_subtitle: "Get access to the live currency converter AND the Cultural Events searcher!",
+        premium_subtitle: "Get access to the live currency and unit converter AND the Cultural Events searcher!",
         profile_title: "Your Profile",
         profile_subtitle: "Update your details below.",
         btn_save: "Save Changes",
@@ -80,22 +93,22 @@ document.addEventListener("DOMContentLoaded", () => {
     async function updateUILanguage() {
         const userData = JSON.parse(localStorage.getItem("heyNeighborUser") || "{}");
         const lang = userData.language || "en";
-        
+
         // Translate static elements with data-i18n
         const translatable = document.querySelectorAll("[data-i18n]");
         for (const el of translatable) {
             const key = el.getAttribute("data-i18n");
             let original = uiStrings[key] || el.textContent;
-            
+
             if (key === 'welcome_heading') {
                 original = original.replace("{name}", userData.name || "Neighbor");
             }
             if (key === 'verify_subtitle') {
                 original = original.replace("{email}", userData.email || "");
             }
-            
+
             const translated = await translateText(original, lang);
-            
+
             if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
                 el.placeholder = translated;
             } else if (el.tagName === 'LABEL' && el.nextElementSibling && el.nextElementSibling.tagName === 'INPUT') {
@@ -306,7 +319,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const userData = JSON.parse(savedUser);
             loginContainer.style.display = "none";
             appContainer.style.display = "block";
-            
+
             // Personalized welcome - will be updated by UI translation
             welcomeHeading.innerHTML = `Hey ${userData.name}! <i class="uil uil-smile"></i>`;
 
@@ -324,7 +337,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Render logic
             buildDropdown();
             renderPlaces();
-            
+
             // Check for onboarding
             const onboarded = localStorage.getItem("heyNeighborOnboarded");
             if (!onboarded) {
@@ -511,7 +524,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const baseSymbolDisplay = document.getElementById("base-symbol-display");
     const targetSymbolDisplay = document.getElementById("target-symbol-display");
 
-    let currentExchangeRates = {}; 
+    let currentExchangeRates = {};
     let baseCurrency = "USD";
     let targetCurrency = "MXN";
     let liveUpdateInterval = null;
@@ -522,10 +535,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function populateCurrencyDropdowns() {
         if (!fromCurrencySelect || !toCurrencySelect) return;
-        
+
         fromCurrencySelect.innerHTML = "";
         toCurrencySelect.innerHTML = "";
-        
+
         commonCurrencies.sort().forEach(code => {
             const optFrom = document.createElement("option");
             optFrom.value = code;
@@ -544,10 +557,10 @@ document.addEventListener("DOMContentLoaded", () => {
     async function fetchExchangeRate() {
         try {
             if (currentRateDisplay) currentRateDisplay.textContent = "Updating...";
-            
+
             baseCurrency = fromCurrencySelect.value;
             targetCurrency = toCurrencySelect.value;
-            
+
             if (baseCurrency === targetCurrency) {
                 const rate = 1.0;
                 currentExchangeRates = { [targetCurrency]: rate };
@@ -561,22 +574,22 @@ document.addEventListener("DOMContentLoaded", () => {
             const proxyUrl = 'https://api.codetabs.com/v1/proxy?quest=';
             // Append a cache-busting timestamp to ensure the proxy always fetches the latest rate
             const googleFinanceUrl = `https://www.google.com/finance/quote/${baseCurrency}-${targetCurrency}?hl=en&_cb=${Date.now()}`;
-            
+
             const res = await fetch(proxyUrl + encodeURIComponent(googleFinanceUrl));
             const htmlText = await res.text();
-            
+
             // Extract the rate exactly as it appears on Google Finance using the current HTML classes
             const match = htmlText.match(/class="YMlKec fxKbKc"[^>]*>([^<]+)/);
-            
+
             if (match && match[1]) {
                 const rateStr = match[1].replace(/,/g, '');
                 const rate = parseFloat(rateStr);
                 currentExchangeRates = { [targetCurrency]: rate };
-                
+
                 if (currentRateDisplay) currentRateDisplay.textContent = rate.toFixed(4);
                 if (baseSymbolDisplay) baseSymbolDisplay.textContent = baseCurrency;
                 if (targetSymbolDisplay) targetSymbolDisplay.textContent = targetCurrency;
-                
+
                 performConversion();
             } else {
                 throw new Error("Could not parse rate from Google Finance");
@@ -687,25 +700,33 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Mock Payment Submit
-    paymentForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const payBtn = document.getElementById("pay-btn");
-        const originalText = payBtn.textContent;
-        payBtn.textContent = "Processing...";
-        payBtn.disabled = true;
-
-        setTimeout(() => {
-            localStorage.setItem("heyNeighborPremium", "true");
-            payBtn.textContent = originalText;
-            payBtn.disabled = false;
-            paymentModal.style.display = "none";
-            premiumFab.classList.add("unlocked");
-
-            // Open dashboard directly instead of converter
-            dashboardModal.style.display = "flex";
-        }, 1500); // 1.5s delay mimic
+    // Pricing options selection
+    const planCards = document.querySelectorAll(".plan-card");
+    let selectedPlan = "monthly";
+    
+    planCards.forEach(card => {
+        card.addEventListener("click", () => {
+            planCards.forEach(c => c.classList.remove("selected"));
+            card.classList.add("selected");
+            selectedPlan = card.getAttribute("data-plan");
+        });
     });
+
+    // Stripe Payment Link logic
+    const stripeLinkBtn = document.getElementById("stripe-link-btn");
+    if (stripeLinkBtn) {
+        stripeLinkBtn.addEventListener("click", () => {
+            const btnText = document.getElementById("checkout-btn-text");
+            btnText.textContent = "Redirecting...";
+            
+            // Redirect based on selected plan
+            if (selectedPlan === "monthly") {
+                window.location.href = "https://buy.stripe.com/6oU4gyeJo8OWakU9FCgA800";
+            } else {
+                window.location.href = "https://buy.stripe.com/PASTE_YOUR_ANNUAL_LINK_HERE";
+            }
+        });
+    }
 
 
 
@@ -1012,15 +1033,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Live connection to Google Sheet
                 fetch('https://script.google.com/macros/s/AKfycbxAEFqPTPCOD9efXwOSJzlObM3JPQw-8zG681Oy7OXPQaoCHSvqNVa7K_gkL3tK1RqYaw/exec', {
                     method: 'POST',
-                    mode: 'no-cors', 
+                    mode: 'no-cors',
                     body: JSON.stringify({
                         name: userData.name || "Anonymous",
                         email: userData.email || "N/A",
                         feedback: feedback
                     })
                 })
-                .then(() => {
-                    surveyForm.innerHTML = `
+                    .then(() => {
+                        surveyForm.innerHTML = `
                         <div class="survey-success">
                             <i class="uil uil-check-circle survey-success-icon"></i>
                             <h4 style="color: white; margin-top: 1rem;">Thank you for your feedback!</h4>
@@ -1028,13 +1049,13 @@ document.addEventListener("DOMContentLoaded", () => {
                             <button class="btn-submit" style="margin-top: 1.5rem; width: 100%;" onclick="document.getElementById('survey-modal').style.display='none'">Close</button>
                         </div>
                     `;
-                    localStorage.setItem("heyNeighborSurveyShown", "true");
-                })
-                .catch(err => {
-                    console.error("Submission error:", err);
-                    submitBtn.textContent = "Error, try again";
-                    submitBtn.disabled = false;
-                });
+                        localStorage.setItem("heyNeighborSurveyShown", "true");
+                    })
+                    .catch(err => {
+                        console.error("Submission error:", err);
+                        submitBtn.textContent = "Error, try again";
+                        submitBtn.disabled = false;
+                    });
             }
         });
     }

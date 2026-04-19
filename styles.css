@@ -507,7 +507,7 @@ body {
 }
 
 .btn-submit {
-    background-color: var(--clr-green-dark);
+    background-color: var(--clr-green);
     color: white;
     border: none;
     padding: 1rem;
@@ -714,6 +714,58 @@ body {
     font-size: 0.85rem;
     text-align: center;
     color: var(--text-muted);
+}
+
+/* Pricing Cards */
+.pricing-options {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.plan-card {
+    flex: 1;
+    padding: 1.5rem 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.plan-card:hover {
+    border-color: var(--clr-blue-dark);
+    transform: translateY(-2px);
+}
+
+.plan-card.selected {
+    border-color: var(--clr-blue);
+    background: rgba(162, 210, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(162, 210, 255, 0.2);
+}
+
+.plan-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.plan-price {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--text-main);
+    margin: 0.5rem 0;
+}
+
+.plan-price span {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.plan-desc {
+    color: var(--text-muted);
+    font-size: 0.85rem;
 }
 
 /* Converter Styling */
