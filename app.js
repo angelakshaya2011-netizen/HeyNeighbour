@@ -2,7 +2,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // Check for payment success on load
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('payment') === 'success') {
-        localStorage.setItem("heyNeighborPremium", "true");
+        const userData = JSON.parse(localStorage.getItem("heyNeighborUser") || "{}");
+        if (userData && userData.email) {
+            let premiumUsers = JSON.parse(localStorage.getItem("heyNeighborPremiumUsers") || "{}");
+            premiumUsers[userData.email] = true;
+            localStorage.setItem("heyNeighborPremiumUsers", JSON.stringify(premiumUsers));
+        }
+        localStorage.removeItem("heyNeighborPremium"); // Ensure device-level premium is removed
         // Remove the query param from URL without refreshing
         const newUrl = window.location.pathname;
         window.history.replaceState({}, document.title, newUrl);
@@ -644,7 +650,20 @@ document.addEventListener("DOMContentLoaded", () => {
     populateCurrencyDropdowns();
 
     function checkPremiumStatus() {
-        return localStorage.getItem("heyNeighborPremium") === "true";
+        const currentUser = JSON.parse(localStorage.getItem("heyNeighborUser") || "{}");
+        let premiumUsers = JSON.parse(localStorage.getItem("heyNeighborPremiumUsers") || "{}");
+
+        // Migrate old device-level premium to this user if it exists
+        if (localStorage.getItem("heyNeighborPremium") === "true" && currentUser.email) {
+            premiumUsers[currentUser.email] = true;
+            localStorage.setItem("heyNeighborPremiumUsers", JSON.stringify(premiumUsers));
+            localStorage.removeItem("heyNeighborPremium");
+        }
+
+        if (currentUser && currentUser.email) {
+            return !!premiumUsers[currentUser.email];
+        }
+        return false;
     }
 
     premiumFab.addEventListener("click", () => {
@@ -970,6 +989,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     profileBtn.addEventListener("click", () => {
         populateProfileForm();
+        
+        // Show or hide unsubscribe button based on premium status
+        const unsubscribeBtn = document.getElementById("unsubscribe-btn");
+        if (unsubscribeBtn) {
+            unsubscribeBtn.style.display = checkPremiumStatus() ? "block" : "none";
+        }
+        
         profileModal.style.display = "flex";
     });
 
@@ -993,11 +1019,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
     logoutBtn.addEventListener("click", () => {
         localStorage.removeItem("heyNeighborUser");
-        // Preserve 'heyNeighborPremium' so the device remembers on next login
+        // Premium status is now tied to the email in 'heyNeighborPremiumUsers'
         profileModal.style.display = "none";
         premiumFab.style.display = "none"; // hide FAB immediately on logout
         initApp(); // will detect no user and show login screen
     });
+
+    const unsubscribeBtn = document.getElementById("unsubscribe-btn");
+    if (unsubscribeBtn) {
+        unsubscribeBtn.addEventListener("click", () => {
+            const confirmCancel = confirm("Are you sure you want to cancel your Premium access?");
+            if (confirmCancel) {
+                const currentUser = JSON.parse(localStorage.getItem("heyNeighborUser") || "{}");
+                if (currentUser && currentUser.email) {
+                    let premiumUsers = JSON.parse(localStorage.getItem("heyNeighborPremiumUsers") || "{}");
+                    delete premiumUsers[currentUser.email];
+                    localStorage.setItem("heyNeighborPremiumUsers", JSON.stringify(premiumUsers));
+                    
+                    alert("Your premium access has been cancelled.");
+                    profileModal.style.display = "none";
+                    initApp(); // Refresh the app state to lock premium features again
+                }
+            }
+        });
+    }
 
     // --- Survey Modal Logic ---
     const surveyModal = document.getElementById("survey-modal");
