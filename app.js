@@ -1039,20 +1039,20 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Trigger survey after "first use" (60 seconds after closing onboarding)
+    // Trigger survey after "first use" (3 minutes after closing onboarding)
     function triggerSurvey() {
         const onboarded = localStorage.getItem("heyNeighborOnboarded");
         const surveyShown = localStorage.getItem("heyNeighborSurveyShown");
 
         if (onboarded && !surveyShown) {
-            // Wait 60 seconds of active browsing before showing
+            // Wait 3 minutes of active browsing before showing
             setTimeout(() => {
-                // Double check if they haven't seen it in the last 60s
+                // Double check if they haven't seen it in the last 180s
                 if (!localStorage.getItem("heyNeighborSurveyShown")) {
                     const modal = document.getElementById("survey-modal");
                     if (modal) modal.style.display = "flex";
                 }
-            }, 60000); // 60 seconds
+            }, 180000); // 180 seconds (3 minutes)
         }
     }
 
