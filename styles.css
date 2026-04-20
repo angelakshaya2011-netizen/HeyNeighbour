@@ -467,21 +467,6 @@ body {
     width: 100%;
     text-align: center;
     box-shadow: 0 10px 40px rgba(205, 180, 219, 0.3);
-    overflow: hidden;
-}
-
-.login-illustration {
-    width: 100%;
-    margin-bottom: 0.5rem;
-    display: flex;
-    justify-content: center;
-}
-
-.login-img {
-    width: 100%;
-    max-width: 320px;
-    height: auto;
-    border-radius: 12px;
 }
 
 .login-card h2 {
