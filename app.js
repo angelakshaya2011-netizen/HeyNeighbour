@@ -250,7 +250,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     place.familyFriendly ? 'family friendly kids familiar' : 'adults only'
                 ].join(' ').toLowerCase();
 
-                return searchTokens.includes(term);
+                return searchTokens.indexOf(term) !== -1 || searchTokens.includes(term);
             });
         }
 
