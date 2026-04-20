@@ -722,7 +722,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Pricing options selection
     const planCards = document.querySelectorAll(".plan-card");
     let selectedPlan = "monthly";
-    
+
     planCards.forEach(card => {
         card.addEventListener("click", () => {
             planCards.forEach(c => c.classList.remove("selected"));
@@ -737,7 +737,7 @@ document.addEventListener("DOMContentLoaded", () => {
         stripeLinkBtn.addEventListener("click", () => {
             const btnText = document.getElementById("checkout-btn-text");
             btnText.textContent = "Redirecting...";
-            
+
             // Redirect based on selected plan
             if (selectedPlan === "monthly") {
                 window.location.href = "https://buy.stripe.com/6oU4gyeJo8OWakU9FCgA800";
@@ -989,13 +989,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     profileBtn.addEventListener("click", () => {
         populateProfileForm();
-        
+
         // Show or hide unsubscribe button based on premium status
         const unsubscribeBtn = document.getElementById("unsubscribe-btn");
         if (unsubscribeBtn) {
             unsubscribeBtn.style.display = checkPremiumStatus() ? "block" : "none";
         }
-        
+
         profileModal.style.display = "flex";
     });
 
@@ -1035,7 +1035,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     let premiumUsers = JSON.parse(localStorage.getItem("heyNeighborPremiumUsers") || "{}");
                     delete premiumUsers[currentUser.email];
                     localStorage.setItem("heyNeighborPremiumUsers", JSON.stringify(premiumUsers));
-                    
+
                     alert("Your premium access has been cancelled.");
                     profileModal.style.display = "none";
                     initApp(); // Refresh the app state to lock premium features again
