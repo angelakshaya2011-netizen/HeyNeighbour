@@ -740,12 +740,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Redirect based on selected plan
             if (selectedPlan === "monthly") {
-                window.location.href = "https://buy.stripe.com/6oU4gyeJo8OWakU9FCgA800";
+                window.location.href = "https://buy.stripe.com/14A3cudFkfdkdx66tqgA802";
             } else {
-                window.location.href = "https://buy.stripe.com/PASTE_YOUR_ANNUAL_LINK_HERE";
+                window.location.href = "https://buy.stripe.com/00w28q44KaX4dx6aJGgA801";
             }
         });
     }
+
 
 
 
