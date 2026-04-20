@@ -14,7 +14,7 @@ const placesData = [
         id: 2,
         name: 'Gaspar',
         category: 'Restaurants',
-        description: 'Top-rated spots for gourmet burgers and a great bar selection',\r
+        description: 'Top-rated spots for gourmet burgers and a great bar selection',
         vegetarianOptions: false,
         rating: 4.6,
         speaksEnglish: true,
