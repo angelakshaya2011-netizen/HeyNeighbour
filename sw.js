@@ -21,7 +21,7 @@ self.addEventListener('install', (event) => {
     self.skipWaiting();
 });
 
-// Activate: delete all old caches and force-refresh all open tabs
+// Activate: delete all old caches so stale content never lingers
 self.addEventListener('activate', (event) => {
     event.waitUntil(
         caches.keys().then((cacheNames) => {
@@ -30,16 +30,8 @@ self.addEventListener('activate', (event) => {
                     .map((name) => caches.delete(name))
             );
         }).then(() => {
-            // Claim all open tabs immediately
+            // Claim all open tabs so they use this new SW immediately
             return self.clients.claim();
-        }).then(() => {
-            // Tell ALL open tabs to reload so they pick up fresh files
-            // This works even if the old page doesn't have any update listener
-            return self.clients.matchAll({ type: 'window' }).then((clients) => {
-                clients.forEach((client) => {
-                    client.navigate(client.url);
-                });
-            });
         })
     );
 });

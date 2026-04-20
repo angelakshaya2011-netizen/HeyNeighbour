@@ -1,4 +1,4 @@
-const placesData = [
+﻿const placesData = [
     {
         id: 1,
         name: 'Café Icarus',
@@ -79,13 +79,14 @@ const placesData = [
     {
         id: 8,
         name: 'Tortas Toño',
+        name: 'Tortas Toño',
         category: 'Restaurants',
         vegetarianOptions: false,
         description: 'One of the most famous chains for Tortas Ahogadas (pork sandwiches drowned in tomato and chili sauce).',
         rating: 4.5,
         speaksEnglish: false,
         imageUrl: 'https://lh3.googleusercontent.com/gps-cs-s/APNQkAEX5l9svdmUBRpS-GPK9t0l11OmRnpCvbfFoU-o5VkwHilUAeYMSlmoacbSGuaqR2E-i4Y9ATQXtstDcKk_7astSXeEKs7a8AsCfp-DpFULXOTjvqI60mwIaBmvNmHzZG_FkQDOuw=s762-k-no',
-        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Tortas+Tono+Guadalajara'
+        mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Tortas+Toño+Guadalajara'
     },
     {
         id: 9,
@@ -748,16 +749,7 @@ const placesData = [
         imageUrl: 'https://images.unsplash.com/photo-1638202993928-7267aad84c31?w=600&q=80',
         mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Clinica+Ginecologica+Providencia+Guadalajara'
     },
-    {
-        id: 71,
-        name: 'Real San Jose Hospital',
-        category: 'Clinics',
-        description: 'A modern facility providing high-tech imaging, maternity services, and specialized consultations.',
-        rating: 3.4,
-        speaksEnglish: false,
-        imageUrl: 'https://www.tocdoc.com/sites/default/files/consultorios/real_san_jose.jpg',
-        mapsUrl: 'https://www.google.com/maps/place/Hospital+Real+San+Jose/@20.6973647,-103.4195811,14z/data=!3m1!5s0x8428ae889fa0fa41:0x4d14c68df9722d93!4m10!1m2!2m1!1sHospital+Real+San+Jose+Guadalajara!3m6!1s0x8428ae88a051e085:0xba5be62f4811d11b!8m2!3d20.6728373!4d-103.4095175!15sCiJIb3NwaXRhbCBSZWFsIFNhbiBKb3NlIEd1YWRhbGFqYXJhkgEQcHJpdmF0ZV9ob3NwaXRhbOABAA!16s%2Fg%2F1tdp9ygs?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D'
-    },
+
     {
         id: 72,
         name: 'Ninus Pediatric Hospital',
@@ -915,7 +907,7 @@ const eventsData = [
         id: 86,
         title: 'Festival Internacional de Cine en Guadalajara',
         culture: 'Mexican / International',
-        date: 'April 17–25, 2026',
+        date: 'April 17â€“25, 2026',
         location: 'Cineteca FICG',
         description: 'One of the most important film festivals in Latin America bringing together filmmakers, actors, and cinema enthusiasts for screenings and networking.',
         imageUrl: 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=600&q=80',
@@ -935,7 +927,7 @@ const eventsData = [
         id: 88,
         title: 'Fiestas de Octubre',
         culture: 'Mexican',
-        date: 'October – November 2026',
+        date: 'October â€“ November 2026',
         location: 'Auditorio Benito Juárez',
         description: 'A massive month-long city-wide celebration showcasing Mexican culture with concerts, regional dances, art exhibits, and a large traditional fair.',
         imageUrl: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&q=80',
